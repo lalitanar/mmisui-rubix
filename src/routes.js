@@ -15,6 +15,7 @@ import Footer from './common/footer';
 import Home from './routes/Home';
 import Home2 from './routes/Home2';
 import Usermanagement from './routes/Usermanagement'
+import Tableview from './components/Tableview'
 
 // import createuser from './routes/createuser'
 // import edituser from './routes/edituser'
@@ -46,6 +47,7 @@ const routes = (
   <Route path='/' component={App}>
     <IndexRoute component={Home} />
     <Route path='/usermanagement' component={Usermanagement} />
+    <Route path='/table' component={Tableview} />
   </Route>
 );
 

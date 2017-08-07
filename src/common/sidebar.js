@@ -32,7 +32,7 @@ class ApplicationSidebar extends React.Component {
                   <SidebarNavItem glyph='icon-simple-line-icons-users' name='ผู้ดูแลระบบ'>
                     <SidebarNav>
                       <SidebarNavItem name='จัดการบุคคล' href='/usermanagement' />
-                      <SidebarNavItem name='เพิ่มบุคคล' />
+                      <SidebarNavItem name='เพิ่มบุคคล' href='/table'/>
                       <SidebarNavItem name='แก้ไขบุคคล' />
                       <SidebarNavItem name='จัดการตำแน่ง' />
                       <SidebarNavItem name='แก้ไขตำแหน่ง' />
