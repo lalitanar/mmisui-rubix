@@ -1,12 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
-import { IndexRoute, Route } from 'react-router';
+import { IndexRoute, Route ,Router} from 'react-router';
 
 import { Grid, Row, Col, MainContainer } from '@sketchpixy/rubix';
 
 /* Common Components */
 
 import Sidebar from './common/sidebar';
+import Siderbar1 from './common/sidebar/sidebar1';
 import Header from './common/header';
 import Footer from './common/footer';
 
@@ -21,12 +22,37 @@ import Tableview from './components/Tableview'
 // import edituser from './routes/edituser'
 // import rolesmanagement from './routes/rolesmanagement'
 // import editroles from './routes/editroles'
-
 class App extends React.Component {
+  change(num){
+    this.setState({sidebar:num});
+  }
+  mainsidebar(){
+    this.setState({sidebar:'Sidemain'});
+  }
+  constructor(props){
+    super(props);
+
+    this.state = {
+      sidebar :'Sidemain',
+    };
+    this.change = this.change.bind(this);
+    this.mainsidebar = this.mainsidebar.bind(this);
+  }
   render() {
+    var showsidebar;
+    switch(this.state.sidebar) {
+    case "Sidemain":
+        showsidebar = <Sidebar num = 'side1' change={this.change}/>;
+        break;
+    case "Siderbar1":
+        showsidebar = <Siderbar1 num = 'side1' mainsidebar = {this.mainsidebar}/>;
+        break;
+    default:
+        showsidebar = <Sidebar num = 'side1' change={this.change}/>;
+    }
     return (
       <MainContainer {...this.props}>
-        <Sidebar />
+        {showsidebar}
         <Header />
         <div id='body'>
           <Grid>
@@ -42,7 +68,6 @@ class App extends React.Component {
     );
   }
 }
-
 const routes = (
   <Route path='/' component={App}>
     <IndexRoute component={Home} />

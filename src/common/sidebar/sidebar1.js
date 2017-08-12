@@ -26,29 +26,29 @@ class ApplicationSidebar extends React.Component {
                 <SidebarNav style={{marginBottom: 0}} ref={(c) => this._nav = c}>
 
                   { /** Pages Section */ }
-                  <SidebarNavItem glyph='icon-fontello-gauge' name='หน้าหลัก' href='/' />
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='SideBar1' onClick={this.props.mainsidebar} />
 
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='ผู้ดูแลระบบ'>
+                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='SideBar1'>
                     <SidebarNav>
                       <SidebarNavItem name='จัดการบุคคล' href='/usermanagement' />
                       <SidebarNavItem name='เพิ่มบุคคล' href='/table'/>
-                      <SidebarNavItem name='แก้ไขบุคคล' num ='side2' onClick={this.props.change.bind(this,'Siderbar1')}/>
+                      <SidebarNavItem name='แก้ไขบุคคล' />
                       <SidebarNavItem name='จัดการตำแน่ง' />
                       <SidebarNavItem name='แก้ไขตำแหน่ง' />
                     </SidebarNav>
                   </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='การจัดซื้อ'>
+                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='SideBar1'>
                     <SidebarNav>
                       <SidebarNavItem name='ลงทะเบียนผู้ขาย' />
                       <SidebarNavItem name='รายชื่อผู้ประกอบการ' />
                     </SidebarNav>
                   </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='ราคากลาง'>
+                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='SideBar1'>
                     <SidebarNav>
                       <SidebarNavItem name='ราคากลาง' />
                     </SidebarNav>
                   </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='เวชภัณฑ์'>
+                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='SideBar1'>
                     <SidebarNav>
                       <SidebarNavItem name='ข้อมูลชื่อทางการค้า' />
                       <SidebarNavItem name='เพิ่มข้อมูลชื่อทางการค้า' />
@@ -57,7 +57,7 @@ class ApplicationSidebar extends React.Component {
                       <SidebarNavItem name='ข้อมูลบรรจุภัณฑ์' />
                     </SidebarNav>
                   </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='สัญญา'>
+                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='SideBar1'>
                     <SidebarNav>
                       <SidebarNavItem name='สัญญา' />
                     </SidebarNav>
@@ -115,10 +115,11 @@ export default class SidebarContainer extends React.Component {
           <SidebarControlBtn bundle='fontello' glyph='chat-1' sidebar={1} />
           <SidebarControlBtn bundle='fontello' glyph='chart-pie-2' sidebar={2} />
           <SidebarControlBtn bundle='fontello' glyph='th-list-2' sidebar={3} />
+          <SidebarControlBtn bundle='fontello' glyph='bell-5' sidebar={4} />
         </SidebarControls>
         <div id='sidebar-container'>
           <Sidebar sidebar={0}>
-            <ApplicationSidebar num ='side22' change={this.props.change}/>
+            <ApplicationSidebar mainsidebar={this.props.mainsidebar}/>
           </Sidebar>
           <Sidebar sidebar={1}>
             <DummySidebar />
