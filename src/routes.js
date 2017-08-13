@@ -42,13 +42,13 @@ class App extends React.Component {
     var showsidebar;
     switch(this.state.sidebar) {
     case "Sidemain":
-        showsidebar = <Sidebar num = 'side1' change={this.change}/>;
+        showsidebar = <Sidebar change={this.change}/>;
         break;
     case "Siderbar1":
-        showsidebar = <Siderbar1 num = 'side1' mainsidebar = {this.mainsidebar}/>;
+        showsidebar = <Siderbar1 mainsidebar = {this.mainsidebar}/>;
         break;
     default:
-        showsidebar = <Sidebar num = 'side1' change={this.change}/>;
+        showsidebar = <Sidebar change={this.change}/>;
     }
     return (
       <MainContainer {...this.props}>

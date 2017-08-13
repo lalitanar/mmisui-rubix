@@ -32,7 +32,7 @@ class ApplicationSidebar extends React.Component {
                     <SidebarNav>
                       <SidebarNavItem name='จัดการบุคคล' href='/usermanagement' />
                       <SidebarNavItem name='เพิ่มบุคคล' href='/table'/>
-                      <SidebarNavItem name='แก้ไขบุคคล' num ='side2' onClick={this.props.change.bind(this,'Siderbar1')}/>
+                      <SidebarNavItem name='แก้ไขบุคคล'/>
                       <SidebarNavItem name='จัดการตำแน่ง' />
                       <SidebarNavItem name='แก้ไขตำแหน่ง' />
                     </SidebarNav>
@@ -57,11 +57,7 @@ class ApplicationSidebar extends React.Component {
                       <SidebarNavItem name='ข้อมูลบรรจุภัณฑ์' />
                     </SidebarNav>
                   </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='สัญญา'>
-                    <SidebarNav>
-                      <SidebarNavItem name='สัญญา' />
-                    </SidebarNav>
-                  </SidebarNavItem>
+                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='ไปเมนู sidebar1' onClick={this.props.change.bind(this,'Siderbar1')}/>
                 </SidebarNav>
               </div>
             </Col>
@@ -118,7 +114,7 @@ export default class SidebarContainer extends React.Component {
         </SidebarControls>
         <div id='sidebar-container'>
           <Sidebar sidebar={0}>
-            <ApplicationSidebar num ='side22' change={this.props.change}/>
+            <ApplicationSidebar change={this.props.change}/>
           </Sidebar>
           <Sidebar sidebar={1}>
             <DummySidebar />

@@ -26,42 +26,7 @@ class ApplicationSidebar extends React.Component {
                 <SidebarNav style={{marginBottom: 0}} ref={(c) => this._nav = c}>
 
                   { /** Pages Section */ }
-                  <SidebarNavItem glyph='icon-fontello-gauge' name='SideBar1' onClick={this.props.mainsidebar} />
-
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='SideBar1'>
-                    <SidebarNav>
-                      <SidebarNavItem name='จัดการบุคคล' href='/usermanagement' />
-                      <SidebarNavItem name='เพิ่มบุคคล' href='/table'/>
-                      <SidebarNavItem name='แก้ไขบุคคล' />
-                      <SidebarNavItem name='จัดการตำแน่ง' />
-                      <SidebarNavItem name='แก้ไขตำแหน่ง' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='SideBar1'>
-                    <SidebarNav>
-                      <SidebarNavItem name='ลงทะเบียนผู้ขาย' />
-                      <SidebarNavItem name='รายชื่อผู้ประกอบการ' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='SideBar1'>
-                    <SidebarNav>
-                      <SidebarNavItem name='ราคากลาง' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='SideBar1'>
-                    <SidebarNav>
-                      <SidebarNavItem name='ข้อมูลชื่อทางการค้า' />
-                      <SidebarNavItem name='เพิ่มข้อมูลชื่อทางการค้า' />
-                      <SidebarNavItem name='ข้อมูลรายการยา' />
-                      <SidebarNavItem name='ข้อมูลรายการเวชภัณฑ์ที่ไม่ใช่ยา' />
-                      <SidebarNavItem name='ข้อมูลบรรจุภัณฑ์' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='SideBar1'>
-                    <SidebarNav>
-                      <SidebarNavItem name='สัญญา' />
-                    </SidebarNav>
-                  </SidebarNavItem>
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='ย้อนกลับ' onClick={this.props.mainsidebar} />
                 </SidebarNav>
               </div>
             </Col>
