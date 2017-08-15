@@ -16,7 +16,11 @@ import Home from './routes/Home';
 import Home2 from './routes/Home2';
 import Usermanagement from './routes/Usermanagement'
 import Tableview from './components/Tableview'
+import SupplierIndex from './routes/supplier/Index'
+import SupplierNew from './routes/supplier/New'
+import SupplierDetail from './routes/supplier/Detail'
 
+import ContactNew from './routes/contact/New'
 // import createuser from './routes/createuser'
 // import edituser from './routes/edituser'
 // import rolesmanagement from './routes/rolesmanagement'
@@ -48,6 +52,10 @@ const routes = (
     <IndexRoute component={Home} />
     <Route path='/usermanagement' component={Usermanagement} />
     <Route path='/table' component={Tableview} />
+    <Route path='/supplier/index' component={SupplierIndex} />
+    <Route path='/supplier/new' component={SupplierNew} />
+    <Route path='/supplier/detail' component={SupplierDetail} />
+    <Route path='/contact/new' component={ContactNew} />
   </Route>
 );
 

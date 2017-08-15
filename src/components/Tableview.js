@@ -32,6 +32,7 @@ class DatatableComponent extends React.Component {
     this.state = {
       data:  makeData()
     };
+    console.log(this.state);
   }
   render() {
     const { data } = this.state;
