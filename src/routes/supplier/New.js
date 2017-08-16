@@ -1,8 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
 import _ from 'lodash'
-import { makeData, Logo, Tips } from "./Utils.js";
-// Import React Table
 import ReactTable from "react-table";
 import {
     Row,
@@ -32,7 +30,7 @@ import {
     NavDropdown,
     PanelTabContainer,
     PanelFooter,
-    Radio,
+    Radio,  
 } from '@sketchpixy/rubix';
 
 
@@ -47,7 +45,7 @@ class Bar extends React.Component {
         return (
             <div>
                 <ButtonToolbar>
-                    <Button bsStyle="success" href="#" onClick={handleClick}>
+                    <Button className="pull-right" bsStyle="success" href="#" onClick={handleClick}>
                         <Icon glyph='icon-fontello-floppy' /> บันทึก
                     </Button>
                     <Button bsStyle="danger" href="#" onClick={handleClick}>
@@ -134,7 +132,7 @@ class FormCon extends React.Component {
                     <Row>
                         <Col xs={6}>
                             <FormGroup>
-                                <ControlLabel>ตำบล</ControlLabel>
+                                <ControlLabel>ตำบล/แขวง</ControlLabel>
                                 <FormControl componentClass="select" placeholder="select">
                                     <option value="select">ศาลายา</option>
                                     <option value="other">คลองกุ่ม</option>
@@ -144,7 +142,7 @@ class FormCon extends React.Component {
                         </Col>
                         <Col xs={6}>
                             <FormGroup>
-                                <ControlLabel>เขต</ControlLabel>
+                                <ControlLabel>อำเภอ/เขต</ControlLabel>
                                 <FormControl componentClass="select" placeholder="select">
                                     <option value="select">พุทธมณฑล</option>
                                     <option value="other">บึงกุ่ม</option>
@@ -164,10 +162,16 @@ class FormCon extends React.Component {
                                 </FormControl>
                             </FormGroup>
                         </Col>
-                        <Col xs={6}>
+                        <Col xs={3}>
                             <FormGroup>
                                 <ControlLabel>รหัสไรษณีย์</ControlLabel>
                                 <FormControl type="text" placeholder=" " />
+                            </FormGroup>
+                        </Col>
+                        <Col xs={3}>
+                            <FormGroup>
+                                <ControlLabel>ระยะเวลาจัดส่ง</ControlLabel>
+                                <FormControl type="text" placeholder="วัน"/>
                             </FormGroup>
                         </Col>
                     </Row>
@@ -204,22 +208,14 @@ class FormNew extends React.Component {
         this.state = { value: '0' };
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
-        console.log(this.state.value);
         this.setState({ value: event.target.value });
-        console.log(this.state.value);
-    }
-
-    handleSubmit(event) {
-        alert('Your favorite flavor is: ' + this.state.value);
-        event.preventDefault();
     }
     render() {
         var val = false;
-        if (this.state.value == '2') val = true;
+        if (this.state.value == '2') val = true;    
         return (
             <Panel>
                 <Form>
@@ -237,11 +233,11 @@ class FormNew extends React.Component {
                     </FormGroup>
                     <FormGroup>
                         <ControlLabel>ประเภทผู้ประกอบการ</ControlLabel>
-                        <Radio inline name='inline'>
+                        <Radio inline name='inline' onClick={this.props.hide}  >
                             บุคคล
             	    </Radio >
                         {' '}
-                        <Radio inline name='inline'>
+                        <Radio inline name='inline' onClick={this.props.showmore}>
                             นิติบุคคล
 	                </Radio >
                     </FormGroup>
@@ -279,8 +275,28 @@ class FormNew extends React.Component {
 
 
 
+
 export default class PanelBodyHeaderAndFooter extends React.Component {
+    showmore(){
+    this.setState({statusShow:true});
+  }
+  hide(){
+    this.setState({statusShow:false});
+  }
+  constructor(props){
+    super(props);
+
+    this.state = {
+      statusShow: false
+    };
+    this.showmore = this.showmore.bind(this);
+    this.hide = this.hide.bind(this);
+  }
     render() {
+        var show =<div></div>;
+        if(this.state.statusShow == true){
+            show = <FormMore />;
+        }
         return (
             <Row>
                 <Col xs={12}>
@@ -298,14 +314,15 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
                             <PanelBody>
                                 <Grid>
                                     <Row>
+                                    
                                         <Col xs={6}>
-                                            <FormNew />
+                                            <FormNew showmore={this.showmore} hide={this.hide}/>
                                         </Col>
                                         <Col xs={6}>
                                             <FormCon />
                                         </Col>
                                         <Col xs={6}>
-                                            <FormMore />
+                                            {show}
                                         </Col>
                                     </Row>
                                 </Grid>

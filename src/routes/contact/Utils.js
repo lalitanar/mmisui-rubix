@@ -21,13 +21,11 @@ const newPerson = () => {
     console.log('The link was clicked.');
   }
   return {
-    LabelerID: String(Math.floor(Math.floor(Math.random() * 9000000000) + 1000000000)),
-    LocalID: String(Math.floor(Math.floor(Math.random() * 9000000000) + 1000000000)),
-    LocalName: namor.generate({ words: 4, numbers: 0 }),
-    LabelerName: namor.generate({ words: 4, numbers: 0 }),
+    ID: String(Math.floor(Math.floor(Math.random() * 9000000000) + 1000000000)),
+    Name: namor.generate({ words: 4, numbers: 0 }),
     Phone: phones.format(String(Math.floor(Math.floor(Math.random() * 9000000000) + 1000000000))),
     NIN: String(Math.floor(Math.floor(Math.random() * 9000000000) + 1000000000)),
-    Address: Math.floor(Math.random() *2),
+    Address: namor.generate({ words: 4, numbers: 0 }),
     Remark: <a href="/supplier/detail"> รายละเอียด</a>,
     Add: <Radio inline name='inline'/>,
     LabelerType:

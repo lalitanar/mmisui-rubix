@@ -60,11 +60,11 @@ class Dform extends React.Component {
                             columns: [
                                 {
                                     Header: "รหัสยาและเวชภัณฑ์",
-                                    accessor: "LocalID"
+                                    accessor: "ID"
                                 },
                                 {
                                     Header: "ชื่อยาและเวชภัณฑ์",
-                                    accessor: "LocalName"
+                                    accessor: "Name"
                                 }
                             ]
                         },
@@ -92,6 +92,7 @@ class Dform extends React.Component {
         );
     }
 }
+
 class BarAdd extends React.Component {
     constructor(props) {
         super(props);
@@ -198,11 +199,11 @@ class TableD extends React.Component {
                             columns: [
                                 {
                                     Header: "รหัสยาและเวชภัณฑ์",
-                                    accessor: "LocalID"
+                                    accessor: "ID"
                                 },
                                 {
                                     Header: "ชื่อยาและเวชภัณฑ์",
-                                    accessor: "LocalName"
+                                    accessor: "Name"
                                 }
                             ]
                         },
