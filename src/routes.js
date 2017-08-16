@@ -7,7 +7,7 @@ import { Grid, Row, Col, MainContainer } from '@sketchpixy/rubix';
 /* Common Components */
 
 import Sidebar from './common/sidebar';
-import Siderbar1 from './common/sidebar/sidebar1';
+import SidebarMaterial from './common/sidebar/SidebarMaterial';
 import Header from './common/header';
 import Footer from './common/footer';
 
@@ -44,8 +44,8 @@ class App extends React.Component {
     case "Sidemain":
         showsidebar = <Sidebar change={this.change}/>;
         break;
-    case "Siderbar1":
-        showsidebar = <Siderbar1 mainsidebar = {this.mainsidebar}/>;
+    case "SidebarMaterial":
+        showsidebar = <SidebarMaterial mainsidebar = {this.mainsidebar}/>;
         break;
     default:
         showsidebar = <Sidebar change={this.change}/>;
