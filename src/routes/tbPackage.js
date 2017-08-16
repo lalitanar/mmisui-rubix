@@ -149,7 +149,7 @@ class DatatableComponent extends React.Component {
         );
     }
 }
-export default class Usermanagement extends React.Component {
+export default class PackageTable extends React.Component {
     render() {
         return (
             <Row>

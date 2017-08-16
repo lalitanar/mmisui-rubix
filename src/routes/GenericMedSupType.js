@@ -26,15 +26,15 @@ import {
     Icon,
 } from '@sketchpixy/rubix';
 
-class GenericTypeform extends React.Component {
+class GenMedSupTypeform extends React.Component {
     render() {
         return (
             <Form>
                 <Row>
                 <Col xs={6} md={6}>
-                    <FormGroup controlId="GenericType">
-                    <ControlLabel>รูปแบบยา</ControlLabel>
-                    <FormControl type="text" placeholder="Generic Type"/>
+                    <FormGroup controlId="GenMedSupType">
+                    <ControlLabel>ประเภทเวชภัณฑ์</ControlLabel>
+                    <FormControl type="text" placeholder="Generic Medical Supplies Type"/>
                     </FormGroup>
                 </Col>
             </Row>
@@ -60,13 +60,13 @@ class Buttonbar extends React.Component {
     render() {
         return (
     <div>
-    <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-fontello-plus'/>  เพิ่มรูปแบบยา</Button>
+    <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-fontello-plus'/>  เพิ่มประเภทเวชภัณฑ์</Button>
     <Modal show={this.state.showModal} onHide={::this.close}>
       <Modal.Header closeButton>
-      <Modal.Title>เพิ่ม/แก้ไข รูปแบบยา</Modal.Title>
+      <Modal.Title>เพิ่ม/แก้ไข ประเภทเวชภัณฑ์</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <GenericTypeform/>
+        <GenMedSupTypeform/>
       </Modal.Body>
       <Modal.Footer>
       <Button bsStyle='success' onClick={::this.close}>บันทึก</Button>
@@ -93,28 +93,7 @@ class DatatableComponent extends React.Component {
         this.state = {
           data: [
               {
-                type:"INJ",
-                edit:<ButtonGroup>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
-                     </ButtonGroup>
-              },
-              {
-                type:"TAB",
-                edit:<ButtonGroup>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
-                     </ButtonGroup>
-              },
-              {
-                type:"POWDER",
-                edit:<ButtonGroup>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
-                     </ButtonGroup>
-              },
-              {
-                type:"Cap",
+                gms_type:"test",/*stands for gen men sup*/
                 edit:<ButtonGroup>
                         <Button bsStyle='danger'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
                         <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
@@ -135,8 +114,8 @@ class DatatableComponent extends React.Component {
                 row[filter.id].includes(filter.value)}
             columns={[
               {
-                Header: "รูปแบบยา",
-                accessor: "type"
+                Header: "ประเภทเวชภัณฑ์",
+                accessor: "gms_type"
               },
               {
                 Header: "แก้ไข",
@@ -149,7 +128,7 @@ class DatatableComponent extends React.Component {
         );
     }
 }
-export default class Generic_Type extends React.Component {
+export default class GenMedSup_Type extends React.Component {
     render() {
         return (
             <Row>
