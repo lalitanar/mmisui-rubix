@@ -79,8 +79,8 @@ class Buttonbar extends React.Component {
     render() {
         return (
     <div>
-    <Row>
-    <Button bsStyle='success' onClick={::this.open}>เพิ่มข้อมูลบรรจุภัณฑ์</Button>
+    
+    <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-fontello-plus'/>  เพิ่มข้อมูลบรรจุภัณฑ์</Button>
     <Modal show={this.state.showModal} onHide={::this.close}>
       <Modal.Header closeButton>
       <Modal.Title>เพิ่ม/แก้ไข ข้อมูลบรรจุภัณฑ์</Modal.Title>
@@ -94,13 +94,16 @@ class Buttonbar extends React.Component {
       <Button onClick={::this.close}>ยกเลิก</Button>
       </Modal.Footer>
     </Modal>
-    {' '}
-    <Button bsStyle='danger'>ลบ</Button>
-        
-    <Button className='pull-right'>พิมพ์</Button>
-    {' '}
-    <Button className='pull-right'bsStyle='primary'><Icon glyph='icon-fontello-download' /> นำออกไฟล์</Button>
-    </Row>
+
+    <ButtonGroup className='pull-right'>
+          <Button bsStyle='primary' >
+          <Icon glyph='icon-fontello-download' /> นำออกไฟล์
+          </Button>
+          <Button bsStyle='defalt'>
+          <Icon glyph='icon-fontello-print' /> พิมพ์
+          </Button>
+    </ButtonGroup>
+   
     </div>
         );
     }
@@ -111,8 +114,11 @@ class DatatableComponent extends React.Component {
         super();
         this.state = {
           data: [
-              {name:"test",
-              modify:<Button bsStyle='danger'>แก้ไข</Button>
+              {name:"1กระปุก 100เม็ด",
+              edit:<ButtonGroup>
+                        <Button bsStyle='danger'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
+                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
+                     </ButtonGroup>
               }
           ]
         };
@@ -134,7 +140,7 @@ class DatatableComponent extends React.Component {
               },
               {
                 Header: "แก้ไข",
-                accessor:"modify"
+                accessor:"edit"
               }
             ]}
             defaultPageSize={10}
