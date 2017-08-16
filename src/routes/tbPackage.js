@@ -61,6 +61,7 @@ class Packageform extends React.Component {
         );
     }
 }
+
 class Buttonbar extends React.Component {
     constructor(props) {
         super(props);
@@ -79,13 +80,13 @@ class Buttonbar extends React.Component {
         return (
     <div>
     <Row>
-    <Button bsStyle='success' onClick={::this.open}>เพิ่มข้อมูลPackage</Button>
+    <Button bsStyle='success' onClick={::this.open}>เพิ่มข้อมูลบรรจุภัณฑ์</Button>
     <Modal show={this.state.showModal} onHide={::this.close}>
       <Modal.Header closeButton>
-      <Modal.Title>เพิ่ม/แก้ไข ข้อมูลPackage</Modal.Title>
+      <Modal.Title>เพิ่ม/แก้ไข ข้อมูลบรรจุภัณฑ์</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Modal.Title>ข้อมูลPackage</Modal.Title>  
+        <Modal.Title>ข้อมูลบรรจุภัณฑ์</Modal.Title>  
         <Packageform/>
       </Modal.Body>
       <Modal.Footer>
@@ -98,7 +99,7 @@ class Buttonbar extends React.Component {
         
     <Button className='pull-right'>พิมพ์</Button>
     {' '}
-    <Button className='pull-right'bsStyle='primary'>นำออกไฟล์</Button>
+    <Button className='pull-right'bsStyle='primary'><Icon glyph='icon-fontello-download' /> นำออกไฟล์</Button>
     </Row>
     </div>
         );
@@ -110,10 +111,13 @@ class DatatableComponent extends React.Component {
         super();
         this.state = {
           data: [
-              {name:"test",modify:<Button>bsStyle='success'>บันทึก</Button>}
+              {name:"test",
+              modify:<Button bsStyle='danger'>แก้ไข</Button>
+              }
           ]
         };
       }
+
     render() {
         return (
             <ReactTable
@@ -125,11 +129,11 @@ class DatatableComponent extends React.Component {
                 row[filter.id].includes(filter.value)}
             columns={[
               {
-                Header: "Name",
+                Header: "ชื่อของรูปแบบบรรจุภัณฑ์",
                 accessor: "name"
               },
               {
-                Header: "Modify",
+                Header: "แก้ไข",
                 accessor:"modify"
               }
             ]}
