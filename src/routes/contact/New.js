@@ -574,10 +574,10 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
                                         <Col xs={12}>
                                             <FormNew />
                                         </Col>
-                                        <Col xs={6}>
+                                        <Col xs={12}>
                                             <FormBuy />
                                         </Col>
-                                        <Col xs={6}>
+                                        <Col xs={12}>
                                             <FormSale />
                                         </Col>
                                         <Col xs={12}>

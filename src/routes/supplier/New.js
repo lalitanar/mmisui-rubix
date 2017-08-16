@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import _ from 'lodash'
 import ReactTable from "react-table";
+import DateTimeField from "react-bootstrap-datetimepicker";
 import {
     Row,
     Col,
@@ -214,8 +215,13 @@ class FormNew extends React.Component {
         this.setState({ value: event.target.value });
     }
     render() {
-        var val = false;
-        if (this.state.value == '2') val = true;    
+        var val = <Col xs={6} ></Col>;
+        if (this.state.value == '2') val = <Col xs={6} >
+                                <FormGroup id="date-discon">
+                                    <ControlLabel>วันที่เลิกใช้งาน</ControlLabel>
+                                    <DateTimeField />
+                                </FormGroup>
+                            </Col>;    
         return (
             <Panel>
                 <Form>
@@ -253,14 +259,7 @@ class FormNew extends React.Component {
                                 </FormControl>
                             </FormGroup>
                         </Col>
-                        {val ? (
-                            <Col xs={6} >
-                                <FormGroup id="date-discon">
-                                    <ControlLabel>วันที่เลิกใช้งาน</ControlLabel>
-                                    <FormControl type="text" placeholder=" " />
-                                </FormGroup>
-                            </Col>
-                        ) : (<Col xs={6} ></Col>)}
+                        {val}
                     </Row>
                     <FormGroup controlId="formControlsTextarea">
                         <ControlLabel>คำอธิบาย</ControlLabel>
@@ -314,7 +313,6 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
                             <PanelBody>
                                 <Grid>
                                     <Row>
-                                    
                                         <Col xs={6}>
                                             <FormNew showmore={this.showmore} hide={this.hide}/>
                                         </Col>
