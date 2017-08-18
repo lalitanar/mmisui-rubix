@@ -8,14 +8,14 @@ import {
   PanelBody,
   Grid,
   Button,
+  PanelHeader,
 } from '@sketchpixy/rubix';
 import AddGenericMedicine from '../components/AddGenericMedicineAndSupplies';
-
 class Buttombar extends React.Component {
   render(){
       return (
           <div>
-              <Button bsStyle='primary' onClick={this.props.showadd}>เพิ่ม ข้อมูลยา/ข้อมูลเวชภัณฑ์</Button>
+              <Button bsStyle='primary' onClick={this.props.showadd}>เพิ่มข้อมูล ยา/เวชภัณฑ์</Button>
           </div>
       );
   }
@@ -102,26 +102,38 @@ class GenericMedicineAndSupplies extends Component {
     this.submit = this.submit.bind(this);
   }
   render(){
-    var show =<div><Buttombar showadd={this.showadd}/><br/><GenericTable/></div>;
+    var show =<PanelContainer>
+      <Panel>
+        <PanelHeader className='bg-blue'>
+           <Grid>
+             <Row>
+              <Col xs={12} className='fg-white'>
+                <h4>ข้อมูลยาและเวชภัณฑ์</h4>
+              </Col>
+             </Row>
+           </Grid>
+          </PanelHeader>
+        <PanelBody>
+          <Grid>
+            <Row>
+              <Col xs={12}>
+                <Buttombar showadd={this.showadd}/>
+                <br/>
+                <GenericTable/>
+              </Col>
+            </Row>
+          </Grid>
+        </PanelBody>
+      </Panel>
+    </PanelContainer>;
+
     if(this.state.addshow == true){
       show = <AddGenericMedicine submit={this.submit}/>;
     }
     return(
       <Row>
         <Col xs={12}>
-          <PanelContainer>
-            <Panel>
-              <PanelBody>
-                <Grid>
-                  <Row>
-                    <Col xs={12}>
-                      {show}
-                    </Col>
-                  </Row>
-                </Grid>
-              </PanelBody>
-            </Panel>
-          </PanelContainer>
+          {show}
         </Col>
       </Row>
     );
