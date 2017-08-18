@@ -18,6 +18,7 @@ import Home2 from './routes/Home2';
 import Usermanagement from './routes/Usermanagement'
 import Tableview from './components/Tableview'
 import GenericMedicine from './routes/GenericMedicineAndSupplies';
+import tbPackage from './routes/tbPackage'
 // import createuser from './routes/createuser'
 // import edituser from './routes/edituser'
 // import rolesmanagement from './routes/rolesmanagement'
@@ -73,8 +74,6 @@ const routes = (
     <IndexRoute component={Home} />
     <Route path='/usermanagement' component={Usermanagement} />
     <Route path='/table' component={Tableview} />
-    <Route path='/genericmedicineandsupplies' component={GenericMedicine}/>
-    <Route path='*' component={Home}/>
   </Route>
 );
 
