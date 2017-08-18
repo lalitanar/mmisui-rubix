@@ -74,14 +74,14 @@ class App extends React.Component {
 const routes = (
   <Route path='/' component={App}>
     <IndexRoute component={Home} />
-    <Route path='/usermanagement' component={Usermanagement} />
-    <Route path='/table' component={Tableview} />
-    <Route path='/supplier/index' component={SupplierIndex} />
-    <Route path='/supplier/new' component={SupplierNew} />
-    <Route path='/supplier/detail' component={SupplierDetail} />
-    <Route path='/contact/new' component={ContactNew} />
-    <Route path='/contact/index' component={ContactIndex} />
-    <Route path='/material' component={MedicalAndSupplies} />
+    <Route path='usermanagement' component={Usermanagement} />
+    <Route path='table' component={Tableview} />
+    <Route path='supplier/index' component={SupplierIndex} />
+    <Route path='supplier/new' component={SupplierNew} />
+    <Route path='supplier/detail' component={SupplierDetail} />
+    <Route path='contact/new' component={ContactNew} />
+    <Route path='contact/index' component={ContactIndex} />
+    <Route path='material/addmedsup' component={MedicalAndSupplies} />
   </Route>
 );
 
