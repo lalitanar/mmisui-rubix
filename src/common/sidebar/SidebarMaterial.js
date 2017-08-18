@@ -16,6 +16,10 @@ class ApplicationSidebar extends React.Component {
   }
 
   render() {
+    const sty = {
+      'border-color':'#3B4648',
+      'border-width':'2px'
+    }
     return (
       <div>
         <Grid>
@@ -24,40 +28,19 @@ class ApplicationSidebar extends React.Component {
               <FormControl type='text' placeholder='Search...' onChange={::this.handleChange} className='sidebar-search' style={{border: 'none', background: 'none', margin: '10px 0 0 0', borderBottom: '1px solid #666', color: 'white'}} />
               <div className='sidebar-nav-container'>
                 <SidebarNav style={{marginBottom: 0}} ref={(c) => this._nav = c}>
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='ย้อนกลับ' onClick={this.props.mainsidebar} />
+                  <div className='sidebar-header'>เมนู Material</div>
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='รายชื่อผลิตภัณฑ์' />
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='รายชื่อสามัญ' />
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='รายชื่อผู้ประกอบการ' />
+                  <SidebarDivider />
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='รูปแบบผลิตภัณฑ์' />
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='รูปแบบยา' />
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='ประเภทเวชภัณฑ์' />
 
-                  { /** Pages Section */ }
-                  <SidebarNavItem glyph='icon-fontello-gauge' name='หน้าหลัก' href='/' />
-
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='ผู้ดูแลระบบ'>
-                    <SidebarNav>
-                      <SidebarNavItem name='จัดการบุคคล' href='/usermanagement' />
-                      <SidebarNavItem name='เพิ่มบุคคล' href='/table'/>
-                      <SidebarNavItem name='จัดการตำแน่ง' href='/genericmedicineandsupplies'/>
-                      <SidebarNavItem name='แก้ไขตำแหน่ง' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='การจัดซื้อ'>
-                    <SidebarNav>
-                      <SidebarNavItem name='ลงทะเบียนผู้ขาย' />
-                      <SidebarNavItem name='รายชื่อผู้ประกอบการ' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='ราคากลาง'>
-                    <SidebarNav>
-                      <SidebarNavItem name='ราคากลาง' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='เวชภัณฑ์'>
-                    <SidebarNav>
-                      <SidebarNavItem name='ข้อมูลชื่อทางการค้า' />
-                      <SidebarNavItem name='เพิ่มข้อมูลชื่อทางการค้า' />
-                      <SidebarNavItem name='ข้อมูลรายการยา' />
-                      <SidebarNavItem name='ข้อมูลรายการเวชภัณฑ์ที่ไม่ใช่ยา' />
-                      <SidebarNavItem name='ข้อมูลบรรจุภัณฑ์' />
-                    </SidebarNav>
-                  </SidebarNavItem>
-                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='เมนู Material' onClick={this.props.change.bind(this,'SidebarMaterial')}/>
                 </SidebarNav>
+
+
               </div>
             </Col>
           </Row>
@@ -110,10 +93,11 @@ export default class SidebarContainer extends React.Component {
           <SidebarControlBtn bundle='fontello' glyph='chat-1' sidebar={1} />
           <SidebarControlBtn bundle='fontello' glyph='chart-pie-2' sidebar={2} />
           <SidebarControlBtn bundle='fontello' glyph='th-list-2' sidebar={3} />
+          <SidebarControlBtn bundle='fontello' glyph='bell-5' sidebar={4} />
         </SidebarControls>
         <div id='sidebar-container'>
           <Sidebar sidebar={0}>
-            <ApplicationSidebar change={this.props.change}/>
+            <ApplicationSidebar mainsidebar={this.props.mainsidebar}/>
           </Sidebar>
           <Sidebar sidebar={1}>
             <DummySidebar />

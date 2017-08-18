@@ -14,17 +14,6 @@ import {
     PanelHeader,
     FormControl,
     PanelContainer,
-    DropdownHoverButton,
-    MenuItem,
-    ButtonToolbar,
-    ButtonGroup,
-    Button,
-    Modal,
-    Form,
-    FormGroup,
-    InputGroup,
-    ControlLabel,
-    Icon,
 } from '@sketchpixy/rubix';
 class DatatableComponent extends React.Component {
   constructor() {
