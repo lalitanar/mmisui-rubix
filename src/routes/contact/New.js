@@ -474,7 +474,7 @@ class FormNew extends React.Component {
             <Panel>
                 <Form>
                     <Row>
-                        <Col xs={6} >
+                        <Col xs={4} >
                             <FormGroup>
                                 <ControlLabel >สถานะ</ControlLabel>
 
@@ -486,15 +486,20 @@ class FormNew extends React.Component {
                                 </FormControl>
                             </FormGroup>
                         </Col>
-                        <Col xs={6} >
+                        <Col xs={4} className="pull-right">
                             <FormGroup>
-                                <ControlLabel >สถานะการทำงาน</ControlLabel>
-                                <FormControl componentClass="select" placeholder="1" >
-                                    <option value="0">ปิดการใช้งาน</option>
-                                    <option value="1">เปิดการใช้งาน</option>
-                                </FormControl>
-                            </FormGroup>
+                        <ControlLabel>สถานะการทำงาน</ControlLabel>
+                        <Radio inline name='inline' checked >
+                            เปิดการใช้งาน
+            	    </Radio >
+                        {' '}
+                        <Radio inline name='inline'>
+                            ปิดการใช้งาน
+	                </Radio >
+                    </FormGroup>
                         </Col>
+                    </Row>
+                    <Row>
                         <Col xs={4} >
                             <FormGroup>
                                 <ControlLabel>เลขที่เตรียมสัญญา</ControlLabel>

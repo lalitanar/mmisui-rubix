@@ -22,6 +22,7 @@ import SupplierNew from './routes/supplier/New'
 import SupplierDetail from './routes/supplier/Detail'
 
 import ContactNew from './routes/contact/New'
+import ContactIndex from './routes/contact/Index'
 // import createuser from './routes/createuser'
 // import edituser from './routes/edituser'
 // import rolesmanagement from './routes/rolesmanagement'
@@ -81,6 +82,7 @@ const routes = (
     <Route path='/supplier/new' component={SupplierNew} />
     <Route path='/supplier/detail' component={SupplierDetail} />
     <Route path='/contact/new' component={ContactNew} />
+    <Route path='/contact/index' component={ContactIndex} />
   </Route>
 );
 
