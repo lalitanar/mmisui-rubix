@@ -10,7 +10,7 @@ import {
   Button,
   PanelHeader,
 } from '@sketchpixy/rubix';
-import AddGenericMedicine from '../components/AddGenericMedicineAndSupplies';
+import AddGenericMedicine from '../../components/AddGenericMedicineAndSupplies';
 class Buttombar extends React.Component {
   render(){
       return (
