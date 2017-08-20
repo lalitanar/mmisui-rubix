@@ -30,6 +30,7 @@ import GenMedSupType from './routes/GenericMedSupType'
 import TitleTable from './routes/TitleTable'
 import PositionTable from './routes/PositionTable'
 import Organization from './routes/Organization'
+import OrganizationEmployees from './routes/OrganizationEmployees'
 // import createuser from './routes/createuser'
 // import edituser from './routes/edituser'
 // import rolesmanagement from './routes/rolesmanagement'
@@ -97,6 +98,7 @@ const routes = (
     <Route path='/titletable' component={TitleTable} />
     <Route path='/positiontable' component={PositionTable} />
     <Route path='/organization' component={Organization} />
+    <Route path='/employees' component={OrganizationEmployees} />
   </Route>
 );
 

@@ -95,6 +95,10 @@ class Titletable extends React.Component {
               {
                 title:"ศาสตราจารย์",
                 delete:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
+              },
+              {
+                title:"นางสาว",
+                delete:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
               }
           ]
         };
