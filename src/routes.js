@@ -24,6 +24,7 @@ import SupplierDetail from './routes/supplier/Detail'
 import ContactNew from './routes/contact/New'
 import ContactIndex from './routes/contact/Index'
 import MedicalAndSupplies from './routes/material/GenericMedicineAndSupplies'
+import Product from './routes/material/Product'
 
 class App extends React.Component {
   change(num){
@@ -82,6 +83,7 @@ const routes = (
     <Route path='contact/new' component={ContactNew} />
     <Route path='contact/index' component={ContactIndex} />
     <Route path='material/addmedsup' component={MedicalAndSupplies} />
+    <Route path='material/product' component={Product} />
   </Route>
 );
 

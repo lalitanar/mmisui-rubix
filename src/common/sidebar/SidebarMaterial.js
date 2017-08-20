@@ -30,8 +30,8 @@ class ApplicationSidebar extends React.Component {
                 <SidebarNav style={{marginBottom: 0}} ref={(c) => this._nav = c}>
                   <SidebarNavItem glyph='icon-fontello-gauge' name='ย้อนกลับ' onClick={this.props.mainsidebar} />
                   <div className='sidebar-header'>เมนู Material</div>
-                  <SidebarNavItem glyph='icon-fontello-gauge' name='รายชื่อผลิตภัณฑ์' />
-                  <SidebarNavItem glyph='icon-fontello-gauge' name='รายชื่อสามัญ'href='/material/addmedsup' />
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='รายชื่อผลิตภัณฑ์' href='/material/product'/>
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='รายชื่อสามัญ' href='/material/addmedsup' />
                   <SidebarNavItem glyph='icon-fontello-gauge' name='รายชื่อผู้ประกอบการ' />
                   <SidebarDivider />
                   <SidebarNavItem glyph='icon-fontello-gauge' name='รูปแบบผลิตภัณฑ์' />
