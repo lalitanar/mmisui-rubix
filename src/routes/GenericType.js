@@ -73,15 +73,6 @@ class Buttonbar extends React.Component {
       <Button onClick={::this.close}>ยกเลิก</Button>
       </Modal.Footer>
     </Modal>
-
-    <ButtonGroup className='pull-right'>
-          <Button bsStyle='primary' >
-          <Icon glyph='icon-fontello-download' /> นำออกไฟล์
-          </Button>
-          <Button bsStyle='defalt'>
-          <Icon glyph='icon-fontello-print' /> พิมพ์
-          </Button>
-    </ButtonGroup>
     </div>
         );
     }
@@ -95,28 +86,28 @@ class DatatableComponent extends React.Component {
               {
                 type:"INJ",
                 edit:<ButtonGroup>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
+                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
                         <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
                      </ButtonGroup>
               },
               {
                 type:"TAB",
                 edit:<ButtonGroup>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
+                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
                         <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
                      </ButtonGroup>
               },
               {
                 type:"POWDER",
                 edit:<ButtonGroup>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
+                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
                         <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
                      </ButtonGroup>
               },
               {
                 type:"Cap",
                 edit:<ButtonGroup>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
+                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
                         <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
                      </ButtonGroup>
               }

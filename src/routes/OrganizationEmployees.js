@@ -55,14 +55,6 @@ class Employeeform extends React.Component {
                     <FormControl type="text" placeholder="Surname" />
                     </FormGroup>
                 </Col>
-
-                <Col xs={6} md={8}>
-                    <ControlLabel>สถานะการทำงาน</ControlLabel>
-                    <DropdownButton bsStyle='link' title='Status' >
-		                <MenuItem eventKey="1">working</MenuItem>
-		                <MenuItem eventKey="2">break</MenuItem>
-	                  </DropdownButton>
-                </Col>
                 <Col xs={6} md={8}>
                     <ControlLabel>สถานะการทำงาน</ControlLabel>
                     <FormGroup controlId="ppl_status">
