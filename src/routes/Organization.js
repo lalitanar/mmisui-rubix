@@ -73,15 +73,6 @@ class Buttonbar extends React.Component {
       <Button onClick={::this.close}>ยกเลิก</Button>
       </Modal.Footer>
     </Modal>
-
-    <ButtonGroup className='pull-right'>
-          <Button bsStyle='primary' >
-          <Icon glyph='icon-fontello-download' /> นำออกไฟล์
-          </Button>
-          <Button bsStyle='defalt'>
-          <Icon glyph='icon-fontello-print' /> พิมพ์
-          </Button>
-    </ButtonGroup>
     </div>
         );
     }

@@ -5,6 +5,7 @@ import { Link, withRouter } from 'react-router';
 // Import React Table
 import ReactTable from "react-table";
 import {
+    Radio,
     SidebarNavItem,
     Row,
     Col,
@@ -61,6 +62,13 @@ class Employeeform extends React.Component {
 		                <MenuItem eventKey="1">working</MenuItem>
 		                <MenuItem eventKey="2">break</MenuItem>
 	                  </DropdownButton>
+                </Col>
+                <Col xs={6} md={8}>
+                    <ControlLabel>สถานะการทำงาน</ControlLabel>
+                    <FormGroup controlId="ppl_status">
+	                     <Radio inline>ปฏิบัติงาน</Radio> {' '}
+                       <Radio inline>พักงาน</Radio>{' '}
+	                  </FormGroup>
                 </Col>
                 <Col xs={6} md={8}>
                     <ControlLabel>หน่วยงาน</ControlLabel>
@@ -147,7 +155,7 @@ class Employeetable extends React.Component {
                 ppl_status:"break",
                 ppl_position:"doctor",
                 ppl_organization:"Mahidol",
-                moreinfo:<Button bsStyle='success'><Icon glyph='icon-fontello-search' />   ดูรายละเอียดหน่วยงาน</Button>
+                moreinfo:<Button bsStyle='success'><Icon glyph='icon-fontello-search'/>   ดูรายละเอียดหน่วยงาน</Button>
               }
           ]
         };

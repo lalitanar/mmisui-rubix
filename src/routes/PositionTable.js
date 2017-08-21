@@ -3,6 +3,7 @@ import { render } from "react-dom";
 // Import React Table
 import ReactTable from "react-table";
 import {
+    Checkbox,
     Row,
     Col,
     Grid,
@@ -27,17 +28,45 @@ import {
 } from '@sketchpixy/rubix';
 
 class Positionform extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+          data: [
+              {
+                selection:<Checkbox/>,
+                ppl_position:"พยาบาล"
+              },
+              {
+                selection:<Checkbox/>,
+                ppl_position:"หมอ"
+              }
+          ]
+        };
+      }
+
     render() {
         return (
-            <Form>
-                <Row>
-                <Col xs={6} md={6}>
-                    <FormGroup controlId="position">
-                    <ControlLabel>ชื่อตำแหน่ง</ControlLabel>
-                    <FormControl type="text" placeholder="Position"/>
-                    </FormGroup>
-                </Col>
-            </Row>
+        <Form>
+            <ReactTable
+            data={this.state.data}
+            noDataText="ไม่พบข้อมูล"
+            filterable
+            defualtFilterMethod={(filter, row)=>
+                String(row[filter.id])===filter.value ||
+                row[filter.id].includes(filter.value)}
+            columns={[
+              {
+                Header: "ตัวเลือก",
+                accessor: "selection"
+              },
+              {
+                Header: "ตำแหน่ง",
+                accessor:"ppl_position"
+              }
+            ]}
+            defaultPageSize={10}
+            className="-striped -highlight"
+          />
         </Form>
         );
     }
@@ -69,19 +98,14 @@ class Buttonbar extends React.Component {
         <Positionform/>
       </Modal.Body>
       <Modal.Footer>
-      <Button bsStyle='success' onClick={::this.close}>บันทึก</Button>
+      <Button bsStyle='success' onClick={::this.close}>ตกลง</Button>
       <Button onClick={::this.close}>ยกเลิก</Button>
       </Modal.Footer>
     </Modal>
 
-    <ButtonGroup className='pull-right'>
-          <Button bsStyle='primary' >
-          <Icon glyph='icon-fontello-download' /> นำออกไฟล์
-          </Button>
-          <Button bsStyle='defalt'>
-          <Icon glyph='icon-fontello-print' /> พิมพ์
-          </Button>
-    </ButtonGroup>
+     <Button bsStyle='danger' className='pull-right'>
+     <Icon glyph='icon-fontello-back' /> ย้อนกลับ
+    </Button>
     </div>
         );
     }
@@ -94,6 +118,10 @@ class Positiontable extends React.Component {
           data: [
               {
                 position:"พยาบาล",
+                delete:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
+              },
+              {
+                position:"หมอ",
                 delete:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
               }
           ]
