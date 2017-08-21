@@ -86,7 +86,7 @@ class DatatableComponent extends React.Component {
               {
                 gms_type:"test",/*stands for gen men sup*/
                 edit:<ButtonGroup>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
+                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
                         <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
                      </ButtonGroup>
               }
