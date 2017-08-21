@@ -143,7 +143,7 @@ class Employeetable extends React.Component {
                 ppl_title:"Ms.",
                 ppl_name:"kik",
                 ppl_surname:"lurkraisit",
-                ppl_status:"working",
+                ppl_status:"1",
                 ppl_position:"nurse",   
                 ppl_organization:"Mahidol",
                 moreinfo:<Button bsStyle='success'><Icon glyph='icon-fontello-search' /> ดูรายละเอียดหน่วยงาน</Button>
@@ -152,7 +152,7 @@ class Employeetable extends React.Component {
                 ppl_title:"Mr.",
                 ppl_name:"who",
                 ppl_surname:"lol",
-                ppl_status:"break",
+                ppl_status:"0",
                 ppl_position:"doctor",
                 ppl_organization:"Mahidol",
                 moreinfo:<Button bsStyle='success'><Icon glyph='icon-fontello-search'/>   ดูรายละเอียดหน่วยงาน</Button>
@@ -185,7 +185,21 @@ class Employeetable extends React.Component {
               },
               {
                 Header: "สถานะ",
-                accessor:"ppl_status"
+                accessor:"ppl_status",
+                Cell: row => (
+                  <span>
+                    <span style={{
+                       color: row.value === '1' ? '#57d500'
+                            :'#ff2e00',
+                      transition: 'all .3s ease'
+                      }}>&#x25cf;
+                    </span> 
+                    {
+                      row.value === '1' ? 'ปฏิบัติงาน'
+                      :'พักงาน'
+                    }
+                  </span>
+                )
               },
               {
                 Header: "ตำแหน่ง",
