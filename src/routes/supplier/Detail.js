@@ -170,12 +170,14 @@ class TabDetail extends React.Component {
                         </address>
                     </Col>
                     <Col xs={6}>
-                        <strong>ที่อยู่</strong>
+                        <strong>ที่อยู่และข้อมูลติดต่อ</strong>
                         <address>
                             Ave, Suite 600<br />
                             San Fra795 Folsomncisco, CA 94107<br />
+                            ผู้ติดต่อ: Kudo Shinichi <br/>
                             Phone: (555) 539-1037<br />
-                            URL: john.doe@example.com<br />
+                            E-mail: john.doe@example.com <br/>
+                            URL: www.log.in.th<br />
                         </address>
                     </Col>
                     <Col xs={6}>
