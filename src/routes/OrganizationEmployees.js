@@ -34,30 +34,47 @@ class Employeeform extends React.Component {
         return (
             <Form>
                 <Row>
-                <Col xs={6} md={6}>
-                    <FormGroup controlId="Bigunitname">
-                    <ControlLabel>ชื่อหน่วยใหญ่(เข้า)</ControlLabel>
-                    <FormControl type="text" placeholder="Big Unit"/>
+                <Col xs={3} md={3}>
+                    <ControlLabel>คำนำหน้า</ControlLabel>
+                    <DropdownButton bsStyle='link' title='Title' >
+		                <MenuItem eventKey="1">นาย</MenuItem>
+		                <MenuItem eventKey="2">นางสาว</MenuItem>
+		                <MenuItem eventKey="3">นาง</MenuItem>
+	                  </DropdownButton>
+                </Col>
+                <Col xs={5} md={4}>
+                    <FormGroup controlId="ppl_name">
+                    <ControlLabel>ชื่อ</ControlLabel>
+                    <FormControl type="text" placeholder="Name"/>
                     </FormGroup>
                 </Col>
-                <Col xs={6} md={6}>
-                    <FormGroup controlId="Bigunitquan">
-                    <ControlLabel>จำนวนหน่วยใหญ่</ControlLabel>
-                    <FormControl type="text" placeholder="Quantity" />
+                <Col xs={5} md={5}>
+                    <FormGroup controlId="ppl_surname">
+                    <ControlLabel>นามสกุล</ControlLabel>
+                    <FormControl type="text" placeholder="Surname" />
                     </FormGroup>
                 </Col>
 
-                <Col xs={6} md={6}>
-                    <FormGroup controlId="Smallunitname">
-                    <ControlLabel>ชื่อหน่วยย่อย(ออก)</ControlLabel>
-                    <FormControl type="text" placeholder="Small Unit" />
-                    </FormGroup>
+                <Col xs={6} md={8}>
+                    <ControlLabel>สถานะการทำงาน</ControlLabel>
+                    <DropdownButton bsStyle='link' title='Status' >
+		                <MenuItem eventKey="1">working</MenuItem>
+		                <MenuItem eventKey="2">break</MenuItem>
+	                  </DropdownButton>
                 </Col>
-                <Col xs={6} md={6}>
-                    <FormGroup controlId="Samllunitquan">
-                    <ControlLabel>จำนวนหน่วยย่อย</ControlLabel>
-                    <FormControl type="text" placeholder="Quantity" />
-                    </FormGroup>
+                <Col xs={6} md={8}>
+                    <ControlLabel>หน่วยงาน</ControlLabel>
+                    <DropdownButton bsStyle='link' title='Organization' >
+		                <MenuItem eventKey="1">Mahidol</MenuItem>
+		                <MenuItem eventKey="2">Unisoft</MenuItem>
+	                  </DropdownButton>
+                </Col>
+                <Col xs={6} md={8}>
+                    <ControlLabel>ตำแหน่ง</ControlLabel>
+                    <DropdownButton bsStyle='link' title='Position' >
+		                <MenuItem eventKey="1">developer</MenuItem>
+		                <MenuItem eventKey="2">doctor</MenuItem>
+	                  </DropdownButton>
                 </Col>
                 </Row>
             </Form>
