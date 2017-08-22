@@ -15,7 +15,8 @@ import Footer from './common/footer';
 
 import Home from './routes/Home';
 import Home2 from './routes/Home2';
-import Usermanagement from './routes/Usermanagement'
+import Usermanagement from './routes/admin/Usermanagement'
+import Rolemanagement from './routes/admin/Rolemanagement'
 import Tableview from './components/Tableview'
 import tbPackage from './routes/tbPackage'
 import SupplierIndex from './routes/supplier/Index'
@@ -84,6 +85,7 @@ const routes = (
     <Route path='contact/index' component={ContactIndex} />
     <Route path='material/addmedsup' component={MedicalAndSupplies} />
     <Route path='material/product' component={Product} />
+    <Route path='rolemanagement' component={Rolemanagement} />
   </Route>
 );
 
