@@ -67,7 +67,6 @@ class ProductTable extends Component {
 }
 class Product extends Component {
   showadd(){
-    console.log("test")
     this.setState({addshow:true});
   }
   submit(){
@@ -109,7 +108,7 @@ class Product extends Component {
     </PanelContainer>;
 
     if(this.state.addshow == true){
-      show = <AddProduct showadd={this.submit}/>;
+      show = <AddProduct submit={this.submit}/>;
     }
     return(
       <Row>

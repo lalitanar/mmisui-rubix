@@ -18,19 +18,108 @@ import {
   PanelFooter,
   Icon,
   InputGroup,
+  Modal,
 } from '@sketchpixy/rubix';
 
+class Addiitem extends Component {
+  componentWillMount(){
+    let type = this.props.type;
+    let pdata = [{Name:"1 กล่อง 100 เม็ด",Remark:<Button bsStyle='success'><Icon glyph='icon-simple-line-icons-plus'/></Button>}];
+    let odata = [{Name:"โรงงานผลิต 1",Remark:<Button bsStyle='success'><Icon glyph='icon-simple-line-icons-plus'/></Button>}];
+    let ldata = [{Name:"ผู้จำหน่าย 1",Remark:<Button bsStyle='success'><Icon glyph='icon-simple-line-icons-plus'/></Button>}];
+    switch (type) {
+      case "package":
+        this.setState({title:"บรรจจุภัณฑ์"});
+        this.setState({data:pdata});
+        break;
+      case "organization":
+      this.setState({title:"ผู้ผลิต"});
+      this.setState({data:odata});
+        break;
+      case "productlaberler":
+      this.setState({title:"ผู้จำหน่าย"});
+      this.setState({data:ldata});
+        break;
+      default:
+    }
+  }
+  constructor(props) {
+      super(props);
+      this.state = { showModal: false,title:"",data:[] };
+  }
+  close() {
+      this.setState({ showModal: false });
+  }
+  open() {
+      this.setState({ showModal: true });
+  }
+  render() {
+      return (
+        <div>
+        <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-ikons-magnifying-glass-add'/> เพิ่ม {this.state.title}</Button>
+        <Modal show={this.state.showModal} onHide={::this.close}>
+          <Modal.Header closeButton>
+          <Modal.Title>เพิ่ม {this.state.title}</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <ReactTable
+              data={this.state.data}
+              noDataText={"ไม่พบ"+this.state.title}
+              showPageJump='false'
+              filterable
+              columns={[
+                {
+                  Header: "ชื่อ",
+                  accessor: "Name"
+                },
+                {
+                  Header: "เพิ่มเติม",
+                  accessor: "Remark",
+                  width: 150,
+                }
+              ]}
+              defaultPageSize={10}
+              className="-striped -highlight"
+            />
+          </Modal.Body>
+          <Modal.Footer>
+          <Button bsStyle='success' onClick={::this.close}>เสร็จสิ้น</Button>
+          </Modal.Footer>
+        </Modal>
+        </div>
+      );
+  }
+}
 class AddProduct extends Component {
+  addtolist(type,add){
+    switch (type) {
+      case "package":
+      this.setState({ Package: this.state.Package.concat([add])})
+        break;
+      case "organization":
+      this.setState({ Organiz: this.state.Organiz.concat([add])})
+        break;
+      case "productlaberler":
+      this.setState({ Product: this.state.Product.concat([add])})
+        break;
+      default:
+    }
+  }
+  submitpro(){
+    this.props.submit();
+  }
   constructor(props){
     super(props);
 
     this.state = {
+      Organiz:[{Organization:"OrganizationA",Remark:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>}],
+      Product:[{ProductLabeler:"ProductLabelerA",Remark:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>}],
+      Package:[{Package:"ProductLabelerA",Remark:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>}]
     };
+    this.submitpro = this.submitpro.bind(this);
+    this.addtolist = this.addtolist.bind(this);
   }
   render(){
-    var Organiz= [{Organization:"OrganizationA",Remark:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>}]
-    var Product= [{ProductLabeler:"ProductLabelerA",Remark:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>}]
-    var Package= [{Package:"ProductLabelerA",Remark:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>}]
     return(
       <div>
         <Row>
@@ -41,7 +130,7 @@ class AddProduct extends Component {
                  <Grid>
                    <Row>
                     <Col xs={12} className='fg-white'>
-                      <h4>เพิ่มข้อมูล</h4>
+                      <h4>เพิ่มข้อมูลผลิตภัณฑ์</h4>
                     </Col>
                    </Row>
                  </Grid>
@@ -70,13 +159,13 @@ class AddProduct extends Component {
                         </FormGroup>
                       </Col>
                       <Col xs={6}>
-
-                      <FormGroup controlId='searchbtnicon'>
+                      <FormGroup>
+                        <ControlLabel>รหัส TMT</ControlLabel>
                         <InputGroup>
-                          <FormControl type='text' placeholder='Enter keywords here ...' />
+                          <FormControl type='text'/>
                           <InputGroup.Addon className='plain'>
                             <Button>
-                              <span>Search </span>
+                              <span>ค้นหา </span>
                               <Icon bundle='fontello' glyph='search' />
                             </Button>
                           </InputGroup.Addon>
@@ -86,11 +175,11 @@ class AddProduct extends Component {
                     </Row>
                     <Row>
                       <Col xs={4}>
-                        <Button bsStyle='success'><Icon glyph='icon-ikons-magnifying-glass-add'/> เพิ่มรูปแบบบรรจจุภัณฑ์</Button>
+                      <Addiitem additem={this.addtolist} type="package"/>
                         <ReactTable
-                          data={Package}
+                          data={this.state.Package}
                           noDataText="ไม่มีรูปแบบบรรจจุภัณฑ์"
-                          showPageJump='false'
+                          showPaginationBottom = {false}
                           columns={[
                             {
                               Header: "รูปแบบบรรจจุภัณฑ์",
@@ -107,10 +196,12 @@ class AddProduct extends Component {
                         />
                       </Col>
                       <Col xs={4}>
-                        <Button bsStyle='success'><Icon glyph='icon-ikons-magnifying-glass-add'/> เพิ่มผู้ผลิต</Button>
+                        <Addiitem additem={this.addtolist} type="organization"/>
                         <ReactTable
-                          data={Organiz}
+                          data={this.state.Organiz}
                           noDataText="ไม่มีผู้ผลิต"
+                          showPaginationBottom = {false}
+
                           columns={[
                             {
                               Header: "ผู้ผลิต",
@@ -127,10 +218,12 @@ class AddProduct extends Component {
                         />
                       </Col>
                       <Col xs={4}>
-                        <Button bsStyle='success'><Icon glyph='icon-ikons-magnifying-glass-add'/> เพิ่มผู้จำหน่าย</Button>
+                        <Addiitem additem={this.addtolist} type="productlaberler"/>
                         <ReactTable
-                          data={Product}
+                          data={this.state.Product}
                           noDataText="ไม่มีผู้ผลิต"
+                          showPaginationBottom = {false}
+
                           columns={[
                             {
                               Header: "ผู้จำหน่าย",
@@ -151,7 +244,7 @@ class AddProduct extends Component {
                       <Col xs={12} className='fg-white'>
                         <hr/>
                         <Button className='pull-right' bsStyle="danger" onClick={this.props.submit}>ยกเลิก</Button>
-                        <Button className='pull-right' bsStyle="success" onClick={this.submitsup}>บันทึกข้อมูล</Button>
+                        <Button className='pull-right' bsStyle="success" onClick={this.submitpro}>บันทึกข้อมูล</Button>
                       </Col>
                     </Row>
                   </Grid>
