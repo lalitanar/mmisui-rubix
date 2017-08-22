@@ -60,23 +60,42 @@ class Medicine extends Component {
                    <FormControl type="text" />
                 </FormGroup>
                 <FormGroup>
-                  <ControlLabel>รูปแบบยา</ControlLabel>
-                   <FormControl type="text" />
+                    <ControlLabel>รูปแบบยา</ControlLabel>
+                    <FormControl componentClass="select" placeholder="select">
+                        <option value="select">เลือกรูปแบบยา</option>
+                        <option value="other">Gastro-intestinal system</option>
+                        <option value="other">Cardiovascular system</option>
+                        <option value="other">Respiratory system</option>
+                        <option value="other">Central nervous system</option>
+                        <option value="other">Infections</option>
+                        <option value="other">Endocrine system</option>
+                        <option value="other">Obstetrics, gynaecology and urinary-tract disorders</option>
+                        <option value="other">Malignant disease and immunosuppression</option>
+                        <option value="other">Nutrition and blood</option>
+                        <option value="other">Musculoskeletal and joint diseases</option>
+                        <option value="other">Eye</option>
+                        <option value="other">Ear, nose, oropharynx  and oral cavity</option>
+                        <option value="other">Skin</option>
+                        <option value="other">Immunological products and vaccines</option>
+                        <option value="other">Anaesthesia</option>
+                        <option value="other">Antidotes</option>
+                        <option value="other">Contrast media and Radiopharmaceuticals</option>
+                        <option value="other">ยาสมุนไพร</option>
+                        <option value="other">เวชภัณฑ์ที่มิใช่ยา</option>
+                    </FormControl>
                 </FormGroup>
                 </Col>
-
                 <Col xs={6}>
                 <FormGroup>
                     <ControlLabel>ชื่อย่อ</ControlLabel>
                      <FormControl type="text" />
                 </FormGroup>
                 <FormGroup>
-                  <ControlLabel>ประเภทของยา</ControlLabel>
-                   <FormControl type="text" />
-                </FormGroup>
-                <FormGroup>
-                  <ControlLabel>รหัสกลุ่มยา</ControlLabel>
-                   <FormControl type="text" />
+                    <ControlLabel>รหัสกลุ่มยา</ControlLabel>
+                    <FormControl componentClass="select" placeholder="select">
+                        <option value="select">ฟหก</option>
+                        <option value="other">ฟหก</option>
+                    </FormControl>
                 </FormGroup>
                 <FormGroup>
                   <ControlLabel>คำค้นหา</ControlLabel>
@@ -90,12 +109,14 @@ class Medicine extends Component {
              </Row>
            </Grid>
           </PanelBody>
-          <PanelFooter>
+          <PanelFooter className='bg-lightblue'>
             <Grid>
               <Row>
                 <Col xs={12}>
-                  <Button className='pull-right' bsStyle="danger" onClick={this.props.submit}>ยกเลิก</Button>
-                  <Button className='pull-right' bsStyle="success" onClick={this.submitmed}>บันทึกข้อมูล</Button>
+                    <br/>
+                    <Button className='pull-right' bsStyle="danger" onClick={this.props.submit}>ยกเลิก</Button>
+                    <Button className='pull-right' bsStyle="success" onClick={this.submitmed}>บันทึกข้อมูล</Button>
+                    <br/>
                 </Col>
               </Row>
             </Grid>
@@ -148,8 +169,11 @@ class Medicine extends Component {
                    <FormControl type="text" />
               </FormGroup>
               <FormGroup>
-                <ControlLabel>ประเภทของยา</ControlLabel>
-                 <FormControl type="text" />
+                  <ControlLabel>ประเภทของเวชภัณฑ</ControlLabel>
+                  <FormControl componentClass="select" placeholder="select">
+                      <option value="select">ฟหก</option>
+                      <option value="other">หกด</option>
+                  </FormControl>
               </FormGroup>
               <FormGroup>
                 <ControlLabel>คำค้นหา</ControlLabel>
