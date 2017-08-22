@@ -8,9 +8,11 @@ import {
   PanelBody,
   Grid,
   Button,
+  Icon,
+  ButtonGroup,
   PanelHeader,
 } from '@sketchpixy/rubix';
-import AddProduct from '../../components/AddGenericMedicineAndSupplies';
+import AddProduct from '../../components/AddProduct';
 class Buttombar extends React.Component {
   render(){
       return (
@@ -23,7 +25,10 @@ class Buttombar extends React.Component {
 class ProductTable extends Component {
   render(){
     var data = [
-      {strProductID:"123" , strProductName:"product" , strGenericName:"aaaa" , strTMTcode:"1232132131" , strPackageType:"1" , strCompanyName:"B" , strLabelerName:"C"}
+      {strProductID:"123" , strProductName:"product" , strGenericName:"aaaa" , strTMTcode:"1232132131",Remark:<ButtonGroup>
+                        <Button bsStyle='info'>  รายละเอียด</Button>
+                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
+                     </ButtonGroup>}
     ];
     return(
       <div>
@@ -49,16 +54,8 @@ class ProductTable extends Component {
               accessor: "strTMTcode"
             },
             {
-              Header: "รูปแบบบรรจุภัณฑ์",
-              accessor: "strPackageType"
-            },
-            {
-              Header: "ผู้ผลิต",
-              accessor: "strCompanyName"
-            },
-            {
-              Header: "ผู้ขาย",
-              accessor: "strLabelerName"
+              Header: "เพิ่มเติม",
+              accessor: "Remark",
             }
           ]}
           defaultPageSize={10}
@@ -70,6 +67,7 @@ class ProductTable extends Component {
 }
 class Product extends Component {
   showadd(){
+    console.log("test")
     this.setState({addshow:true});
   }
   submit(){
@@ -111,7 +109,7 @@ class Product extends Component {
     </PanelContainer>;
 
     if(this.state.addshow == true){
-      show = <h1>New</h1>;
+      show = <AddProduct showadd={this.submit}/>;
     }
     return(
       <Row>
