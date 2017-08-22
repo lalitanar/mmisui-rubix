@@ -31,10 +31,8 @@ import {
     NavDropdown,
     PanelTabContainer,
     PanelFooter,
-    Radio,  
+    Radio,
 } from '@sketchpixy/rubix';
-
-
 
 class Bar extends React.Component {
     render() {
@@ -172,11 +170,17 @@ class FormCon extends React.Component {
                         <Col xs={3}>
                             <FormGroup>
                                 <ControlLabel>ระยะเวลาจัดส่ง</ControlLabel>
-                                <FormControl type="text" placeholder="วัน"/>
+                                <FormControl type="text" placeholder="วัน" />
                             </FormGroup>
                         </Col>
                     </Row>
                     <Row>
+                        <Col xs={6}>
+                            <FormGroup >
+                                <ControlLabel>ชื่อผู้ติดต่อ</ControlLabel>
+                                <FormControl type="text" placeholder=" " />
+                            </FormGroup>
+                        </Col>
                         <Col xs={6}>
                             <FormGroup>
                                 <ControlLabel>โทรศัพท์</ControlLabel>
@@ -188,12 +192,19 @@ class FormCon extends React.Component {
                                 </InputGroup>
                             </FormGroup>
                         </Col>
+                        <Col xs={6}>                        
+                        <FormGroup controlId="formControlsEmail">
+                            <ControlLabel>E-mail</ControlLabel>
+                            <FormControl type="email" placeholder="E-mail" />
+                        </FormGroup>
+                        </Col>
                         <Col xs={6}>
                             <FormGroup>
                                 <ControlLabel>URL</ControlLabel>
                                 <FormControl type="text" placeholder=" " />
                             </FormGroup>
                         </Col>
+
                     </Row>
                 </Form>
             </Panel>
@@ -217,18 +228,14 @@ class FormNew extends React.Component {
     render() {
         var val = <Col xs={6} ></Col>;
         if (this.state.value == '2') val = <Col xs={6} >
-                                <FormGroup id="date-discon">
-                                    <ControlLabel>วันที่เลิกใช้งาน</ControlLabel>
-                                    <DateTimeField />
-                                </FormGroup>
-                            </Col>;    
+            <FormGroup id="date-discon">
+                <ControlLabel>วันที่เลิกใช้งาน</ControlLabel>
+                <DateTimeField />
+            </FormGroup>
+        </Col>;
         return (
             <Panel>
                 <Form>
-                    <FormGroup controlId="formControlsText">
-                        <ControlLabel>รหัสผู้ประกอบการ</ControlLabel>
-                        <FormControl type="text" placeholder="xxxxxxxxxx" />
-                    </FormGroup>
                     <FormGroup controlId="formControlsEmail">
                         <ControlLabel>ชื่อผู้ประกอบการ</ControlLabel>
                         <FormControl type="text" placeholder="ชื่อผู้ประกอบการ" />
@@ -274,26 +281,26 @@ class FormNew extends React.Component {
 
 
 
-
 export default class PanelBodyHeaderAndFooter extends React.Component {
-    showmore(){
-    this.setState({statusShow:true});
-  }
-  hide(){
-    this.setState({statusShow:false});
-  }
-  constructor(props){
-    super(props);
+    showmore() {
+        this.setState({ statusShow: true });
+    }
+    hide() {
+        this.setState({ statusShow: false });
+    }
+    constructor(props) {
+        super(props);
 
-    this.state = {
-      statusShow: false
-    };
-    this.showmore = this.showmore.bind(this);
-    this.hide = this.hide.bind(this);
-  }
+        this.state = {
+            statusShow: false
+        };
+        this.showmore = this.showmore.bind(this);
+        this.hide = this.hide.bind(this);
+    }
+
     render() {
-        var show =<div></div>;
-        if(this.state.statusShow == true){
+        var show = <div></div>;
+        if (this.state.statusShow == true) {
             show = <FormMore />;
         }
         return (
@@ -314,7 +321,7 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
                                 <Grid>
                                     <Row>
                                         <Col xs={6}>
-                                            <FormNew showmore={this.showmore} hide={this.hide}/>
+                                            <FormNew showmore={this.showmore} hide={this.hide} />
                                         </Col>
                                         <Col xs={6}>
                                             <FormCon />
