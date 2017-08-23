@@ -26,15 +26,15 @@ import {
     Icon,
 } from '@sketchpixy/rubix';
 
-class GenericTypeform extends React.Component {
+class Organizationform extends React.Component {
     render() {
         return (
             <Form>
                 <Row>
                 <Col xs={6} md={6}>
-                    <FormGroup controlId="GenericType">
-                    <ControlLabel>รูปแบบยา</ControlLabel>
-                    <FormControl type="text" placeholder="Generic Type"/>
+                    <FormGroup controlId="Organization">
+                    <ControlLabel>หน่วยงาน</ControlLabel>
+                    <FormControl type="text" placeholder="Organization"/>
                     </FormGroup>
                 </Col>
             </Row>
@@ -60,13 +60,13 @@ class Buttonbar extends React.Component {
     render() {
         return (
     <div>
-    <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-fontello-plus'/>  เพิ่มรูปแบบยา</Button>
+    <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-fontello-plus'/>  เพิ่มหน่วยงาน</Button>
     <Modal show={this.state.showModal} onHide={::this.close}>
       <Modal.Header closeButton>
-      <Modal.Title>เพิ่ม/แก้ไข รูปแบบยา</Modal.Title>
+      <Modal.Title>เพิ่มหน่วยงาน</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <GenericTypeform/>
+        <Organizationform/>
       </Modal.Body>
       <Modal.Footer>
       <Button bsStyle='success' onClick={::this.close}>บันทึก</Button>
@@ -78,38 +78,14 @@ class Buttonbar extends React.Component {
     }
 }
 
-class DatatableComponent extends React.Component {
+class Organizationtable extends React.Component {
     constructor() {
         super();
         this.state = {
           data: [
               {
-                type:"INJ",
-                edit:<ButtonGroup>
-                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
-                     </ButtonGroup>
-              },
-              {
-                type:"TAB",
-                edit:<ButtonGroup>
-                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
-                     </ButtonGroup>
-              },
-              {
-                type:"POWDER",
-                edit:<ButtonGroup>
-                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
-                     </ButtonGroup>
-              },
-              {
-                type:"Cap",
-                edit:<ButtonGroup>
-                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
-                     </ButtonGroup>
+                organization:"Mahidol",
+                moreinfo:<Button bsStyle='success'><Icon glyph='icon-fontello-search'/>   ดูรายละเอียด</Button>
               }
           ]
         };
@@ -126,12 +102,12 @@ class DatatableComponent extends React.Component {
                 row[filter.id].includes(filter.value)}
             columns={[
               {
-                Header: "รูปแบบยา",
-                accessor: "type"
+                Header: "หน่วยงาน",
+                accessor: "organization"
               },
               {
-                Header: "แก้ไข",
-                accessor:"edit"
+                Header: "ดูรายละเอียดเพิ่มเติม",
+                accessor:"moreinfo"
               }
             ]}
             defaultPageSize={10}
@@ -140,7 +116,7 @@ class DatatableComponent extends React.Component {
         );
     }
 }
-export default class Generic_Type extends React.Component {
+export default class OrganizationTable extends React.Component {
     render() {
         return (
             <Row>
@@ -153,7 +129,7 @@ export default class Generic_Type extends React.Component {
                     <Col xs={12}>
                       <Buttonbar/>
                       <hr/>
-                      <DatatableComponent />
+                      <Organizationtable />
                       <br/>
                     </Col>
                   </Row>

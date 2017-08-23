@@ -3,6 +3,7 @@ import { render } from "react-dom";
 // Import React Table
 import ReactTable from "react-table";
 import {
+    Checkbox,
     Row,
     Col,
     Grid,
@@ -26,18 +27,46 @@ import {
     Icon,
 } from '@sketchpixy/rubix';
 
-class GenericTypeform extends React.Component {
+class Positionform extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+          data: [
+              {
+                selection:<Checkbox/>,
+                ppl_position:"พยาบาล"
+              },
+              {
+                selection:<Checkbox/>,
+                ppl_position:"หมอ"
+              }
+          ]
+        };
+      }
+
     render() {
         return (
-            <Form>
-                <Row>
-                <Col xs={6} md={6}>
-                    <FormGroup controlId="GenericType">
-                    <ControlLabel>รูปแบบยา</ControlLabel>
-                    <FormControl type="text" placeholder="Generic Type"/>
-                    </FormGroup>
-                </Col>
-            </Row>
+        <Form>
+            <ReactTable
+            data={this.state.data}
+            noDataText="ไม่พบข้อมูล"
+            filterable
+            defualtFilterMethod={(filter, row)=>
+                String(row[filter.id])===filter.value ||
+                row[filter.id].includes(filter.value)}
+            columns={[
+              {
+                Header: "ตัวเลือก",
+                accessor: "selection"
+              },
+              {
+                Header: "ตำแหน่ง",
+                accessor:"ppl_position"
+              }
+            ]}
+            defaultPageSize={10}
+            className="-striped -highlight"
+          />
         </Form>
         );
     }
@@ -60,56 +89,40 @@ class Buttonbar extends React.Component {
     render() {
         return (
     <div>
-    <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-fontello-plus'/>  เพิ่มรูปแบบยา</Button>
+    <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-fontello-plus'/>  เพิ่มชื่อตำแหน่ง</Button>
     <Modal show={this.state.showModal} onHide={::this.close}>
       <Modal.Header closeButton>
-      <Modal.Title>เพิ่ม/แก้ไข รูปแบบยา</Modal.Title>
+      <Modal.Title>เพิ่มชื่อตำแหน่ง</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <GenericTypeform/>
+        <Positionform/>
       </Modal.Body>
       <Modal.Footer>
-      <Button bsStyle='success' onClick={::this.close}>บันทึก</Button>
+      <Button bsStyle='success' onClick={::this.close}>ตกลง</Button>
       <Button onClick={::this.close}>ยกเลิก</Button>
       </Modal.Footer>
     </Modal>
+
+     <Button bsStyle='danger' className='pull-right'>
+     <Icon glyph='icon-fontello-back' /> ย้อนกลับ
+    </Button>
     </div>
         );
     }
 }
 
-class DatatableComponent extends React.Component {
+class Positiontable extends React.Component {
     constructor() {
         super();
         this.state = {
           data: [
               {
-                type:"INJ",
-                edit:<ButtonGroup>
-                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
-                     </ButtonGroup>
+                position:"พยาบาล",
+                delete:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
               },
               {
-                type:"TAB",
-                edit:<ButtonGroup>
-                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
-                     </ButtonGroup>
-              },
-              {
-                type:"POWDER",
-                edit:<ButtonGroup>
-                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
-                     </ButtonGroup>
-              },
-              {
-                type:"Cap",
-                edit:<ButtonGroup>
-                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
-                     </ButtonGroup>
+                position:"หมอ",
+                delete:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
               }
           ]
         };
@@ -126,12 +139,12 @@ class DatatableComponent extends React.Component {
                 row[filter.id].includes(filter.value)}
             columns={[
               {
-                Header: "รูปแบบยา",
-                accessor: "type"
+                Header: "ชื่อตำแหน่ง",
+                accessor: "position"
               },
               {
-                Header: "แก้ไข",
-                accessor:"edit"
+                Header: "การแก้ไข",
+                accessor:"delete"
               }
             ]}
             defaultPageSize={10}
@@ -140,7 +153,7 @@ class DatatableComponent extends React.Component {
         );
     }
 }
-export default class Generic_Type extends React.Component {
+export default class PositionTable extends React.Component {
     render() {
         return (
             <Row>
@@ -153,7 +166,7 @@ export default class Generic_Type extends React.Component {
                     <Col xs={12}>
                       <Buttonbar/>
                       <hr/>
-                      <DatatableComponent />
+                      <Positiontable />
                       <br/>
                     </Col>
                   </Row>

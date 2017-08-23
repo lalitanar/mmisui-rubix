@@ -18,6 +18,8 @@ import Home2 from './routes/Home2';
 import Usermanagement from './routes/Usermanagement'
 import Tableview from './components/Tableview'
 import tbPackage from './routes/tbPackage'
+import GenericMedicine from './routes/GenericMedicineAndSupplies';
+import PackageTable from './routes/tbPackage'
 import SupplierIndex from './routes/supplier/Index'
 import SupplierNew from './routes/supplier/New'
 import SupplierDetail from './routes/supplier/Detail'
@@ -26,6 +28,13 @@ import ContactIndex from './routes/contact/Index'
 import MedicalAndSupplies from './routes/material/GenericMedicineAndSupplies'
 import Product from './routes/material/Product'
 
+import GenericType from './routes/GenericType'
+import GenMedSupType from './routes/GenericMedSupType'
+import TitleTable from './routes/TitleTable'
+import PositionTable from './routes/PositionTable'
+import Organization from './routes/Organization'
+import OrganizationEmployees from './routes/OrganizationEmployees'
+import MaterialSetting from './routes/MaterialSetting'
 class App extends React.Component {
   change(num){
     this.setState({sidebar:num});
@@ -84,6 +93,21 @@ const routes = (
     <Route path='contact/index' component={ContactIndex} />
     <Route path='material/addmedsup' component={MedicalAndSupplies} />
     <Route path='material/product' component={Product} />
+    <Route path='/usermanagement' component={Usermanagement} />
+    <Route path='/table' component={Tableview} />
+    <Route path='/supplier/index' component={SupplierIndex} />
+    <Route path='/supplier/new' component={SupplierNew} />
+    <Route path='/supplier/detail' component={SupplierDetail} />
+    <Route path='/contact/new' component={ContactNew} />
+    <Route path='/contact/index' component={ContactIndex} />
+    <Route path='/packagetable' component={PackageTable} />
+    <Route path='/generictype' component={GenericType} />
+    <Route path='/genmedsuptype' component={GenMedSupType} />
+    <Route path='/titletable' component={TitleTable} />
+    <Route path='/positiontable' component={PositionTable} />
+    <Route path='/organization' component={Organization} />
+    <Route path='/employees' component={OrganizationEmployees} />
+    <Route path='/materialsetting' component={MaterialSetting} />
   </Route>
 );
 

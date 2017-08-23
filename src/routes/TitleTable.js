@@ -73,15 +73,6 @@ class Buttonbar extends React.Component {
       <Button onClick={::this.close}>ยกเลิก</Button>
       </Modal.Footer>
     </Modal>
-
-    <ButtonGroup className='pull-right'>
-          <Button bsStyle='primary' >
-          <Icon glyph='icon-fontello-download' /> นำออกไฟล์
-          </Button>
-          <Button bsStyle='defalt'>
-          <Icon glyph='icon-fontello-print' /> พิมพ์
-          </Button>
-    </ButtonGroup>
     </div>
         );
     }
@@ -94,6 +85,10 @@ class Titletable extends React.Component {
           data: [
               {
                 title:"ศาสตราจารย์",
+                delete:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
+              },
+              {
+                title:"นางสาว",
                 delete:<Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
               }
           ]

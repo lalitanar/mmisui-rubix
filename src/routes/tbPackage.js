@@ -31,29 +31,22 @@ class Packageform extends React.Component {
         return (
             <Form>
                 <Row>
-                <Col xs={6} md={6}>
+                <Col xs={4} md={4}>
                     <FormGroup controlId="Bigunitname">
                     <ControlLabel>ชื่อหน่วยใหญ่(เข้า)</ControlLabel>
                     <FormControl type="text" placeholder="Big Unit"/>
                     </FormGroup>
                 </Col>
-                <Col xs={6} md={6}>
-                    <FormGroup controlId="Bigunitquan">
-                    <ControlLabel>จำนวนหน่วยใหญ่</ControlLabel>
-                    <FormControl type="text" placeholder="Quantity" />
-                    </FormGroup>
-                </Col>
-
-                <Col xs={6} md={6}>
-                    <FormGroup controlId="Smallunitname">
-                    <ControlLabel>ชื่อหน่วยย่อย(ออก)</ControlLabel>
-                    <FormControl type="text" placeholder="Small Unit" />
-                    </FormGroup>
-                </Col>
-                <Col xs={6} md={6}>
+                <Col xs={3} md={4}>
                     <FormGroup controlId="Samllunitquan">
                     <ControlLabel>จำนวนหน่วยย่อย</ControlLabel>
                     <FormControl type="text" placeholder="Quantity" />
+                    </FormGroup>
+                </Col>
+                <Col xs={4} md={4}>
+                    <FormGroup controlId="Smallunitname">
+                    <ControlLabel>ชื่อหน่วยย่อย(ออก)</ControlLabel>
+                    <FormControl type="text" placeholder="Small Unit" />
                     </FormGroup>
                 </Col>
             </Row>
@@ -116,7 +109,7 @@ class DatatableComponent extends React.Component {
           data: [
               {name:"1กระปุก 100เม็ด",
               edit:<ButtonGroup>
-                        <Button bsStyle='danger'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
+                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
                         <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
                      </ButtonGroup>
               }
