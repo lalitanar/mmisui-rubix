@@ -32,11 +32,11 @@ class ApplicationSidebar extends React.Component {
                   <div className='sidebar-header'>เมนู Material</div>
                   <SidebarNavItem glyph='icon-fontello-gauge' name='รายชื่อผลิตภัณฑ์' href='/material/product'/>
                   <SidebarNavItem glyph='icon-fontello-gauge' name='รายชื่อสามัญ' href='/material/addmedsup' />
-                  <SidebarNavItem glyph='icon-fontello-gauge' name='รายชื่อผู้ประกอบการ' />
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='รายชื่อผู้ประกอบการ' href='/supplier/index'/>
                   <SidebarDivider />
-                  <SidebarNavItem glyph='icon-fontello-gauge' name='รูปแบบผลิตภัณฑ์' />
-                  <SidebarNavItem glyph='icon-fontello-gauge' name='รูปแบบยา' />
-                  <SidebarNavItem glyph='icon-fontello-gauge' name='ประเภทเวชภัณฑ์' />
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='รูปแบบผลิตภัณฑ์' href='/packagetable' />
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='รูปแบบยา' href='/generictype' />
+                  <SidebarNavItem glyph='icon-fontello-gauge' name='ประเภทเวชภัณฑ์' href='/genmedsuptype'/>
 
                 </SidebarNav>
 

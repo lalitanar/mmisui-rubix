@@ -162,7 +162,7 @@ class DatatableComponent extends React.Component {
                   Header: "เพิ่มเติม",
                   accessor: "Remark",
                 },
-             
+
               ]
             }
           defaultPageSize={10}
@@ -181,6 +181,15 @@ export default class Tableview extends React.Component {
         <Col xs={12}>
           <PanelContainer>
             <Panel>
+              <PanelHeader className='bg-blue'>
+                 <Grid>
+                   <Row>
+                    <Col xs={12} className='fg-white'>
+                      <h4>ข้อมูลผู้ประกอบการ</h4>
+                    </Col>
+                   </Row>
+                 </Grid>
+                </PanelHeader>
               <PanelBody>
                 <Grid>
                   <Row>

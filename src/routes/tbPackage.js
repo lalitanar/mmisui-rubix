@@ -72,14 +72,14 @@ class Buttonbar extends React.Component {
     render() {
         return (
     <div>
-    
+
     <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-fontello-plus'/>  เพิ่มข้อมูลบรรจุภัณฑ์</Button>
     <Modal show={this.state.showModal} onHide={::this.close}>
       <Modal.Header closeButton>
       <Modal.Title>เพิ่ม/แก้ไข ข้อมูลบรรจุภัณฑ์</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Modal.Title>ข้อมูลบรรจุภัณฑ์</Modal.Title>  
+        <Modal.Title>ข้อมูลบรรจุภัณฑ์</Modal.Title>
         <Packageform/>
       </Modal.Body>
       <Modal.Footer>
@@ -96,7 +96,7 @@ class Buttonbar extends React.Component {
           <Icon glyph='icon-fontello-print' /> พิมพ์
           </Button>
     </ButtonGroup>
-   
+
     </div>
         );
     }
@@ -149,6 +149,15 @@ export default class PackageTable extends React.Component {
         <Col xs={12}>
           <PanelContainer>
             <Panel>
+              <PanelHeader className='bg-blue'>
+                 <Grid>
+                   <Row>
+                    <Col xs={12} className='fg-white'>
+                      <h4>ข้อมูลบรรจุภัณฑ์</h4>
+                    </Col>
+                   </Row>
+                 </Grid>
+                </PanelHeader>
               <PanelBody>
                 <Grid>
                   <Row>
