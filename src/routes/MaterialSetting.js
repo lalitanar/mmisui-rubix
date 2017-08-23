@@ -38,7 +38,7 @@ class MaterialSetupform extends React.Component {
                     <FormControl type="text" placeholder="TMT"/>
                     <ControlLabel>ประเภทยา</ControlLabel>
                     <FormControl type="text" placeholder="Generic Type"/>
-                    <ControlLabel>Generic</ControlLabel>
+                    <ControlLabel>ชื่อสามัญ</ControlLabel>
                     <FormControl type="text" placeholder="Generic"/>
                     </FormGroup>
                 </Col>
