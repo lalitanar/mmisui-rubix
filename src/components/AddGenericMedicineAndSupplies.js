@@ -19,7 +19,6 @@ import {
 class Medicine extends Component {
   submitmed(){
     this.props.submit();
-    console.log("med")
   }
   constructor(props){
     super(props);

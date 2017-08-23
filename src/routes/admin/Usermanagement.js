@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import ReactTable from "react-table";
 import {
     Row,
     Col,
@@ -122,105 +122,46 @@ class Actionuser extends React.Component {
     }
 }
 class DatatableComponent extends React.Component {
-    componentDidMount() {
-        $(ReactDOM.findDOMNode(this.example))
-            .addClass('nowrap')
-            .dataTable({
-                responsive: true,
-                columnDefs: [
-                    { targets: [-1, -3], className: 'dt-body-right' }
-                ]
-            });
-    }
-
     render() {
+      var data =[{userName:"admin",fullName:"asdf",Email:"asdf",Phone:"234324",Role:"sdfg",Status:"sdfg",Remark:<Actionuser/>}]
         return (
-            <Table ref={(c) => this.example = c} className='display' cellSpacing='0' width='100%'>
-        <thead>
-          <tr>
-            <th>No</th>
-            <th>ชื่อผู้ใช้งาน</th>
-            <th>ชื่อ นามสกุล</th>
-            <th>Email</th>
-            <th>เบอร์ติดต่อ</th>
-            <th>ตำแหน่ง</th>
-            <th>สถานะ</th>
-            <th>คำสั่ง</th>
-          </tr>
-        </thead>
-        <tbody>
-           <tr>
-             <th>1</th>
-             <th>admin</th>
-             <th>admin cat</th>
-             <th>admin@mmis.com</th>
-             <th>08000000000</th>
-             <th>admin</th>
-             <th>ใช้งานได้</th>
-             <th><Actionuser/></th>
-           </tr>
-           <tr>
-             <th>1</th>
-             <th>admin</th>
-             <th>admin cat</th>
-             <th>admin@mmis.com</th>
-             <th>08000000000</th>
-             <th>admin</th>
-             <th>ใช้งานได้</th>
-             <th><Actionuser/></th>
-           </tr>
-           <tr>
-             <th>1</th>
-             <th>admin</th>
-             <th>admin cat</th>
-             <th>admin@mmis.com</th>
-             <th>08000000000</th>
-             <th>admin</th>
-             <th>ใช้งานได้</th>
-             <th><Actionuser/></th>
-           </tr>
-           <tr>
-             <th>1</th>
-             <th>admin</th>
-             <th>admin cat</th>
-             <th>admin@mmis.com</th>
-             <th>08000000000</th>
-             <th>admin</th>
-             <th>ใช้งานได้</th>
-             <th><Actionuser/></th>
-           </tr>
-           <tr>
-             <th>1</th>
-             <th>admin</th>
-             <th>admin cat</th>
-             <th>admin@mmis.com</th>
-             <th>08000000000</th>
-             <th>admin</th>
-             <th>ใช้งานได้</th>
-             <th><Actionuser/></th>
-           </tr>
-           <tr>
-             <th>1</th>
-             <th>admin</th>
-             <th>admin cat</th>
-             <th>admin@mmis.com</th>
-             <th>08000000000</th>
-             <th>admin</th>
-             <th>ใช้งานได้</th>
-             <th><Actionuser/></th>
-           </tr>
-           <tr>
-             <th>1</th>
-             <th>admin</th>
-             <th>admin cat</th>
-             <th>admin@mmis.com</th>
-             <th>08000000000</th>
-             <th>admin</th>
-             <th>ใช้งานได้</th>
-             <th><Actionuser/></th>
-           </tr>
-        </tbody>
-      </Table>
+          <ReactTable
+            data={data}
+            noDataText="ไม่พบข้อมูล"
+            filterable
+            columns={[
+              {
+                Header: "ชื่อผู้ใช้งาน",
+                accessor: "userName"
+              },
+              {
+                Header: "ชื่อ นามสกุล",
+                accessor: "fullName"
+              },
+              {
+                Header: "Email",
+                accessor: "Email"
+              },
+              {
+                Header: "เบอร์ติดต่อ",
+                accessor: "Phone"
+              },
+              {
+                Header: "ตำแหน่ง",
+                accessor: "Role"
+              },
+              {
+                Header: "สถานะ",
+                accessor: "Status"
+              },
+              {
+                Header: "คำสั่ง",
+                accessor: "Remark",
+              }
+            ]}
+            defaultPageSize={10}
+            className="-striped -highlight"
+            />
         );
     }
 }
