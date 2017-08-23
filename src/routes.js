@@ -19,7 +19,6 @@ import Usermanagement from './routes/admin/Usermanagement'
 import Rolemanagement from './routes/admin/Rolemanagement'
 import Tableview from './components/Tableview'
 import tbPackage from './routes/tbPackage'
-import GenericMedicine from './routes/GenericMedicineAndSupplies';
 import PackageTable from './routes/tbPackage'
 import SupplierIndex from './routes/supplier/Index'
 import SupplierNew from './routes/supplier/New'
@@ -28,7 +27,6 @@ import ContactNew from './routes/contact/New'
 import ContactIndex from './routes/contact/Index'
 import MedicalAndSupplies from './routes/material/GenericMedicineAndSupplies'
 import Product from './routes/material/Product'
-
 import GenericType from './routes/GenericType'
 import GenMedSupType from './routes/GenericMedSupType'
 import TitleTable from './routes/TitleTable'
@@ -95,14 +93,14 @@ const routes = (
     <Route path='material/addmedsup' component={MedicalAndSupplies} />
     <Route path='material/product' component={Product} />
     <Route path='rolemanagement' component={Rolemanagement} />
-    <Route path='/packagetable' component={PackageTable} />
-    <Route path='/generictype' component={GenericType} />
-    <Route path='/genmedsuptype' component={GenMedSupType} />
-    <Route path='/titletable' component={TitleTable} />
-    <Route path='/positiontable' component={PositionTable} />
-    <Route path='/organization' component={Organization} />
-    <Route path='/employees' component={OrganizationEmployees} />
-    <Route path='/materialsetting' component={MaterialSetting} />
+    <Route path='packagetable' component={PackageTable} />
+    <Route path='generictype' component={GenericType} />
+    <Route path='genmedsuptype' component={GenMedSupType} />
+    <Route path='titletable' component={TitleTable} />
+    <Route path='positiontable' component={PositionTable} />
+    <Route path='organization' component={Organization} />
+    <Route path='employees' component={OrganizationEmployees} />
+    <Route path='materialsetting' component={MaterialSetting} />
   </Route>
 );
 
