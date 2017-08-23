@@ -210,13 +210,26 @@ class AddProduct extends Component {
                       <FormGroup>
                         <ControlLabel>รหัส TMT</ControlLabel>
                         <InputGroup>
-                          <FormControl type='text'/>
+                          <FormControl disabled type='text'/>
                           <InputGroup.Addon className='plain'>
                             <Addtmt/>
-
                           </InputGroup.Addon>
                         </InputGroup>
                     </FormGroup>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col xs={6}>
+                        <FormGroup>
+                          <ControlLabel>GP</ControlLabel>
+                           <FormControl disabled type="text" />
+                        </FormGroup>
+                      </Col>
+                      <Col xs={6}>
+                        <FormGroup>
+                          <ControlLabel>ประเภทยา</ControlLabel>
+                           <FormControl disabled type="text" />
+                        </FormGroup>
                       </Col>
                     </Row>
                     <Row>

@@ -51,7 +51,7 @@ class Bar extends React.Component {
                         <Icon glyph='icon-fontello-cancel' /> ยกเลิก
                     </Button>
                 </ButtonToolbar>
-            </div >
+            </div>
         );
     }
 }
@@ -192,7 +192,7 @@ class FormCon extends React.Component {
                                 </InputGroup>
                             </FormGroup>
                         </Col>
-                        <Col xs={6}>                        
+                        <Col xs={6}>
                         <FormGroup controlId="formControlsEmail">
                             <ControlLabel>E-mail</ControlLabel>
                             <FormControl type="email" placeholder="E-mail" />
@@ -350,4 +350,3 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
         );
     }
 }
-

@@ -15,6 +15,8 @@ import {
   Panel,
   PanelContainer,
   PanelFooter,
+  ButtonToolbar,
+  Icon,
 } from '@sketchpixy/rubix';
 class Medicine extends Component {
   submitmed(){
@@ -61,26 +63,9 @@ class Medicine extends Component {
                 <FormGroup>
                     <ControlLabel>รูปแบบยา</ControlLabel>
                     <FormControl componentClass="select" placeholder="select">
-                        <option value="select">เลือกรูปแบบยา</option>
-                        <option value="other">Gastro-intestinal system</option>
-                        <option value="other">Cardiovascular system</option>
-                        <option value="other">Respiratory system</option>
-                        <option value="other">Central nervous system</option>
-                        <option value="other">Infections</option>
-                        <option value="other">Endocrine system</option>
-                        <option value="other">Obstetrics, gynaecology and urinary-tract disorders</option>
-                        <option value="other">Malignant disease and immunosuppression</option>
-                        <option value="other">Nutrition and blood</option>
-                        <option value="other">Musculoskeletal and joint diseases</option>
-                        <option value="other">Eye</option>
-                        <option value="other">Ear, nose, oropharynx  and oral cavity</option>
-                        <option value="other">Skin</option>
-                        <option value="other">Immunological products and vaccines</option>
-                        <option value="other">Anaesthesia</option>
-                        <option value="other">Antidotes</option>
-                        <option value="other">Contrast media and Radiopharmaceuticals</option>
-                        <option value="other">ยาสมุนไพร</option>
-                        <option value="other">เวชภัณฑ์ที่มิใช่ยา</option>
+                        <option value="select">เลือก</option>
+                        <option value="select">TAB.</option>
+                        <option value="select">INJ.</option>
                     </FormControl>
                 </FormGroup>
                 </Col>
@@ -92,8 +77,26 @@ class Medicine extends Component {
                 <FormGroup>
                     <ControlLabel>รหัสกลุ่มยา</ControlLabel>
                     <FormControl componentClass="select" placeholder="select">
-                        <option value="select">ฟหก</option>
-                        <option value="other">ฟหก</option>
+                      <option value="select">เลือกรูปแบบยา</option>
+                      <option value="other">Gastro-intestinal system</option>
+                      <option value="other">Cardiovascular system</option>
+                      <option value="other">Respiratory system</option>
+                      <option value="other">Central nervous system</option>
+                      <option value="other">Infections</option>
+                      <option value="other">Endocrine system</option>
+                      <option value="other">Obstetrics, gynaecology and urinary-tract disorders</option>
+                      <option value="other">Malignant disease and immunosuppression</option>
+                      <option value="other">Nutrition and blood</option>
+                      <option value="other">Musculoskeletal and joint diseases</option>
+                      <option value="other">Eye</option>
+                      <option value="other">Ear, nose, oropharynx  and oral cavity</option>
+                      <option value="other">Skin</option>
+                      <option value="other">Immunological products and vaccines</option>
+                      <option value="other">Anaesthesia</option>
+                      <option value="other">Antidotes</option>
+                      <option value="other">Contrast media and Radiopharmaceuticals</option>
+                      <option value="other">ยาสมุนไพร</option>
+                      <option value="other">เวชภัณฑ์ที่มิใช่ยา</option>
                     </FormControl>
                 </FormGroup>
                 <FormGroup>
@@ -108,13 +111,19 @@ class Medicine extends Component {
              </Row>
            </Grid>
           </PanelBody>
-          <PanelFooter className='bg-lightblue'>
+          <PanelFooter className='bg-purple'>
             <Grid>
               <Row>
                 <Col xs={12}>
                     <br/>
-                    <Button className='pull-right' bsStyle="danger" onClick={this.props.submit}>ยกเลิก</Button>
-                    <Button className='pull-right' bsStyle="success" onClick={this.submitmed}>บันทึกข้อมูล</Button>
+                      <ButtonToolbar>
+                          <Button className="pull-right" bsStyle="success" href="#" onClick={this.submitmed}>
+                              <Icon glyph='icon-fontello-floppy' /> บันทึก
+                          </Button>
+                          <Button bsStyle="danger" href="#" onClick={this.props.submit}>
+                              <Icon glyph='icon-fontello-cancel' /> ยกเลิก
+                          </Button>
+                      </ButtonToolbar>
                     <br/>
                 </Col>
               </Row>
@@ -168,7 +177,7 @@ class Medicine extends Component {
                    <FormControl type="text" />
               </FormGroup>
               <FormGroup>
-                  <ControlLabel>ประเภทของเวชภัณฑ</ControlLabel>
+                  <ControlLabel>ประเภทของเวชภัณฑ์</ControlLabel>
                   <FormControl componentClass="select" placeholder="select">
                       <option value="select">ฟหก</option>
                       <option value="other">หกด</option>
@@ -182,16 +191,21 @@ class Medicine extends Component {
             </Row>
           </Grid>
               </PanelBody>
-              <PanelFooter>
+              <PanelFooter className='bg-palepink'>
                 <Grid>
               <Row>
                 <Col xs={12} className='fg-white'>
-                  <Button className='pull-right' bsStyle="danger" onClick={this.props.submit}>ยกเลิก</Button>
-
-                  <Button className='pull-right' bsStyle="success" onClick={this.submitsup}>บันทึกข้อมูล</Button>
-
-
-                </Col>
+                  <br/>
+                    <ButtonToolbar>
+                        <Button className="pull-right" bsStyle="success" href="#" onClick={this.submitsup}>
+                            <Icon glyph='icon-fontello-floppy' /> บันทึก
+                        </Button>
+                        <Button bsStyle="danger" href="#" onClick={this.props.submit}>
+                            <Icon glyph='icon-fontello-cancel' /> ยกเลิก
+                        </Button>
+                    </ButtonToolbar>
+                    <br/>
+                </Col><br/>
               </Row>
             </Grid>
 
