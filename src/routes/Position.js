@@ -28,48 +28,20 @@ import {
 } from '@sketchpixy/rubix';
 
 class Positionform extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-          data: [
-              {
-                selection:<Checkbox/>,
-                ppl_position:"พยาบาล"
-              },
-              {
-                selection:<Checkbox/>,
-                ppl_position:"หมอ"
-              }
-          ]
-        };
-      }
-
-    render() {
-        return (
+  render() {
+    return (
         <Form>
-            <ReactTable
-            data={this.state.data}
-            noDataText="ไม่พบข้อมูล"
-            filterable
-            defualtFilterMethod={(filter, row)=>
-                String(row[filter.id])===filter.value ||
-                row[filter.id].includes(filter.value)}
-            columns={[
-              {
-                Header: "ตัวเลือก",
-                accessor: "selection"
-              },
-              {
-                Header: "ตำแหน่ง",
-                accessor:"ppl_position"
-              }
-            ]}
-            defaultPageSize={10}
-            className="-striped -highlight"
-          />
-        </Form>
-        );
-    }
+            <Row>
+            <Col xs={6} md={6}>
+                <FormGroup controlId="Position">
+                <ControlLabel>ชื่อตำแหน่ง</ControlLabel>
+                <FormControl type="text" placeholder="Position"/>
+                </FormGroup>
+            </Col>
+        </Row>
+    </Form>
+    );
+}
 }
 
 class Buttonbar extends React.Component {
@@ -89,10 +61,10 @@ class Buttonbar extends React.Component {
     render() {
         return (
     <div>
-    <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-fontello-plus'/>  เพิ่มชื่อตำแหน่ง</Button>
+    <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-fontello-plus'/>  เพิ่มตัวเลือกตำแหน่ง</Button>
     <Modal show={this.state.showModal} onHide={::this.close}>
       <Modal.Header closeButton>
-      <Modal.Title>เพิ่มชื่อตำแหน่ง</Modal.Title>
+      <Modal.Title>เพิ่มตัวเลือกตำแหน่ง</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Positionform/>
@@ -102,10 +74,6 @@ class Buttonbar extends React.Component {
       <Button onClick={::this.close}>ยกเลิก</Button>
       </Modal.Footer>
     </Modal>
-
-     <Button bsStyle='danger' className='pull-right'>
-     <Icon glyph='icon-fontello-back' /> ย้อนกลับ
-    </Button>
     </div>
         );
     }
@@ -156,16 +124,25 @@ class Positiontable extends React.Component {
 export default class PositionTable extends React.Component {
     render() {
         return (
-            <Row>
+          <Row>
         <Col xs={12}>
           <PanelContainer>
             <Panel>
+            <PanelHeader className='bg-blue'>
+           <Grid>
+             <Row>
+              <Col xs={12} className='fg-white'>
+                <h3>เพิ่มตัวเลือกตำแหน่ง</h3>
+              </Col>
+             </Row>
+           </Grid>
+          </PanelHeader>
               <PanelBody>
                 <Grid>
                   <Row>
                     <Col xs={12}>
-                      <Buttonbar/>
-                      <hr/>
+                    <Buttonbar/>
+                    <hr/>
                       <Positiontable />
                       <br/>
                     </Col>

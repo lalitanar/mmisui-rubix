@@ -30,9 +30,10 @@ import Product from './routes/material/Product'
 import GenericType from './routes/GenericType'
 import GenMedSupType from './routes/GenericMedSupType'
 import TitleTable from './routes/TitleTable'
-import PositionTable from './routes/PositionTable'
+import OrganizationPosition from './routes/OrganizationPosition'
 import Organization from './routes/Organization'
 import OrganizationEmployees from './routes/OrganizationEmployees'
+import Position from './routes/Position'
 import MaterialSetting from './routes/MaterialSetting'
 class App extends React.Component {
   change(num){
@@ -97,7 +98,8 @@ const routes = (
     <Route path='generictype' component={GenericType} />
     <Route path='genmedsuptype' component={GenMedSupType} />
     <Route path='titletable' component={TitleTable} />
-    <Route path='positiontable' component={PositionTable} />
+    <Route path='position' component={Position} />
+    <Route path='organizationposition' component={OrganizationPosition} />
     <Route path='organization' component={Organization} />
     <Route path='employees' component={OrganizationEmployees} />
     <Route path='materialsetting' component={MaterialSetting} />

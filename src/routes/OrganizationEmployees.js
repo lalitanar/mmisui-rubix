@@ -136,18 +136,16 @@ class Employeetable extends React.Component {
                 ppl_name:"kik",
                 ppl_surname:"lurkraisit",
                 ppl_status:"1",
-                ppl_position:"nurse",   
                 ppl_organization:"Mahidol",
-                moreinfo:<Button bsStyle='success'><Icon glyph='icon-fontello-search' /> ดูรายละเอียดหน่วยงาน</Button>
+                ppl_position:"nurse"
               },
               {
                 ppl_title:"Mr.",
                 ppl_name:"who",
                 ppl_surname:"lol",
                 ppl_status:"0",
-                ppl_position:"doctor",
                 ppl_organization:"Mahidol",
-                moreinfo:<Button bsStyle='success'><Icon glyph='icon-fontello-search'/>   ดูรายละเอียดหน่วยงาน</Button>
+                ppl_position:"doctor"
               }
           ]
         };
@@ -194,16 +192,12 @@ class Employeetable extends React.Component {
                 )
               },
               {
-                Header: "ตำแหน่ง",
-                accessor:"ppl_position"
-              },
-              {
                 Header: "หน่วยงาน",
                 accessor:"ppl_organization"
               },
               {
-                Header: "ดูรายละเอียดเพิ่มเติม",
-                accessor:"moreinfo"
+                Header: "ตำแหน่ง",
+                accessor:"ppl_position"
               }
             ]}
             defaultPageSize={10}
