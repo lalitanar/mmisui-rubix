@@ -147,6 +147,15 @@ export default class Generic_Type extends React.Component {
         <Col xs={12}>
           <PanelContainer>
             <Panel>
+              <PanelHeader className='bg-blue'>
+                 <Grid>
+                   <Row>
+                    <Col xs={12} className='fg-white'>
+                      <h4>ข้อมูลรูปแบบยา</h4>
+                    </Col>
+                   </Row>
+                 </Grid>
+                </PanelHeader>
               <PanelBody>
                 <Grid>
                   <Row>

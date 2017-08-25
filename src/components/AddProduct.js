@@ -20,6 +20,54 @@ import {
   InputGroup,
   Modal,
 } from '@sketchpixy/rubix';
+class Addtmt extends Component {
+  constructor(props) {
+      super(props);
+      this.state = { showModal: false,data:[]};
+  }
+  close() {
+      this.setState({ showModal: false });
+  }
+  open() {
+      this.setState({ showModal: true });
+  }
+  render() {
+      return (
+        <div>
+        <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-ikons-magnifying-glass-add'/> เพิ่ม TMT</Button>
+        <Modal show={this.state.showModal} onHide={::this.close}>
+          <Modal.Header closeButton>
+          <Modal.Title>เพิ่ม TMT</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <ReactTable
+              data={this.state.data}
+              noDataText="ไม่พบ"
+              showPageJump='false'
+              filterable
+              columns={[
+                {
+                  Header: "TPU",
+                  accessor: "TPU"
+                },
+                {
+                  Header: "เพิ่มเติม",
+                  accessor: "Remark",
+                  width: 150,
+                }
+              ]}
+              defaultPageSize={10}
+              className="-striped -highlight"
+            />
+          </Modal.Body>
+          <Modal.Footer>
+          <Button bsStyle='danger' onClick={::this.close}>ยกเลิก</Button>
+          </Modal.Footer>
+        </Modal>
+        </div>
+      );
+  }
+}
 
 class Addiitem extends Component {
   componentWillMount(){
@@ -56,7 +104,7 @@ class Addiitem extends Component {
   render() {
       return (
         <div>
-        <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-ikons-magnifying-glass-add'/> เพิ่ม {this.state.title}</Button>
+        <Button bsStyle='success' onClick={::this.open}><Icon bundle='fontello' glyph='search' /> เพิ่ม {this.state.title}</Button>
         <Modal show={this.state.showModal} onHide={::this.close}>
           <Modal.Header closeButton>
           <Modal.Title>เพิ่ม {this.state.title}</Modal.Title>
@@ -162,15 +210,26 @@ class AddProduct extends Component {
                       <FormGroup>
                         <ControlLabel>รหัส TMT</ControlLabel>
                         <InputGroup>
-                          <FormControl type='text'/>
+                          <FormControl disabled type='text'/>
                           <InputGroup.Addon className='plain'>
-                            <Button>
-                              <span>ค้นหา </span>
-                              <Icon bundle='fontello' glyph='search' />
-                            </Button>
+                            <Addtmt/>
                           </InputGroup.Addon>
                         </InputGroup>
                     </FormGroup>
+                      </Col>
+                    </Row>
+                    <Row>
+                      <Col xs={6}>
+                        <FormGroup>
+                          <ControlLabel>GP</ControlLabel>
+                           <FormControl disabled type="text" />
+                        </FormGroup>
+                      </Col>
+                      <Col xs={6}>
+                        <FormGroup>
+                          <ControlLabel>ประเภทยา</ControlLabel>
+                           <FormControl disabled type="text" />
+                        </FormGroup>
                       </Col>
                     </Row>
                     <Row>
