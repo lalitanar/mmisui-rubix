@@ -179,8 +179,7 @@ class Medicine extends Component {
               <FormGroup>
                   <ControlLabel>ประเภทของเวชภัณฑ์</ControlLabel>
                   <FormControl componentClass="select" placeholder="select">
-                      <option value="select">ฟหก</option>
-                      <option value="other">หกด</option>
+                      <option value="select">เลือก</option>
                   </FormControl>
               </FormGroup>
               <FormGroup>

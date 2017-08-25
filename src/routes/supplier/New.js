@@ -227,7 +227,7 @@ class FormNew extends React.Component {
     }
     render() {
         var val = <Col xs={6} ></Col>;
-        if (this.state.value == '2') val = <Col xs={6} >
+        if (this.state.value == '1') val = <Col xs={6} >
             <FormGroup id="date-discon">
                 <ControlLabel>วันที่เลิกใช้งาน</ControlLabel>
                 <DateTimeField />
@@ -260,9 +260,8 @@ class FormNew extends React.Component {
                                 <ControlLabel>สถานะของผู้ประกอบการ</ControlLabel>
 
                                 <FormControl componentClass="select" onChange={this.handleChange}  >
-                                    <option value="0">รอดำเนินการ</option>
-                                    <option value="1">อนุมัติ</option>
-                                    <option value="2">เลิกใช้งาน</option>
+                                    <option value="0">อนุมัติ</option>
+                                    <option value="1">เลิกใช้งาน</option>
                                 </FormControl>
                             </FormGroup>
                         </Col>
