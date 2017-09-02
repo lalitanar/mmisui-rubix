@@ -21,19 +21,6 @@ import {
 } from '@sketchpixy/rubix';
 
 class Buttonbar extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = { showModal: false };
-    }
-
-    close() {
-        this.setState({ showModal: false });
-    }
-
-    open() {
-        this.setState({ showModal: true });
-    }
     render() {
         return (
     <div>

@@ -33,11 +33,11 @@ class PositionSelectionform extends React.Component {
         this.state = {
           data: [
               {
-                selection:<Checkbox/>,
+                selection:<Checkbox inline/>,
                 ppl_position:"พยาบาล"
               },
               {
-                selection:<Checkbox/>,
+                selection:<Checkbox inline/>,
                 ppl_position:"หมอ"
               }
           ]
