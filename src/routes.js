@@ -35,6 +35,8 @@ import Organization from './routes/Organization'
 import OrganizationEmployees from './routes/OrganizationEmployees'
 import Position from './routes/Position'
 import MaterialSetting from './routes/MaterialSetting'
+import History from './routes/History'
+import ViewHistory from './routes/ViewHistory'
 class App extends React.Component {
   change(num){
     this.setState({sidebar:num});
@@ -103,6 +105,8 @@ const routes = (
     <Route path='organization' component={Organization} />
     <Route path='employees' component={OrganizationEmployees} />
     <Route path='materialsetting' component={MaterialSetting} />
+    <Route path='history' component={History} />
+    <Route path='viewhistory' component={ViewHistory} />
   </Route>
 );
 
