@@ -88,11 +88,11 @@ const routes = (
     <IndexRoute component={Home} />
     <Route path='usermanagement' component={Usermanagement} />
     <Route path='table' component={Tableview} />
-    <Route path='supplier/index' component={SupplierIndex} />
+    <Route path='supplier' component={SupplierIndex} />
     <Route path='supplier/new' component={SupplierNew} />
     <Route path='supplier/detail' component={SupplierDetail} />
     <Route path='contact/new' component={ContactNew} />
-    <Route path='contact/index' component={ContactIndex} />
+    <Route path='contact' component={ContactIndex} />
     <Route path='material/addmedsup' component={MedicalAndSupplies} />
     <Route path='material/product' component={Product} />
     <Route path='rolemanagement' component={Rolemanagement} />
