@@ -36,12 +36,14 @@ class Employeeform extends React.Component {
             <Form>
                 <Row>
                 <Col xs={3} md={3}>
-                    <ControlLabel>คำนำหน้า</ControlLabel>
-                    <DropdownButton bsStyle='link' title='Title' >
-		                <MenuItem eventKey="1">นาย</MenuItem>
-		                <MenuItem eventKey="2">นางสาว</MenuItem>
-		                <MenuItem eventKey="3">นาง</MenuItem>
-	                  </DropdownButton>
+                <FormGroup controlId="title">
+	              <ControlLabel>คำนำหน้า</ControlLabel>
+	              <FormControl componentClass="select" placeholder="title">
+		            <option value="0">นาย</option>
+		            <option value="1">นางสาว</option>
+                <option value="2">นาง</option>
+	              </FormControl>
+	              </FormGroup>
                 </Col>
                 <Col xs={5} md={4}>
                     <FormGroup controlId="ppl_name">
@@ -63,18 +65,24 @@ class Employeeform extends React.Component {
 	                  </FormGroup>
                 </Col>
                 <Col xs={6} md={8}>
-                    <ControlLabel>หน่วยงาน</ControlLabel>
-                    <DropdownButton bsStyle='link' title='Organization' >
-		                <MenuItem eventKey="1">Mahidol</MenuItem>
-		                <MenuItem eventKey="2">Unisoft</MenuItem>
-	                  </DropdownButton>
+                    <FormGroup controlId="title">
+	                  <ControlLabel>หน่วยงาน</ControlLabel>
+	                  <FormControl componentClass="select" placeholder="organization">
+		                <option value="0">Mahidol</option>
+		                <option value="1">Valve</option>
+                    <option value="2">Ubisoft</option>
+	                  </FormControl>
+	                  </FormGroup>
                 </Col>
                 <Col xs={6} md={8}>
+                <FormGroup controlId="title">
                     <ControlLabel>ตำแหน่ง</ControlLabel>
-                    <DropdownButton bsStyle='link' title='Position' >
-		                <MenuItem eventKey="1">developer</MenuItem>
-		                <MenuItem eventKey="2">doctor</MenuItem>
-	                  </DropdownButton>
+	                  <FormControl componentClass="select" placeholder="position">
+		                <option value="0">นักพัฒนา</option>
+		                <option value="1">หมอ</option>
+                    <option value="2">พยาบาล</option>
+	                  </FormControl>
+	                  </FormGroup>
                 </Col>
                 </Row>
             </Form>
@@ -136,18 +144,16 @@ class Employeetable extends React.Component {
                 ppl_name:"kik",
                 ppl_surname:"lurkraisit",
                 ppl_status:"1",
-                ppl_position:"nurse",   
                 ppl_organization:"Mahidol",
-                moreinfo:<Button bsStyle='success'><Icon glyph='icon-fontello-search' /> ดูรายละเอียดหน่วยงาน</Button>
+                ppl_position:"nurse"
               },
               {
                 ppl_title:"Mr.",
                 ppl_name:"who",
                 ppl_surname:"lol",
                 ppl_status:"0",
-                ppl_position:"doctor",
                 ppl_organization:"Mahidol",
-                moreinfo:<Button bsStyle='success'><Icon glyph='icon-fontello-search'/>   ดูรายละเอียดหน่วยงาน</Button>
+                ppl_position:"doctor"
               }
           ]
         };
@@ -194,16 +200,12 @@ class Employeetable extends React.Component {
                 )
               },
               {
-                Header: "ตำแหน่ง",
-                accessor:"ppl_position"
-              },
-              {
                 Header: "หน่วยงาน",
                 accessor:"ppl_organization"
               },
               {
-                Header: "ดูรายละเอียดเพิ่มเติม",
-                accessor:"moreinfo"
+                Header: "ตำแหน่ง",
+                accessor:"ppl_position"
               }
             ]}
             defaultPageSize={10}
