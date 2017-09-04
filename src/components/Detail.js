@@ -119,7 +119,7 @@ class BarBackOnly extends React.Component {
                 <ButtonToolbar>
                     <ButtonGroup className='pull-right'>
                         <Button onClick={this.props.submit}>
-                            <Icon glyph='icon-fontello-floppy' /> ย้อนกลับ
+                            <Icon glyph='icon-fontello-back' /> ย้อนกลับ
                     </Button>
                     </ButtonGroup>
                 </ButtonToolbar>

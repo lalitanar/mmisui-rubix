@@ -19,7 +19,7 @@ import {
   PanelContainer,
   PanelFooter,
 } from '@sketchpixy/rubix';
-
+import Detail from '../components/Detail'
 class Buttonbar extends React.Component {
     render() {
         return (
