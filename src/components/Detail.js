@@ -28,12 +28,17 @@ export default class Detail extends Component {
     var head = this.props.objd.head
     var nav = this.props.objd.nav
     var con = this.props.objd.content
+    var edit = this.props.objd.edit
     /*var nav
     for(var i=0;i<=this.props.objd.nav.length;i++){
       nav=nav+<NavItem eventKey={((this.props.objd.nav)[i-1]).key}>
           {((this.props.objd.nav)[i-1]).title}
       </NavItem>;
     }*/
+    var footer = <Bar submit={this.props.submit}/>
+    if(edit == "false"){
+      footer = <BarBackOnly submit={this.props.submit}/>
+    }
     return(
       <PanelContainer  >
           <Panel>
@@ -66,7 +71,7 @@ export default class Detail extends Component {
                   <Row>
                       <Col xs={12} className='fg-white'>
                           <br />
-                          <Bar submit={this.props.submit}/>
+                          {footer}
                           <br />
                       </Col>
                   </Row>
@@ -100,6 +105,22 @@ class Bar extends React.Component {
                         <Button bsStyle='primary'>
                             <Icon glyph='icon-fontello-download' /> นำออก EXCEL
                         </Button>
+                    </ButtonGroup>
+                </ButtonToolbar>
+            </div>
+        );
+    }
+}
+
+class BarBackOnly extends React.Component {
+    render() {
+        return (
+            <div>
+                <ButtonToolbar>
+                    <ButtonGroup className='pull-right'>
+                        <Button onClick={this.props.submit}>
+                            <Icon glyph='icon-fontello-floppy' /> ย้อนกลับ
+                    </Button>
                     </ButtonGroup>
                 </ButtonToolbar>
             </div>
