@@ -86,7 +86,7 @@ class Dform extends React.Component {
                     className="-striped -highlight"
                 />
 
-                
+
                 <br />
             </div>
         );
@@ -128,9 +128,9 @@ class BarAdd extends React.Component {
                 </Col>
                     <Button bsStyle='success' onClick={::this.close}>เพิ่ม</Button>
                 <Button onClick={::this.close}>ยกเลิก</Button>
-      </Modal.Footer >
-    </Modal >
-    </div >
+      </Modal.Footer>
+    </Modal>
+    </div>
         );
     }
 }
@@ -148,29 +148,24 @@ class BarUP extends React.Component {
         </Button>
 
 
-            </div >
+      </div>
         );
     }
 }
 
 class Bar extends React.Component {
     render() {
-        function handleClick(e) {
-            e.preventDefault();
-            window.history.back();
-            console.log('The link was clicked.');
-        }
         return (
             <div>
                 <ButtonToolbar>
-                    <Button bsStyle="success" href="#" onClick={handleClick}>
+                    <Button bsStyle="success" onClick={this.props.submit}>
                         <Icon glyph='icon-fontello-floppy' /> บันทึก
                     </Button>
-                    <Button bsStyle="danger" href="#" onClick={handleClick}>
+                    <Button bsStyle="danger" onClick={this.props.submit}>
                         <Icon glyph='icon-fontello-cancel' /> ยกเลิก
                     </Button>
                 </ButtonToolbar>
-            </div >
+            </div>
         );
     }
 }
@@ -491,11 +486,11 @@ class FormNew extends React.Component {
                         <ControlLabel>สถานะการทำงาน</ControlLabel>
                         <Radio inline name='inline' checked >
                             เปิดการใช้งาน
-            	    </Radio >
+            	    </Radio>
                         {' '}
                         <Radio inline name='inline'>
                             ปิดการใช้งาน
-	                </Radio >
+	                </Radio>
                     </FormGroup>
                         </Col>
                     </Row>
@@ -558,6 +553,10 @@ class FormNew extends React.Component {
 
 
 export default class PanelBodyHeaderAndFooter extends React.Component {
+  constructor(props) {
+      super(props);
+      this.submit = this.props.submit.bind(this)
+  }
     render() {
         return (
             <Row>
@@ -599,7 +598,7 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
                                     <Row>
                                         <Col xs={12} className='fg-white'>
                                             <br />
-                                            <Bar />
+                                            <Bar submit={this.submit}/>
                                             <br />
                                         </Col>
                                     </Row>
@@ -612,4 +611,3 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
         );
     }
 }
-
