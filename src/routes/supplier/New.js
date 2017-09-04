@@ -36,18 +36,13 @@ import {
 
 class Bar extends React.Component {
     render() {
-        function handleClick(e) {
-            e.preventDefault();
-            window.history.back();
-            console.log('The link was clicked.');
-        }
         return (
             <div>
                 <ButtonToolbar>
-                    <Button className="pull-right" bsStyle="success" href="#" onClick={handleClick}>
+                    <Button className="pull-right" bsStyle="success" onClick={this.props.submit}>
                         <Icon glyph='icon-fontello-floppy' /> บันทึก
                     </Button>
-                    <Button bsStyle="danger" href="#" onClick={handleClick}>
+                    <Button bsStyle="danger" href="#" onClick={this.props.submit}>
                         <Icon glyph='icon-fontello-cancel' /> ยกเลิก
                     </Button>
                 </ButtonToolbar>
@@ -112,8 +107,7 @@ class FormMore extends React.Component {
                             </Col>
                         </Row>
                     </Form>
-
-                </div >
+                </div>
             </Panel>
         );
     }
@@ -248,11 +242,11 @@ class FormNew extends React.Component {
                         <ControlLabel>ประเภทผู้ประกอบการ</ControlLabel>
                         <Radio inline name='inline' onClick={this.props.hide}  >
                             บุคคล
-            	    </Radio >
+            	    </Radio>
                         {' '}
                         <Radio inline name='inline' onClick={this.props.showmore}>
                             นิติบุคคล
-	                </Radio >
+	                </Radio>
                     </FormGroup>
                     <Row>
                         <Col xs={6} >
@@ -293,6 +287,7 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
         this.state = {
             statusShow: false
         };
+        this.submit = this.props.submit.bind(this)
         this.showmore = this.showmore.bind(this);
         this.hide = this.hide.bind(this);
     }
@@ -303,6 +298,7 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
             show = <FormMore />;
         }
         return (
+
             <Row>
                 <Col xs={12}>
                     <PanelContainer>
@@ -336,7 +332,7 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
                                     <Row>
                                         <Col xs={12} className='fg-white'>
                                             <br />
-                                            <Bar />
+                                            <Bar submit={this.submit}/>
                                             <br />
                                         </Col>
                                     </Row>

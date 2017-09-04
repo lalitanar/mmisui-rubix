@@ -2,6 +2,7 @@ import React from "react";
 import { render } from "react-dom";
 import _ from 'lodash'
 import ReactTable from "react-table";
+import Addnew from "./New"
 import {
   Row,
   Col,
@@ -42,7 +43,7 @@ class Bar extends React.Component {
     }
     return (
       <div>
-        <Button bsStyle='success' href="/contact/new">
+        <Button bsStyle='success'  onClick={this.props.showadd}>
           <Icon glyph='icon-fontello-plus' /> เพิ่มสัญญา
         </Button>
         <ButtonGroup className='pull-right'>
@@ -53,7 +54,7 @@ class Bar extends React.Component {
           <Icon glyph='icon-fontello-print' /> พิมพ์
         </Button>
         </ButtonGroup>
-      </div >
+      </div>
     );
   }
 }
@@ -140,26 +141,59 @@ class DatatableComponent extends React.Component {
 }
 
 export default class Tableview extends React.Component {
+  showadd(){
+    this.setState({addshow:true});
+  }
+  submit(){
+    this.setState({addshow:false});
+    this.setState({detail:false});
+  }
+  showdetail(){
+    console.log("call")
+    this.setState({detail:true});
+  }
+  constructor(props){
+    super(props);
+
+    this.state = {
+      addshow: false,
+      detail: false
+    };
+    this.showadd = this.showadd.bind(this);
+    this.submit = this.submit.bind(this);
+    this.showdetail = this.showdetail.bind(this);
+  }
   render() {
+    var table =<PanelContainer>
+      <Panel>
+        <PanelBody>
+          <Grid>
+            <Row>
+              <Col xs={12}>
+                <Bar showadd={this.showadd}/>
+                <hr />
+                <DatatableComponent />
+                <br />
+              </Col>
+            </Row>
+          </Grid>
+        </PanelBody>
+      </Panel>
+    </PanelContainer>;
+    var show;
+    if(this.state.addshow == true){
+      show = <Addnew submit={this.submit}/>;
+    }
+    if(this.state.detail == true){
+      show = <Detail objd={obj} submit={this.submit}/>;
+    }
+    if(this.state.addshow == false && this.state.detail == false){
+      show= table;
+    }
     return (
       <Row>
         <Col xs={12}>
-          <PanelContainer>
-            <Panel>
-              <PanelBody>
-                <Grid>
-                  <Row>
-                    <Col xs={12}>
-                      <Bar />
-                      <hr />
-                      <DatatableComponent />
-                      <br />
-                    </Col>
-                  </Row>
-                </Grid>
-              </PanelBody>
-            </Panel>
-          </PanelContainer>
+          {show}
         </Col>
       </Row>
     );
