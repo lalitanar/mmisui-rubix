@@ -25,6 +25,7 @@ import {
     InputGroup,
     ControlLabel,
     Icon,
+    Checkbox
 } from '@sketchpixy/rubix';
 
 class Buttonbar extends React.Component {
