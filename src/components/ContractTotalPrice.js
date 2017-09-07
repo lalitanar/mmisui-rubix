@@ -52,7 +52,7 @@ export default class ContractTotalValue extends Component {
                 <Col xs={12}>
                     <Form horizontal>
                         <FormGroup controlId="Quantity">
-                        <Col componentClass={ControlLabel} sm={4}>
+                        <Col componentClass={ControlLabel} xs={4}>
                             จำนวน
                         </Col>
                         <Col sm={6}>
@@ -64,7 +64,7 @@ export default class ContractTotalValue extends Component {
                         </FormGroup>
                         
                         <FormGroup controlId="Vat">
-                        <Col componentClass={ControlLabel} sm={4}>
+                        <Col componentClass={ControlLabel} xs={4}>
                             VAT
                         </Col>
                         <Col sm={6}>
@@ -76,7 +76,7 @@ export default class ContractTotalValue extends Component {
                         </FormGroup>
 
                         <FormGroup controlId="TotalContractPrice">
-                        <Col componentClass={ControlLabel} sm={4}>
+                        <Col componentClass={ControlLabel} xs={4}>
                             ยอดการทำสัญญา
                         </Col>
                         <Col sm={6}>
