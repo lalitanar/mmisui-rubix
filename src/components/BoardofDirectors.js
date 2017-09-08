@@ -39,6 +39,15 @@ class Buttonbar extends React.Component {
         this.setState({ showModal: true });
     }
     render() {
+        var data = [
+            {
+              group_no: 1,
+              Director:"นายโดนัลดั๊ก เดซี่",
+              member1:"นางกรีนแมน ทอยสตอรี่",
+              member2:"นางสาวมินนี่ ดิสนี่แลนด์",
+              select:<Button bsStyle='success' onClick={::this.close}>เลือก</Button>
+            }
+        ];
         return (
     <div>
 
@@ -50,7 +59,7 @@ class Buttonbar extends React.Component {
       </Modal.Header>
       <Modal.Body>
       <ReactTable
-            data={this.state.data}
+            data={data}
             noDataText="ไม่พบข้อมูล"
             filterable
             defualtFilterMethod={(filter, row)=>
@@ -95,6 +104,11 @@ class Buttonbar extends React.Component {
 
 export default class ContractTotalValue extends Component {
     render(){
+    var selecting_phrase = this.props.objd.selecting_phrase
+    var showbutton = null
+    if(selecting_phrase === true){
+        showbutton = <Buttonbar/>
+    }
     return(
     <Col xs={12}>
       <PanelContainer>
@@ -110,7 +124,7 @@ export default class ContractTotalValue extends Component {
             </PanelHeader>
             <PanelBody>
             <Grid>
-            <Buttonbar />
+            {showbutton}
                 <Row>
                 <Col xs={12}>
                     <Form horizontal innline>
