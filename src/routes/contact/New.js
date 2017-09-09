@@ -3,6 +3,10 @@ import { render } from "react-dom";
 import _ from 'lodash'
 import { makeData, Logo, Tips } from "./Utils.js";
 import ReactTable from "react-table";
+import BoardofDirectors from "../../components/BoardofDirectors"
+import ContractTotalPrice from "../../components/ContractTotalPrice"
+import Seller from "../../components/Seller"
+import Buy from "../../components/Buy"
 import {
     Row,
     Col,
@@ -373,38 +377,6 @@ class FormSale extends React.Component {
     }
 }
 
-class FormCommittee extends React.Component {
-    render() {
-        return (
-            <Row>
-                <Col xs={12}>
-                    <PanelContainer>
-                        <Panel>
-                            <PanelHeader className='bg-blue'>
-                                <Grid>
-                                    <Row>
-                                        <Col xs={12} className='fg-white'>
-                                            <h4>คณะกรรมการตรวจรับ</h4>
-                                        </Col>
-                                    </Row>
-                                </Grid>
-                            </PanelHeader>
-                            <PanelBody>
-                                <Grid>
-                                    <Row>
-                                        <BarUP />
-                                        <hr />
-                                    </Row>
-                                </Grid>
-                            </PanelBody>
-                        </Panel>
-                    </PanelContainer>
-                </Col>
-            </Row>
-        );
-    }
-}
-
 class FormMore extends React.Component {
     render() {
         return (
@@ -579,15 +551,16 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
                                             <FormNew />
                                         </Col>
                                         <Col xs={12}>
-                                            <FormBuy />
+                                            <Buy objd={{selecting_phrase:true}} />
                                         </Col>
                                         <Col xs={12}>
-                                            <FormSale />
+                                            <Seller objd={{selecting_phrase:true}} />
                                         </Col>
                                         <Col xs={12}>
-                                            <FormCommittee />
+                                            <BoardofDirectors objd={{selecting_phrase:true}}/>
                                         </Col>
                                         <Col xs={12}>
+                                            <ContractTotalPrice objd={{price:20}}/>
                                             <FormMore />
                                         </Col>
                                     </Row>

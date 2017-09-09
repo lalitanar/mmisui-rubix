@@ -45,13 +45,12 @@ export default class ContractTotalValue extends Component {
         });
         console.log('success!');
     }
-    
+
     render(){
     return(
-    <Col xs={4}>
       <PanelContainer>
           <Panel>
-              <PanelHeader className='bg-lightblue fg-white'>
+              <PanelHeader className='bg-blue fg-white'>
                   <Grid>
                       <Row>
                           <Col xs={12}>
@@ -74,7 +73,7 @@ export default class ContractTotalValue extends Component {
                         <FormControl type="text" placeholder="จำนวนยาและเวชภัณฑ์" value={this.state.quantity} onChange={this.changedata}/>
                         </Col>
                         </FormGroup>
-                        
+
                         <FormGroup controlId="Vat">
                         <Col componentClass={ControlLabel} xs={4}>
                             VAT
@@ -105,7 +104,6 @@ export default class ContractTotalValue extends Component {
           </PanelBody>
         </Panel>
       </PanelContainer>
-      </Col>
     );
   }
 }

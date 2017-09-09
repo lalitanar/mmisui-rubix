@@ -41,21 +41,21 @@ class Buttonbar extends React.Component {
     render() {
         var data = [
             {
-              group_no: 1,
-              Director:"นายโดนัลดั๊ก เดซี่",
-              member1:"นางกรีนแมน ทอยสตอรี่",
-              member2:"นางสาวมินนี่ ดิสนี่แลนด์",
+              name:"นายโดนัลดั๊ก เดซี่",
+              company:"123",
+              address:"12/78",
+              contact:"00000",
               select:<Button bsStyle='success' onClick={::this.close}>เลือก</Button>
             }
         ];
         return (
     <div>
 
-    <Button bsStyle='success' onClick={::this.open}>เลือกชุดกรรมการ</Button>
+    <Button bsStyle='success' onClick={::this.open}>เลือกผู้ขาย</Button>
     <hr/>
     <Modal lg show={this.state.showModal} onHide={::this.close}>
       <Modal.Header closeButton>
-      <Modal.Title>เลือกชุดกรรมการ</Modal.Title>
+      <Modal.Title>เลือกผู้ขาย</Modal.Title>
       </Modal.Header>
       <Modal.Body>
       <ReactTable
@@ -67,21 +67,20 @@ class Buttonbar extends React.Component {
                 row[filter.id].includes(filter.value)}
             columns={[
               {
-                Header: "ชุดที่",
-                accessor: "group_no",
-                width:60
+                Header: "ชื่อ-สกุล",
+                accessor:"name"
               },
               {
-                Header: "ประธานกรรมการตรวจรับ",
-                accessor:"Director"
+                Header: "บริษัท",
+                accessor:"company"
               },
               {
-                Header: "กรรมการตรวจรับ",
-                accessor:"member1"
+                Header: "ที่อยู่",
+                accessor:"address"
               },
               {
-                Header: "กรรมการตรวจรับ",
-                accessor:"member2"
+                Header: "ข้อมูลติดต่อ",
+                accessor:"contact"
               },
               {
                 Header: "",
@@ -116,7 +115,7 @@ export default class ContractTotalValue extends Component {
                   <Grid>
                       <Row>
                           <Col xs={12}>
-                              <h3>คณะกรรมการตรวจรับ</h3>
+                              <h3>ข้อมูลผู้ขาย</h3>
                           </Col>
                       </Row>
                   </Grid>
@@ -127,48 +126,39 @@ export default class ContractTotalValue extends Component {
                 <Row>
                 <Col xs={12}>
                     <Form horizontal >
-                        <FormGroup controlId="Director">
+                        <FormGroup controlId="name">
                         <Col componentClass={ControlLabel} xs={2}>
-                            ประธานกรรมการตรวจรับ
+                            ชื่อ-สกุล
                         </Col>
                         <Col sm={4}>
                         <FormControl type="text" placeholder="ชื่อ-สกุล" disabled active/>
-                        </Col>
-                        <Col componentClass={ControlLabel} xs={1}>
-                            ตำแหน่ง
-                        </Col>
-                        <Col sm={4}>
-                        <FormControl type="text" placeholder="ตำแหน่ง" disabled active/>
                         </Col>
                         </FormGroup>
 
-                        <FormGroup controlId="member1">
+                        <FormGroup controlId="company">
                         <Col componentClass={ControlLabel} xs={2}>
-                            กรรมการตรวจรับ
+                            บริษัท
                         </Col>
-                        <Col sm={4}>
-                        <FormControl type="text" placeholder="ชื่อ-สกุล" disabled active/>
-                        </Col>
-                        <Col componentClass={ControlLabel} xs={1}>
-                            ตำแหน่ง
-                        </Col>
-                        <Col sm={4}>
-                        <FormControl type="text" placeholder="ตำแหน่ง" disabled active/>
+                        <Col sm={6}>
+                        <FormControl type="text" placeholder="ชื่อ บริษัท" disabled active/>
                         </Col>
                         </FormGroup>
 
-                        <FormGroup controlId="member2">
+                        <FormGroup controlId="address">
                         <Col componentClass={ControlLabel} xs={2}>
-                            กรรมการตรวจรับ
+                            ที่อยู่
                         </Col>
-                        <Col sm={4}>
-                        <FormControl type="text" placeholder="ชื่อ-สกุล" disabled active/>
+                        <Col sm={6}>
+                        <FormControl type="text" placeholder="ที่อยู่" disabled active/>
                         </Col>
-                        <Col componentClass={ControlLabel} xs={1}>
-                            ตำแหน่ง
+                        </FormGroup>
+
+                        <FormGroup controlId="contact">
+                        <Col componentClass={ControlLabel} xs={2}>
+                            ข้อมูลต่อต่อ
                         </Col>
-                        <Col sm={4}>
-                        <FormControl type="text" placeholder="ตำแหน่ง" disabled active/>
+                        <Col sm={6}>
+                        <FormControl type="text" placeholder="ที่อยู่" disabled active/>
                         </Col>
                         </FormGroup>
                     </Form>
