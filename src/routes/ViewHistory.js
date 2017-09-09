@@ -19,7 +19,8 @@ import {
   PanelContainer,
   PanelFooter,
 } from '@sketchpixy/rubix';
-import Detail from '../components/Detail'
+import ContractTotalPrice from '../components/ContractTotalPrice'
+import BoardofDirectors from '../components/BoardofDirectors'
 class Buttonbar extends React.Component {
     render() {
         return (
@@ -291,13 +292,20 @@ class ControlPanel extends React.Component {
 }
 export default class ViewHistory extends React.Component {
     render() {
+        var obj = {
+            price:10.00
+        }
+        var test = {
+            selecting_phrase:true
+        }
+        var test1 = {
+            selecting_phrase:false
+        }
         return (
          <Col>
-         <ActivityPanel/>
-         <AccountPanel/>
-         <UserPanel/>
-         <ControlPanel/>
-         <Buttonbar/>
+            <ContractTotalPrice objd={obj} />
+            <BoardofDirectors objd={test}/>
+            <BoardofDirectors objd={test1}/>
          </Col>
         );
     }

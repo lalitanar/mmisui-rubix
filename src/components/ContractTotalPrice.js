@@ -27,12 +27,26 @@ export default class ContractTotalValue extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            vat : 0,
-            totalprice : 0
+            initial_price : null,
+            quantity : null,
+            price : this.props.objd.price,
+            vat : null,
+            totalprice : null
         };
+        this.changedata = this.changedata.bind(this)
     }
+
+    changedata(e) {
+        this.setState({
+            quantity: e.target.value,
+            initial_price : (this.state.quantity)*(this.state.price),
+            vat: this.state.initial_price*0.07,
+            totalprice: this.state.initial_price + this.state.vat
+        });
+        console.log('success!');
+    }
+    
     render(){
-    var price = this.props.objd.price
     return(
     <Col xs={4}>
       <PanelContainer>
@@ -56,10 +70,8 @@ export default class ContractTotalValue extends Component {
                             จำนวน
                         </Col>
                         <Col sm={6}>
-                        <FormControl type="text" placeholder="จำนวนยาและเวชภัณฑ์" onChange={this.changedata}/>
-                        </Col>
-                        <Col componentClass={ControlLabel} xs={1}>
-                            บาท
+                        {/*<div>{this.state.quantity}x{this.state.price}={this.state.initial_price}</div>*/}
+                        <FormControl type="text" placeholder="จำนวนยาและเวชภัณฑ์" value={this.state.quantity} onChange={this.changedata}/>
                         </Col>
                         </FormGroup>
                         
@@ -68,7 +80,7 @@ export default class ContractTotalValue extends Component {
                             VAT
                         </Col>
                         <Col sm={6}>
-                        <FormControl type="text" placeholder={this.state.vat} disabled active/>
+                        <FormControl type="text" placeholder="ภาษี" value={this.state.vat} disabled active/>
                         </Col>
                         <Col componentClass={ControlLabel} xs={1}>
                             บาท
@@ -80,7 +92,7 @@ export default class ContractTotalValue extends Component {
                             ยอดการทำสัญญา
                         </Col>
                         <Col sm={6}>
-                        <FormControl type="text" placeholder={this.state.totalprice} disabled active/>
+                        <FormControl type="text" placeholder="ยอดเงินการทำสัญญา" value={this.state.totalprice} disabled active/>
                         </Col>
                         <Col componentClass={ControlLabel} xs={1}>
                             บาท

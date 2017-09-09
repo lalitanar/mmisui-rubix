@@ -127,7 +127,7 @@ export default class ContractTotalValue extends Component {
             {showbutton}
                 <Row>
                 <Col xs={12}>
-                    <Form horizontal innline>
+                    <Form horizontal >
                         <FormGroup controlId="Director">
                         <Col componentClass={ControlLabel} xs={2}>
                             ประธานกรรมการตรวจรับ
