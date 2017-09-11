@@ -293,7 +293,7 @@ class ControlPanel extends React.Component {
 export default class ViewHistory extends React.Component {
     render() {
         var obj = {
-            initial_price:100
+            initial_price:129.98
         }
         var test = {
             selecting_phrase:true

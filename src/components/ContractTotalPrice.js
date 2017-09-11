@@ -35,13 +35,13 @@ export default class ContractTotalValue extends Component {
 
     render(){
     this.setState({
-        totalprice :this.props.objd.initial_price + parseFloat(this.state.vat)
+        totalprice :parseFloat(this.props.objd.initial_price + parseFloat(this.state.vat)).toFixed(2)
     });
     return(
     <Col xs={4}>
       <PanelContainer>
           <Panel>
-              <PanelHeader className='bg-lightblue fg-white'>
+              <PanelHeader className='bg-blue fg-white'>
                   <Grid>
                       <Row>
                           <Col xs={12}>

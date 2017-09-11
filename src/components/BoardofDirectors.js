@@ -113,7 +113,7 @@ export default class ContractTotalValue extends Component {
     <Col xs={12}>
       <PanelContainer>
           <Panel>
-              <PanelHeader className='bg-lightblue fg-white'>
+              <PanelHeader className='bg-blue fg-white'>
                   <Grid>
                       <Row>
                           <Col xs={12}>
