@@ -27,26 +27,16 @@ export default class ContractTotalValue extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            initial_price : null,
-            quantity : null,
-            price : this.props.objd.price,
-            vat : null,
-            totalprice : null
+            initial_price : this.props.objd.initial_price,
+            vat : parseFloat(this.props.objd.initial_price*0.07).toFixed(2),
+            totalprice: null
         };
-        this.changedata = this.changedata.bind(this)
     }
 
-    changedata(e) {
-        this.setState({
-            quantity: e.target.value,
-            initial_price : (this.state.quantity)*(this.state.price),
-            vat: this.state.initial_price*0.07,
-            totalprice: this.state.initial_price + this.state.vat
-        });
-        console.log('success!');
-    }
-    
     render(){
+    this.setState({
+        totalprice :this.props.objd.initial_price + parseFloat(this.state.vat)
+    });
     return(
     <Col xs={4}>
       <PanelContainer>
@@ -70,8 +60,10 @@ export default class ContractTotalValue extends Component {
                             จำนวน
                         </Col>
                         <Col sm={6}>
-                        {/*<div>{this.state.quantity}x{this.state.price}={this.state.initial_price}</div>*/}
-                        <FormControl type="text" placeholder="จำนวนยาและเวชภัณฑ์" value={this.state.quantity} onChange={this.changedata}/>
+                        <FormControl type="text" placeholder="จำนวนยาและเวชภัณฑ์" value={this.state.initial_price} disabled active/>
+                        </Col>
+                        <Col componentClass={ControlLabel} xs={1}>
+                            บาท
                         </Col>
                         </FormGroup>
                         
