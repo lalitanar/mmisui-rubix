@@ -21,6 +21,7 @@ import {
 } from '@sketchpixy/rubix';
 import ContractTotalPrice from '../components/ContractTotalPrice'
 import BoardofDirectors from '../components/BoardofDirectors'
+import ContractFine from '../components/ContractFine'
 class Buttonbar extends React.Component {
     render() {
         return (
@@ -295,6 +296,11 @@ export default class ViewHistory extends React.Component {
         var obj = {
             initial_price:129.98
         }
+        var obj1 = {
+           fine_d:5,
+           fine_m:10,
+           fine_y:15
+        }
         var test = {
             selecting_phrase:true
         }
@@ -303,6 +309,7 @@ export default class ViewHistory extends React.Component {
         }
         return (
          <Col>
+            <ContractFine objd={obj1}/>
             <ContractTotalPrice objd={obj} />
             <BoardofDirectors objd={test}/>
             <BoardofDirectors objd={test1}/>
