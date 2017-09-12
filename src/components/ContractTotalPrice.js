@@ -27,16 +27,20 @@ export default class ContractTotalValue extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            initial_price : this.props.objd.initial_price,
-            vat : parseFloat(this.props.objd.initial_price*0.07).toFixed(2),
-            totalprice: null
+            initial_price : 0,
+            vat : 0,
+            totalprice: 0
         };
     }
-
+    componentWillMount(){
+      this.setState({
+          initial_price : this.props.objd.initial_price,
+          vat : parseFloat(this.props.objd.initial_price*0.07).toFixed(2),
+          totalprice :parseFloat(this.props.objd.initial_price + parseFloat(this.state.vat)).toFixed(2)
+      });
+    }
     render(){
-    this.setState({
-        totalprice :parseFloat(this.props.objd.initial_price + parseFloat(this.state.vat)).toFixed(2)
-    });
+
     return(
       <PanelContainer>
           <Panel>

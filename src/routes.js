@@ -22,7 +22,7 @@ import tbPackage from './routes/tbPackage'
 import PackageTable from './routes/tbPackage'
 import SupplierIndex from './routes/supplier/Index'
 import SupplierDetail from './routes/supplier/Detail'
-import ContactIndex from './routes/contact/Index'
+import ContractIndex from './routes/contract/Index'
 import MedicalAndSupplies from './routes/material/GenericMedicineAndSupplies'
 import Product from './routes/material/Product'
 import GenericType from './routes/GenericType'
@@ -88,7 +88,7 @@ const routes = (
     <Route path='table' component={Tableview} />
     <Route path='supplier' component={SupplierIndex} />
     <Route path='supplier/detail' component={SupplierDetail} />
-    <Route path='contact' component={ContactIndex} />
+    <Route path='contract' component={ContractIndex} />
     <Route path='material/addmedsup' component={MedicalAndSupplies} />
     <Route path='material/product' component={Product} />
     <Route path='rolemanagement' component={Rolemanagement} />

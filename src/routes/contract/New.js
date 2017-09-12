@@ -1,12 +1,15 @@
 import React from "react";
 import { render } from "react-dom";
 import _ from 'lodash'
+import ToggleButton from 'react-toggle-button'
 import { makeData, Logo, Tips } from "./Utils.js";
 import ReactTable from "react-table";
 import BoardofDirectors from "../../components/BoardofDirectors"
 import ContractTotalPrice from "../../components/ContractTotalPrice"
 import Seller from "../../components/Seller"
 import Buy from "../../components/Buy"
+import ContractFine from "../../components/ContractFine"
+import Project from "../../components/Project"
 import {
     Row,
     Col,
@@ -419,7 +422,7 @@ class FormMore extends React.Component {
 class FormNew extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { value: '1' };
+        this.state = { value: '1' ,status: true};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -427,7 +430,7 @@ class FormNew extends React.Component {
 
     handleChange(event) {
         console.log(this.state.value);
-        this.setState({ value: event.target.value });
+      //  this.setState({ value: event.target.value });
         console.log(this.state.value);
     }
 
@@ -456,13 +459,15 @@ class FormNew extends React.Component {
                         <Col xs={4} className="pull-right">
                             <FormGroup>
                         <ControlLabel>สถานะการทำงาน</ControlLabel>
-                        <Radio inline name='inline' checked >
-                            เปิดการใช้งาน
-            	    </Radio>
-                        {' '}
-                        <Radio inline name='inline'>
-                            ปิดการใช้งาน
-	                </Radio>
+                          <ToggleButton
+                          inactiveLabel={"ปิด"}
+                          activeLabel={"เปิด"}
+                          value={this.state.status}
+                          onToggle={(value) => {
+                            this.setState({status:!value})
+                            }}
+                            />
+
                     </FormGroup>
                         </Col>
                     </Row>
@@ -470,19 +475,19 @@ class FormNew extends React.Component {
                         <Col xs={4} >
                             <FormGroup>
                                 <ControlLabel>เลขที่เตรียมสัญญา</ControlLabel>
-                                <FormControl type="text" placeholder=" " />
+                                <FormControl type="text" placeholder=" " disabled/>
                             </FormGroup>
                         </Col>
                         <Col xs={4} >
                             <FormGroup>
                                 <ControlLabel>วันที่สร้าง</ControlLabel>
-                                <FormControl type="text" placeholder=" " />
+                                <FormControl type="text" placeholder=" " disabled/>
                             </FormGroup>
                         </Col>
                         <Col xs={4} >
                             <FormGroup>
                                 <ControlLabel>วันที่แก้ไข</ControlLabel>
-                                <FormControl type="text" placeholder=" " />
+                                <FormControl type="text" placeholder=" " disabled/>
                             </FormGroup>
                         </Col>
                     </Row>
@@ -551,16 +556,19 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
                                             <FormNew />
                                         </Col>
                                         <Col xs={12}>
+                                            <Project/>
                                             <Buy objd={{selecting_phrase:true}} />
                                         </Col>
                                         <Col xs={12}>
+
                                             <Seller objd={{selecting_phrase:true}} />
                                         </Col>
                                         <Col xs={12}>
                                             <BoardofDirectors objd={{selecting_phrase:true}}/>
                                         </Col>
                                         <Col xs={12}>
-                                            <ContractTotalPrice objd={{price:20}}/>
+                                            <ContractTotalPrice objd={{initial_price:20}}/>
+                                            <ContractFine objd={{fine_d:20,fine_m:30,fine_y:300}} />
                                             <FormMore />
                                         </Col>
                                     </Row>

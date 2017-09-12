@@ -55,6 +55,7 @@ class ApplicationSidebar extends React.Component {
                     </SidebarNav>
                   </SidebarNavItem>
                   <SidebarNavItem glyph='icon-simple-line-icons-users' name='เมนู Material' onClick={this.props.change.bind(this,'SidebarMaterial')}/>
+                  <SidebarNavItem glyph='icon-simple-line-icons-users' name='สัญญา' href='/contract'/>
                 </SidebarNav>
               </div>
             </Col>

@@ -27,22 +27,24 @@ export default class ContractFine extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            fine : parseFloat(this.props.objd.fine_d).toFixed(2)
+            fine : 0
         };
         this.changefine = this.changefine.bind(this)
     }
-
+    componentWillMount() {
+      this.setState({fine: parseFloat(this.props.objd.fine_d).toFixed(2)});
+    }
     changefine(event){
         let value = event.target.value;
-
-        if(value==="0") this.setState({fine: parseFloat(this.props.objd.fine_d).toFixed(2) });
-        if(value==="1") this.setState({fine: parseFloat(this.props.objd.fine_m).toFixed(2) });
-        else this.setState({fine: parseFloat(this.props.objd.fine_y).toFixed(2) });
+        if(value=="0"){
+          this.setState({fine: parseFloat(this.props.objd.fine_d).toFixed(2) });
+        }else if(value=="1"){
+          this.setState({fine: parseFloat(this.props.objd.fine_m).toFixed(2) });
+        }else this.setState({fine: parseFloat(this.props.objd.fine_y).toFixed(2)});
     }
 
     render(){
     return(
-    <Col xs={5}>
       <PanelContainer>
           <Panel>
               <PanelHeader className='bg-blue fg-white'>
@@ -80,7 +82,7 @@ export default class ContractFine extends Component {
                         <FormControl type="text" placeholder="ยอดเงินการทำสัญญา" value={this.state.fine} disabled active/>
                         </Col>
                         <Col componentClass={ControlLabel} xs={1}>
-                            บาท&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ต่อ 
+                            บาท&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ต่อ
                         </Col>
                         <Col componentClass={ControlLabel} xs={1}/>
                         <Col componentClass={ControlLabel} xs={2}>
@@ -98,7 +100,6 @@ export default class ContractFine extends Component {
           </PanelBody>
         </Panel>
       </PanelContainer>
-      </Col>
     );
   }
 }
