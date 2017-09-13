@@ -5,7 +5,7 @@ import {
   Col,
   PanelContainer,
   Panel,
-  PanelBody,
+  BPanel,
   PanelFooter,
   Grid,
   Button,
@@ -112,16 +112,8 @@ export default class ContractTotalValue extends Component {
     return(
       <PanelContainer>
           <Panel>
-              <PanelHeader className='bg-blue fg-white'>
-                  <Grid>
-                      <Row>
-                          <Col xs={12}>
-                              <h3>คณะกรรมการตรวจรับ</h3>
-                          </Col>
-                      </Row>
-                  </Grid>
-            </PanelHeader>
-            <PanelBody>
+              <h4>คณะกรรมการตรวจรับ</h4>
+            <BPanel>
             <Grid>
             {showbutton}
                 <Row>
@@ -175,7 +167,7 @@ export default class ContractTotalValue extends Component {
                 </Col>
                 </Row>
             </Grid>
-          </PanelBody>
+          </BPanel>
         </Panel>
       </PanelContainer>
     );

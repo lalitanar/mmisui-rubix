@@ -14,6 +14,7 @@ import {
   PanelHeader,
   PanelTabContainer,
   Nav,
+  BPanel,
   NavItem,
   Tab,
   ButtonToolbar,
@@ -29,34 +30,13 @@ export default class ContractFine extends Component {
         this.state = {
             fine : 0
         };
-        this.changefine = this.changefine.bind(this)
     }
-    componentWillMount() {
-      this.setState({fine: parseFloat(this.props.objd.fine_d).toFixed(2)});
-    }
-    changefine(event){
-        let value = event.target.value;
-        if(value=="0"){
-          this.setState({fine: parseFloat(this.props.objd.fine_d).toFixed(2) });
-        }else if(value=="1"){
-          this.setState({fine: parseFloat(this.props.objd.fine_m).toFixed(2) });
-        }else this.setState({fine: parseFloat(this.props.objd.fine_y).toFixed(2)});
-    }
-
     render(){
     return(
       <PanelContainer>
           <Panel>
-              <PanelHeader className='bg-blue fg-white'>
-                  <Grid>
-                      <Row>
-                          <Col xs={12}>
-                              <h3>ค่าปรับ</h3>
-                          </Col>
-                      </Row>
-                  </Grid>
-            </PanelHeader>
-            <PanelBody>
+            <h4>ค่าปรับ</h4>
+            <BPanel>
             <Grid>
                 <Row>
                 <Col xs={12}>
@@ -76,17 +56,17 @@ export default class ContractFine extends Component {
 
                         <FormGroup controlId="fine">
                         <Col componentClass={ControlLabel} xs={3}>
-                            จำนวนเงินค่าปรับ
+                            ค่าปรับ
                         </Col>
                         <Col sm={4}>
-                        <FormControl type="text" placeholder="ยอดเงินการทำสัญญา" value={this.state.fine} disabled active/>
+                        <FormControl type="text" />
                         </Col>
                         <Col componentClass={ControlLabel} xs={1}>
-                            บาท&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ต่อ
+                            %&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ต่อ
                         </Col>
                         <Col componentClass={ControlLabel} xs={1}/>
                         <Col componentClass={ControlLabel} xs={2}>
-                            <FormControl componentClass="select" placeholder="fineper" inline onChange={(e) => this.changefine(e)}>
+                            <FormControl componentClass="select" placeholder="fineper" inline>
                                 <option value="0">วัน</option>
                                 <option value="1">เดือน</option>
                                 <option value="2">ปี</option>
@@ -97,7 +77,7 @@ export default class ContractFine extends Component {
                 </Col>
                 </Row>
             </Grid>
-          </PanelBody>
+          </BPanel>
         </Panel>
       </PanelContainer>
     );

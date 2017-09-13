@@ -17,6 +17,7 @@ import {
     Panel,
     Table,
     PanelBody,
+    BPanel,
     PanelHeader,
     FormControl,
     PanelContainer,
@@ -387,16 +388,8 @@ class FormMore extends React.Component {
                 <Col xs={12}>
                     <PanelContainer>
                         <Panel>
-                            <PanelHeader className='bg-blue'>
-                                <Grid>
-                                    <Row>
-                                        <Col xs={12} className='fg-white'>
-                                            <h4>อื่นๆ</h4>
-                                        </Col>
-                                    </Row>
-                                </Grid>
-                            </PanelHeader>
-                            <PanelBody>
+                            <h4>อื่นๆ</h4>
+                            <BPanel>
                                 <Grid>
                                     <Row>
                                         <FormGroup controlId="formControlsFile">
@@ -410,7 +403,7 @@ class FormMore extends React.Component {
                                         </FormGroup>
                                     </Row>
                                 </Grid>
-                            </PanelBody>
+                            </BPanel>
                         </Panel>
                     </PanelContainer>
                 </Col>
@@ -498,18 +491,8 @@ class FormNew extends React.Component {
                         <Col xs={12}>
                             <PanelContainer>
                                 <Panel>
-                                    <PanelHeader className='bg-blue'>
-                                        <Grid>
-                                            <Row>
-                                                <Col xs={12} className='fg-white'>
-                                                    {val == '0' || val == '1' ? (
-                                                        <h4>รายการยาและเวชภัณฑ์ที่จะทำสัญญา</h4>
-                                                    ) : (<h4>ผลการจัดซื้อ</h4>)}
-                                                </Col>
-                                            </Row>
-                                        </Grid>
-                                    </PanelHeader>
-                                    <PanelBody>
+                                    <h4>รายการยาและเวชภัณฑ์ที่จะทำสัญญา</h4>
+                                    <BPanel>
                                         <Grid>
                                             <Row>
                                                 <Col xs={12}>
@@ -517,7 +500,7 @@ class FormNew extends React.Component {
                                                 </Col>
                                             </Row>
                                         </Grid>
-                                    </PanelBody>
+                                    </BPanel>
                                 </Panel>
                             </PanelContainer>
                         </Col>
