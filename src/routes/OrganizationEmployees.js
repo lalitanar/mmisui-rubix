@@ -60,8 +60,8 @@ class Employeeform extends React.Component {
                 <Col xs={6} md={8}>
                     <ControlLabel>สถานะการทำงาน</ControlLabel>
                     <FormGroup controlId="ppl_status">
-	                     <Radio inline>ปฏิบัติงาน</Radio> {' '}
-                       <Radio inline>พักงาน</Radio>{' '}
+	                     <Radio inline name='work_status'>ปฏิบัติงาน</Radio> {' '}
+                       <Radio inline name='work_status'>พักงาน</Radio>{' '}
 	                  </FormGroup>
                 </Col>
                 <Col xs={6} md={8}>
