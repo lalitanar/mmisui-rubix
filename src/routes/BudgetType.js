@@ -193,7 +193,11 @@ class Budgettable extends React.Component {
                 approver:"-",
                 start_date:"-",
                 end_date:"-",
-                working_status:"-"
+                working_status:"-",
+                edit:<ButtonGroup>
+                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
+                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
+                    </ButtonGroup>
               },
               {
                 budget_name:"กองทุน จฉชย",
@@ -201,7 +205,11 @@ class Budgettable extends React.Component {
                 approver:"นายคาราเมล เดอะด้อก",
                 start_date:"25/5/2016",
                 end_date:"13/9/2017",
-                working_status:"Freeze"
+                working_status:"Freeze",
+                edit:<ButtonGroup>
+                        <Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
+                        <Button bsStyle='danger'><Icon glyph='icon-fontello-trash'/>  ลบ</Button>
+                    </ButtonGroup>
               }
           ]
         };
@@ -240,6 +248,10 @@ class Budgettable extends React.Component {
               {
                 Header: "สถานะการทำงาน",
                 accessor:"working_status"
+              },
+              {
+                  Header:"",
+                  accessor:"edit"
               }
             ]}
             defaultPageSize={10}
