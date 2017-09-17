@@ -36,13 +36,22 @@ class Budgetform extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            disable : false/*change to true to disable tab 2*/
+            disable : true
         };
+        this.getData = this.getData.bind(this)
+    }
+    getData(choice){
+        if(choice=="1"){
+            this.setState({disable: false});
+        }
+        else this.setState({disable: true});
+
+        console.log(disable);
     }
     render() {
         return (
             <Tabs defaultActiveKey={0} id="budgetformtab">
-                <Tab eventKey={0} title="ข้อมูลทั่วไป"> <Budgetform_tab1 onChange={disable => {this.setState({ disable })}}/></Tab>
+                <Tab eventKey={0} title="ข้อมูลทั่วไป"> <Budgetform_tab1 sendData={this.getData}/></Tab>
                 <Tab eventKey={1} title="ข้อมูลกองทุน" disabled={this.state.disable}> <Budgetform_tab2/></Tab>
            </Tabs>
         );
@@ -53,19 +62,12 @@ class Budgetform_tab1 extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            disable:true
         };
         this.activatetab = this.activatetab.bind(this)
     }
     activatetab(event){
-        let value = event.target.value;
-        if(value=="0"){
-          this.setState({disable: true});
-        }
-        else this.setState({disable: false});
-
-        this.setState(disable);
-        this.props.onChange(disable);
+        var choice = event.target.value;
+        this.props.sendData(choice);
     }
     render() {
         return (
