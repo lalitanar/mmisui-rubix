@@ -178,7 +178,6 @@ class PlanningOverviewtable extends React.Component {
       }
 
     render() {
-        var i=0
         return (
           <ReactTable
           data={this.state.data}
@@ -220,46 +219,49 @@ class PlanningOverviewtable extends React.Component {
                     padding: "0",
                     textAlign: "center",
                     userSelect: "none"
-                },
+                }
             }
           ]}
           defaultPageSize={5}
           className="-striped -highlight"
-          SubComponent={() => <div>
+          SubComponent={row => {
+                    return (
+                        <div>
                                 <Grid>
                                 <span><b>รายละเอียดงบ</b></span>
                                     <Row>
-                                    <Col xs={1}>
-                                        <Icon glyph='icon-ikons-play'/>{this.state.data[i].budgetfrom1}
+                                    <Col xs={2}>
+                                        <Icon glyph='icon-ikons-play'/>{this.state.data[row.index].budgetfrom1}
                                     </Col>
                                     <Col xs={1}>
-                                        {this.state.data[i].budgettotal1}
+                                        {this.state.data[row.index].budgettotal1}
                                         &nbsp;&nbsp;บาท
                                     </Col>
                                     </Row>
 
                                     <Row>
-                                    <Col xs={1}>
-                                        <Icon glyph='icon-ikons-play'/>{this.state.data[i].budgetfrom2}
+                                    <Col xs={2}>
+                                        <Icon glyph='icon-ikons-play'/>{this.state.data[row.index].budgetfrom2}
                                     </Col>
                                     <Col xs={1}>
-                                        {this.state.data[i].budgettotal2}
+                                        {this.state.data[row.index].budgettotal2}
                                         &nbsp;&nbsp;บาท
                                     </Col>
                                     </Row>
 
                                     <Row>
-                                    <Col xs={1}>
-                                        <Icon glyph='icon-ikons-play'/>{this.state.data[i].budgetfrom3}
+                                    <Col xs={2}>
+                                        <Icon glyph='icon-ikons-play'/>{this.state.data[row.index].budgetfrom3}
                                     </Col>
                                     <Col xs={1}>
-                                        {this.state.data[i].budgettotal3}
+                                        {this.state.data[row.index].budgettotal3}
                                         &nbsp;&nbsp;บาท
                                     </Col>
                                     </Row>
                                 </Grid>
                               </div>
-                        }
+                    );
+          }}
         />
         );
     }
