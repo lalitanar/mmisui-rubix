@@ -164,7 +164,7 @@ class PlanningOverviewtable extends React.Component {
               {
                 planninglist:"แผนการจัดซือยาและเวชภัณฑ์ย่อย 1",
                 lastupdate:"11/11/59",
-                status:"ยังไม่อนุมัติ",
+                status:"อนุมัติ",
                 budget:12000000,
                 budgetfrom1:"งบ จ",
                 budgettotal1:10000000,
@@ -172,6 +172,18 @@ class PlanningOverviewtable extends React.Component {
                 budgettotal2:10000000,
                 budgetfrom3:"งบ ช",
                 budgettotal3:100000000
+              },
+              {
+                planninglist:"แผนการจัดซือยาและเวชภัณฑ์ย่อย 2",
+                lastupdate:"29/11/59",
+                status:"ยังไม่อนุมัติ",
+                budget:12000000,
+                budgetfrom1:"-",
+                budgettotal1:0,
+                budgetfrom2:"-",
+                budgettotal2:0,
+                budgetfrom3:"-",
+                budgettotal3:0
               }
           ]
         };
