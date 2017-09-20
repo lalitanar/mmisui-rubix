@@ -4,6 +4,7 @@ import { render } from "react-dom";
 import { Link, withRouter } from 'react-router';
 // Import React Table
 import ReactTable from "react-table";
+import ToggleButton from 'react-toggle-button'
 import {
     Radio,
     SidebarNavItem,
@@ -50,16 +51,40 @@ class Buttonbar extends React.Component {
 }
 
 class UpperTab extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: false
+        };
+    }
+    componentWillMount(){
+        this.setState({
+            status:this.props.status,
+            value: status
+        });
+      }
     render() {
         var year=this.props.year
-        var status=this.props.status
         return (
             <h4>
                 <b>ปีงบประมาณ</b> &nbsp;{year}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <b>สถานะ</b> &nbsp;{status}
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <Button bsStyle='primary'><Icon glyph='icon-fontello-edit'/>  แก้ไข</Button>
+                <b>สถานะ</b> &nbsp;
+                <ToggleButton
+                    inactiveLabel={'ไม่ทำงาน'}
+                    activeLabel={'ทำงาน'}
+                    containerStyle={{display:'inline-block',width:'60px'}}
+                    trackStyle={{width:'90px'}}
+                    thumbAnimateRange={[1, 70]}
+                    activeLabelStyle={{ width:'35px' }}
+                    inactiveLabelStyle={{ width:'55px' }}
+                    value={this.state.status}
+                    onToggle={(value) => {
+                        this.setState({
+                            status:!value
+                        })
+                    }}
+                />
             </h4>
         );
     }
@@ -307,14 +332,14 @@ class PlanningOverviewBox extends React.Component {
 export default class PlanningOverview extends React.Component {
     render() {
         var approve={
-            header:"งบประมาณอนุมัติแล้ว",
+            header:"งบประมาณที่อนุมัติแล้ว",
             word1:"งบประมาณ",
             budget1:12000000,
             word2:"งบบำรุง",
             budget2:13000000
       }
       var disapprove={
-            header:"งบประมาณยังไม่อนุมัติ",
+            header:"งบประมาณที่ยังไม่อนุมัติ",
             word1:"งบพิเศษ",
             budget1:11000000,
             word2:"งบบริจาค",
@@ -334,13 +359,12 @@ export default class PlanningOverview extends React.Component {
                 <Grid>
                   <Row>
                     <Col xs={12}>
-                      <UpperTab year="2560" status="ไม่ทำงาน"/>
+                      <UpperTab year="2560" status={false}/>
                       <br/>
                         <BudgetBox obj={approve}/>
                         <BudgetBox obj={disapprove}/>
                       <br/>
                       <PlanningOverviewBox />
-                      <hr/>
                     </Col>
                   </Row>
                 </Grid>
