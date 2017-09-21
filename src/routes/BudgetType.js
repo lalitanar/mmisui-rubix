@@ -50,10 +50,12 @@ class Budgetform extends React.Component {
     }
     render() {
         return (
-            <Tabs defaultActiveKey={0} id="budgetformtab">
-                <Tab eventKey={0} title="ข้อมูลทั่วไป"> <Budgetform_tab1 sendData={this.getData}/></Tab>
-                <Tab eventKey={1} title="ข้อมูลกองทุน" disabled={this.state.disable}> <Budgetform_tab2/></Tab>
-           </Tabs>
+            <Col xs={12}>
+                <div>ข้อมูลทั่วไป</div>
+                <Budgetform_tab1 sendData={this.getData}/>
+                <div>ข้อมูลกองทุน</div>
+                <Budgetform_tab2 disable={this.state.disable}/>
+            </Col>
         );
     }
 }
@@ -108,7 +110,7 @@ class Budgetform_tab2 extends React.Component {
                     ผู้มีอำนาจอนุมัติ
                 </Col>
                 <Col xs={7} md={7}>
-                    <FormControl componentClass="select" placeholder="Budget Type   ">
+                    <FormControl componentClass="select" placeholder="Budget Type" disabled={this.props.disable}>
 		                <option value="0">คุณ หมีขาว ขั้วโลกเหนือ</option>
 		                <option value="1">คุณ แมวเหมียว เมี้ยวเมี้ยว</option>
                         <option value="2">คุณ หมาบ้อก โฮ่งโฮ่ง</option>
@@ -122,7 +124,7 @@ class Budgetform_tab2 extends React.Component {
                         วันที่เริ่มการทำงาน
                     </Col>
                     <Col xs={6}>
-                        <DateTimeField />
+                        <DateTimeField/>
                     </Col>
                 </FormGroup>
 
@@ -140,8 +142,8 @@ class Budgetform_tab2 extends React.Component {
                         สถานะการทำงาน
                     </Col>
                     <Col xs={8}>
-	                <Radio inline name='work_status'>Freeze</Radio> {' '}
-                    <Radio inline name='work_status'>Unfreeze</Radio>{' '}
+	                <Radio inline name='work_status' disabled={this.props.disable}>Freeze</Radio> {' '}
+                    <Radio inline name='work_status' disabled={this.props.disable}>Unfreeze</Radio>{' '}
                     </Col>
 	            </FormGroup>
             </Form>
