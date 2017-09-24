@@ -415,24 +415,19 @@ class FormMore extends React.Component {
 class FormNew extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { value: '1' ,status: true};
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
-
-    handleChange(event) {
-        console.log(this.state.value);
-      //  this.setState({ value: event.target.value });
-        console.log(this.state.value);
-    }
-
-    handleSubmit(event) {
-        alert('Your favorite flavor is: ' + this.state.value);
-        event.preventDefault();
+        this.state = {status: true};
     }
     render() {
-        var val = this.state.value;
+        let val = this.state.value;
+        let state = "";
+        if(this.props.state == "0" || this.props.state == "0"){
+          state = "รออนุมัติการจัดชื้้อ";
+        }else if(this.props.state =="1"){
+          state = "อนุมัติการจัดชื้้อ";
+        }else if(this.props.state =="2" || this.props.state =="3"){
+          state = "สัญญา";
+        }else{
+        }
         return (
             <Panel>
                 <Form>
@@ -440,16 +435,20 @@ class FormNew extends React.Component {
                         <Col xs={4} >
                             <FormGroup>
                                 <ControlLabel >สถานะ</ControlLabel>
-
-                                <FormControl componentClass="select" onChange={this.handleChange} placeholder="1"  >
-                                    <option value="0">ไม่พร้อมทำงาน</option>
-                                    <option value="1">รออนุมัตการจัดซื้อ</option>
-                                    <option value="2">อนุมัติการจัดซื้อ</option>
-                                    <option value="3">สัญญา</option>
-                                </FormControl>
+                                <FormControl type="text" value={state} disabled/>
                             </FormGroup>
                         </Col>
-                        <Col xs={4} className="pull-right">
+                        <Col xs={4}>
+                          <FormGroup>
+                              <ControlLabel >ชนิดสัญญา</ControlLabel>
+                                <FormControl componentClass="select" placeholder="1"  >
+                                  <option value="0">ภายใน</option>
+                                  <option value="1">เขต</option>
+                                  <option value="2">จังหวัด</option>
+                              </FormControl>
+                          </FormGroup>
+                        </Col>
+                        <Col xs={4} >
                             <FormGroup>
                         <ControlLabel>สถานะการทำงาน</ControlLabel>
                           <ToggleButton
@@ -470,6 +469,7 @@ class FormNew extends React.Component {
                                 <ControlLabel>เลขที่เตรียมสัญญา</ControlLabel>
                                 <FormControl type="text" placeholder=" " disabled/>
                             </FormGroup>
+
                         </Col>
                         <Col xs={4} >
                             <FormGroup>
@@ -484,31 +484,31 @@ class FormNew extends React.Component {
                             </FormGroup>
                         </Col>
                     </Row>
-                    {val == '3' ? (
-                        <FormContact />
-                    ) : (<Row></Row>)}
-                    <Row>
-                        <Col xs={12}>
-                            <PanelContainer>
-                                <Panel>
-                                    <h4>รายการยาและเวชภัณฑ์ที่จะทำสัญญา</h4>
-                                    <BPanel>
-                                        <Grid>
-                                            <Row>
-                                                <Col xs={12}>
-                                                    <TableDNoData />
-                                                </Col>
-                                            </Row>
-                                        </Grid>
-                                    </BPanel>
-                                </Panel>
-                            </PanelContainer>
-                        </Col>
-                    </Row>
                 </Form>
             </Panel>
         );
     }
+}
+
+class TableDNoDataS extends React.Component {
+  render(){
+    return(
+              <PanelContainer>
+                  <Panel>
+                      <h4>รายการยาและเวชภัณฑ์ที่จะทำสัญญา</h4>
+                      <BPanel>
+                          <Grid>
+                              <Row>
+                                  <Col xs={12}>
+                                      <TableDNoData />
+                                  </Col>
+                              </Row>
+                          </Grid>
+                      </BPanel>
+                  </Panel>
+              </PanelContainer>
+    );
+  }
 }
 
 
@@ -518,6 +518,57 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
       this.submit = this.props.submit.bind(this)
   }
     render() {
+      let buy=<div/>;
+      let seller=<div/>;
+      let boardofdirectors=<div/>;
+      let contracttotalprice=<div/>;
+      let contractfine=<div/>;
+      let project=<div/>;
+      let formcontact=<div/>;
+      switch ( parseInt(this.props.state)) {
+        case 0:
+            buy=<Buy objd={{selecting_phrase:true}} />
+            project=<div/>;
+            seller=<div/>;
+            boardofdirectors=<div/>;
+            contracttotalprice=<ContractTotalPrice objd={{initial_price:20}}/>
+            contractfine=<div/>;
+            formcontact=<div/>
+            console.log("c0");
+        break;
+        case 1:
+            buy=<Buy objd={{selecting_phrase:false}} />
+            project=<Project/>
+            seller=<Seller objd={{selecting_phrase:false}} />
+            boardofdirectors=<BoardofDirectors objd={{selecting_phrase:true}}/>
+            contracttotalprice=<ContractTotalPrice objd={{initial_price:20}}/>
+            contractfine=<ContractFine objd={{fine_d:20,fine_m:30,fine_y:300}} />
+            formcontact=<div/>
+            console.log("c1");
+        break;
+        case 2:
+            buy=<Buy objd={{selecting_phrase:false}} />
+            project=<Project/>
+            seller=<Seller objd={{selecting_phrase:false}} />
+            boardofdirectors=<BoardofDirectors objd={{selecting_phrase:false}}/>
+            contracttotalprice=<ContractTotalPrice objd={{initial_price:20}}/>
+            contractfine=<ContractFine objd={{fine_d:20,fine_m:30,fine_y:300}} />
+            formcontact=<div/>
+            console.log("c2");
+        break;
+        case 3:
+            buy=<Buy objd={{selecting_phrase:true}} />
+            project=<Project/>
+            seller=<Seller objd={{selecting_phrase:true}} />
+            boardofdirectors=<BoardofDirectors objd={{selecting_phrase:true}}/>
+            contracttotalprice=<ContractTotalPrice objd={{initial_price:20}}/>
+            contractfine=<ContractFine objd={{fine_d:20,fine_m:30,fine_y:300}} />
+            formcontact=<FormContact/>
+            console.log("c3");
+          break;
+        default:
+
+      }
         return (
             <Row>
                 <Col xs={12}>
@@ -536,22 +587,25 @@ export default class PanelBodyHeaderAndFooter extends React.Component {
                                 <Grid>
                                     <Row>
                                         <Col xs={12}>
-                                            <FormNew />
+                                            <FormNew state={this.props.state}/>
+                                            {formcontact}
+                                            <TableDNoDataS state={this.props.state}/>
+                                            {contracttotalprice}
                                         </Col>
                                         <Col xs={12}>
-                                            <Project/>
-                                            <Buy objd={{selecting_phrase:true}} />
+                                            {project}
+                                            {buy}
                                         </Col>
                                         <Col xs={12}>
 
-                                            <Seller objd={{selecting_phrase:true}} />
+                                            {seller}
                                         </Col>
                                         <Col xs={12}>
-                                            <BoardofDirectors objd={{selecting_phrase:true}}/>
+                                          {boardofdirectors}
                                         </Col>
                                         <Col xs={12}>
-                                            <ContractTotalPrice objd={{initial_price:20}}/>
-                                            <ContractFine objd={{fine_d:20,fine_m:30,fine_y:300}} />
+
+                                            {contractfine}
                                             <FormMore />
                                         </Col>
                                     </Row>
