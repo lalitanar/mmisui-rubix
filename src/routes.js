@@ -35,6 +35,9 @@ import Position from './routes/Position'
 import MaterialSetting from './routes/MaterialSetting'
 import History from './routes/History'
 import ViewHistory from './routes/ViewHistory'
+import BudgetType from './routes/BudgetType'
+import PlanningOverview from './routes/PlanningOverview'
+import AllPlanning from './routes/AllPlanning'
 class App extends React.Component {
   change(num){
     this.setState({sidebar:num});
@@ -103,6 +106,9 @@ const routes = (
     <Route path='materialsetting' component={MaterialSetting} />
     <Route path='history' component={History} />
     <Route path='viewhistory' component={ViewHistory} />
+    <Route path='budgettype' component={BudgetType} />
+    <Route path='planningoverview' component={PlanningOverview} />
+    <Route path='allplanning' component={AllPlanning} />
   </Route>
 );
 
