@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Detail from '../components/Detail'
-import actions from '../redux/actions';
-
+import DashBorad from './contract/Dashboard/DashBoard'
 import {
   Row,
   Col,
@@ -11,13 +9,7 @@ import {
   PanelBody,
   PanelContainer,
 } from '@sketchpixy/rubix';
-
-@connect((state) => state)
 export default class Home extends React.Component {
-  static fetchData(store) {
-    return store.dispatch(actions.getGreeting('Hello, World!'));
-  }
-
   render() {
     return (
       <PanelContainer>
@@ -26,7 +18,7 @@ export default class Home extends React.Component {
             <Grid>
               <Row>
                 <Col xs={12}>
-
+                  <DashBorad/>
                 </Col>
               </Row>
             </Grid>
