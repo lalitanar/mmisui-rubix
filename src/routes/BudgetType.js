@@ -22,6 +22,7 @@ import {
     ButtonToolbar,
     ButtonGroup,
     Button,
+    BPanel,
     Modal,
     Form,
     FormGroup,
@@ -36,26 +37,26 @@ class Budgetform extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            disable : true
+            open : false
         };
         this.getData = this.getData.bind(this)
     }
     getData(choice){
         if(choice=="1"){
-            this.setState({disable: false});
+            this.setState({open: true});
         }
-        else this.setState({disable: true});
+        else this.setState({open: false});
 
-        console.log(disable);
+        console.log(open);
     }
     render() {
         return (
+            <Grid>
             <Col xs={12}>
-                <div>ข้อมูลทั่วไป</div>
                 <Budgetform_tab1 sendData={this.getData}/>
-                <div>ข้อมูลกองทุน</div>
-                <Budgetform_tab2 disable={this.state.disable}/>
+                <Budgetform_tab2 open={this.state.open}/>
             </Col>
+            </Grid>
         );
     }
 }
@@ -65,14 +66,16 @@ class Budgetform_tab1 extends React.Component {
         super(props);
         this.state = {
         };
-        this.activatetab = this.activatetab.bind(this)
+        this.activate = this.activate.bind(this)
     }
-    activatetab(event){
+    activate(event){
         var choice = event.target.value;
         this.props.sendData(choice);
     }
     render() {
         return (
+            <BPanel>
+            <div>ข้อมูลทั่วไป</div>
             <Form horizontal>
                 <br/>
                 <FormGroup controlId="budgettype">
@@ -80,7 +83,7 @@ class Budgetform_tab1 extends React.Component {
                     ประเภทงบประมาณ
                 </Col>
                 <Col xs={5} md={5}>
-                    <FormControl componentClass="select" placeholder="Budget Type" onChange={(e) => this.activatetab(e)}>
+                    <FormControl componentClass="select" placeholder="Budget Type" onChange={(e) => this.activate(e)}>
 		                <option value="0">ทั่วไป</option>
 		                <option value="1">กองทุน</option>
                     </FormControl>
@@ -96,6 +99,7 @@ class Budgetform_tab1 extends React.Component {
                     </Col>
                     </FormGroup>
             </Form>
+            </BPanel>
         );
     }
 }
@@ -103,6 +107,8 @@ class Budgetform_tab1 extends React.Component {
 class Budgetform_tab2 extends React.Component {
     render() {
         return (
+            <BPanel collapsible expanded={this.props.open}>
+            <div>ข้อมูลกองทุน</div>
             <Form horizontal>
                 <br/>
                 <FormGroup controlId="approver">
@@ -110,7 +116,7 @@ class Budgetform_tab2 extends React.Component {
                     ผู้มีอำนาจอนุมัติ
                 </Col>
                 <Col xs={7} md={7}>
-                    <FormControl componentClass="select" placeholder="Budget Type" disabled={this.props.disable}>
+                    <FormControl componentClass="select" placeholder="Budget Type">
 		                <option value="0">คุณ หมีขาว ขั้วโลกเหนือ</option>
 		                <option value="1">คุณ แมวเหมียว เมี้ยวเมี้ยว</option>
                         <option value="2">คุณ หมาบ้อก โฮ่งโฮ่ง</option>
@@ -142,11 +148,12 @@ class Budgetform_tab2 extends React.Component {
                         สถานะการทำงาน
                     </Col>
                     <Col xs={8}>
-	                <Radio inline name='work_status' disabled={this.props.disable}>Freeze</Radio> {' '}
-                    <Radio inline name='work_status' disabled={this.props.disable}>Unfreeze</Radio>{' '}
+	                <Radio inline name='work_status'>Freeze</Radio> {' '}
+                    <Radio inline name='work_status'>Unfreeze</Radio>{' '}
                     </Col>
 	            </FormGroup>
             </Form>
+            </BPanel>
         );
     }
 }

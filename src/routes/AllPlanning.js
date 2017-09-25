@@ -227,8 +227,7 @@ class AllPlanningtable extends React.Component {
           data: [
               {
                 planning:"แผนการจัดซื้อยาและเวชภัณฑ์ ปีงบประมาณ2560",
-                value:false,
-                status:false,
+                budget:50000000,
                 status_bt:<ToggleButton
                             inactiveLabel={'ไม่ทำงาน'}
                             activeLabel={'ทำงาน'}
@@ -249,6 +248,7 @@ class AllPlanningtable extends React.Component {
               },
               {
                 planning:"แผนการจัดซื้อยาและเวชภัณฑ์ ปีงบประมาณ2559",
+                budget:250000000,
                 status_bt:<ToggleButton
                             inactiveLabel={'ไม่ทำงาน'}
                             activeLabel={'ทำงาน'}
@@ -284,6 +284,11 @@ class AllPlanningtable extends React.Component {
             {
               Header: "แผนการจัดซื้อยาและเวชภัณฑ์",
               accessor:"planning"
+            },
+            {
+              Header:"งบประมาณทั้งหมด",
+              accessor:"budget",
+              width:200
             },
             {
               Header: "สถานะ",

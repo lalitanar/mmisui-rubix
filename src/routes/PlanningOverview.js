@@ -246,9 +246,15 @@ class PlanningOverviewtable extends React.Component {
                 width: 100,
                 Expander: ({ isExpanded, ...rest }) =>
                     <div>
-                      {isExpanded
-                        ? <span><Icon glyph='icon-feather-circle-minus'/></span>
-                        : <span><Icon glyph='icon-dripicons-information'/></span>}
+                    {
+                        this.state.data[rest.index].status==="ยังไม่อนุมัติ"
+                            ?<Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>แก้ไข</Button>
+                            :isExpanded
+                                ? <span><Icon glyph='icon-feather-circle-minus'/></span>
+                                : <span><Icon glyph='icon-dripicons-information'/></span>
+                    }
+                        {console.log({rest})}
+
                     </div>,
                 style: {
                     cursor: "pointer",
@@ -263,7 +269,9 @@ class PlanningOverviewtable extends React.Component {
           className="-striped -highlight"
           SubComponent={row => {
                     return (
-                        <div>
+                        this.state.data[row.index].status==="ยังไม่อนุมัติ"
+                        ?<div></div>
+                        :<div>
                                 <Grid>
                                 <span><b>รายละเอียดงบ</b></span>
                                     <Row>
