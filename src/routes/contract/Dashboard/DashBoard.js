@@ -1,4 +1,5 @@
 import React , { Component } from 'react';
+import ReactTable from "react-table";
 import {
   Row,
   Col,
@@ -13,18 +14,50 @@ import {
 class ChartContainer extends React.Component {
   render() {
     return (
-      <PanelContainer>
-        <Panel>
-          <PanelBody style={{padding: 25}} className='text-center'>
+          <div style={{padding: 25}} className='text-center'>
             <h4>{this.props.name}</h4>
             <div><div id={this.props.id}></div></div>
-          </PanelBody>
-        </Panel>
-      </PanelContainer>
+          </div>
     );
   }
 }
-
+class ChartDetail extends Component {
+  render(){
+    let data = [
+      {a:123,b:345435,c:234234,d:0}
+    ]
+    return(
+      <ReactTable
+        data={data}
+        noDataText="ไม่พบข้อมูล"
+        showPaginationBottom = {false}
+        defaultFilterMethod={(filter, row) =>
+            String(row[filter.id]) === filter.value ||
+            row[filter.id].includes(filter.value)}
+        columns={[
+            {
+                Header: "งบ ก",
+                accessor: "a"
+            },
+            {
+                Header: "งบ ข",
+                accessor: "b"
+            },
+            {
+                Header: "งบ ค",
+                accessor: "c"
+            },
+            {
+                Header: "งบ ง",
+                accessor: "d"
+            }
+        ]}
+        defaultPageSize={5}
+        className="-striped -highlight"
+        />
+    );
+  }
+}
 class DashBoard extends Component {
   componentDidMount() {
     (() => {
@@ -86,7 +119,8 @@ class DashBoard extends Component {
           <Col md={6}><ChartContainer id='pie-chart1' name='ประเภทสัญญา' /></Col>
           <Col md={6}><ChartContainer id='pie-chart2' name='การจัดซื้อ' /></Col>
         </Row>
-
+        <br/>
+        <ChartDetail/>
       </div>
     );
   }
