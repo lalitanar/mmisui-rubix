@@ -5,7 +5,7 @@ import {
   Col,
   PanelContainer,
   Panel,
-  PanelBody,
+  BPanel,
   PanelFooter,
   Grid,
   Button,
@@ -28,16 +28,8 @@ export default class ContractFine extends Component {
     return(
       <PanelContainer>
           <Panel>
-              <PanelHeader className='bg-blue fg-white'>
-                  <Grid>
-                      <Row>
-                          <Col xs={12}>
-                              <h3>โครงการ</h3>
-                          </Col>
-                      </Row>
-                  </Grid>
-            </PanelHeader>
-            <PanelBody>
+              <h4>โครงการ</h4>
+            <BPanel>
             <Grid>
                 <Row>
                 <Col xs={12}>
@@ -59,12 +51,19 @@ export default class ContractFine extends Component {
                         <FormControl type="text"/>
                         </Col>
                         </FormGroup>
-
+                        <FormGroup controlId="egpNumber">
+                        <Col componentClass={ControlLabel} xs={3}>
+                            เลขที่คุมสัญญาในระบบ e-GP
+                        </Col>
+                        <Col sm={6}>
+                        <FormControl type="text"/>
+                        </Col>
+                        </FormGroup>
                     </Form>
                 </Col>
                 </Row>
             </Grid>
-          </PanelBody>
+          </BPanel>
         </Panel>
       </PanelContainer>
     );
