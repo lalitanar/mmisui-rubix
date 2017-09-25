@@ -228,43 +228,13 @@ class AllPlanningtable extends React.Component {
               {
                 planning:"แผนการจัดซื้อยาและเวชภัณฑ์ ปีงบประมาณ2560",
                 budget:50000000,
-                status_bt:<ToggleButton
-                            inactiveLabel={'ไม่ทำงาน'}
-                            activeLabel={'ทำงาน'}
-                            containerStyle={{display:'inline-block',width:'60px'}}
-                            trackStyle={{width:'90px'}}
-                            thumbAnimateRange={[1, 70]}
-                            activeLabelStyle={{ width:'35px' }}
-                            inactiveLabelStyle={{ width:'55px' }}
-                            value={false}
-                            onToggle={(value) => {
-                                this.setState({
-                                    status:!value
-                                })
-                            }}
-                        />
-            ,
-                moreinfo:<Button bsStyle='success' href='/planningoverview'><Icon glyph='icon-fontello-search'/>ดูรายละเอียด</Button>
+                status:0,
+                moreinfo:<Link to={'/planningoverview'}><Button bsStyle='success'><Icon glyph='icon-fontello-search'/>ดูรายละเอียด</Button></Link>
               },
               {
                 planning:"แผนการจัดซื้อยาและเวชภัณฑ์ ปีงบประมาณ2559",
                 budget:250000000,
-                status_bt:<ToggleButton
-                            inactiveLabel={'ไม่ทำงาน'}
-                            activeLabel={'ทำงาน'}
-                            containerStyle={{display:'inline-block',width:'60px'}}
-                            trackStyle={{width:'90px'}}
-                            thumbAnimateRange={[1, 70]}
-                            activeLabelStyle={{ width:'35px' }}
-                            inactiveLabelStyle={{ width:'55px' }}
-                            value={true}
-                            onToggle={(value) => {
-                                this.setState({
-                                    status:!value
-                                })
-                            }}
-                        />
-                ,
+                status:1,
                 moreinfo:<Button bsStyle='success'><Icon glyph='icon-fontello-search'/>ดูรายละเอียด</Button>
               }
           ]
@@ -292,8 +262,22 @@ class AllPlanningtable extends React.Component {
             },
             {
               Header: "สถานะ",
-              accessor: "status_bt",
-              width:120
+              accessor: "status",
+              width:120,
+              Cell: row => (
+                  <span>
+                    <span style={{
+                       color: row.value === 1 ? '#57d500'
+                            :'#ff2e00',
+                      transition: 'all .3s ease'
+                      }}>&#x25cf;
+                    </span> 
+                    {
+                      row.value === 1 ? ' ทำงาน'
+                      :' ไม่ทำงาน'
+                    }
+                  </span>
+                )
             },
             {
               Header: "",

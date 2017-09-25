@@ -75,7 +75,7 @@ class Budgetform_tab1 extends React.Component {
     render() {
         return (
             <BPanel>
-            <div>ข้อมูลทั่วไป</div>
+            <h4>ข้อมูลทั่วไป</h4>
             <Form horizontal>
                 <br/>
                 <FormGroup controlId="budgettype">
@@ -108,7 +108,7 @@ class Budgetform_tab2 extends React.Component {
     render() {
         return (
             <BPanel collapsible expanded={this.props.open}>
-            <div>ข้อมูลกองทุน</div>
+            <h4>ข้อมูลกองทุน</h4>
             <Form horizontal>
                 <br/>
                 <FormGroup controlId="approver">
@@ -129,7 +129,7 @@ class Budgetform_tab2 extends React.Component {
                     <Col componentClass={ControlLabel} xs={4}>
                         วันที่เริ่มการทำงาน
                     </Col>
-                    <Col xs={6}>
+                    <Col xs={7}>
                         <DateTimeField/>
                     </Col>
                 </FormGroup>
@@ -138,7 +138,7 @@ class Budgetform_tab2 extends React.Component {
                     <Col componentClass={ControlLabel} xs={4}>
                         วันที่สิ้นสุดการทำงาน
                     </Col>
-                    <Col xs={6}>
+                    <Col xs={7}>
                         <DateTimeField />
                     </Col>
                 </FormGroup>

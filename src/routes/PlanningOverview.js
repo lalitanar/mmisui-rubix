@@ -67,24 +67,29 @@ class UpperTab extends React.Component {
         var year=this.props.year
         return (
             <h4>
-                <b>ปีงบประมาณ</b> &nbsp;{year}
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <b>สถานะ</b> &nbsp;
-                <ToggleButton
-                    inactiveLabel={'ไม่ทำงาน'}
-                    activeLabel={'ทำงาน'}
-                    containerStyle={{display:'inline-block',width:'60px'}}
-                    trackStyle={{width:'90px'}}
-                    thumbAnimateRange={[1, 70]}
-                    activeLabelStyle={{ width:'35px' }}
-                    inactiveLabelStyle={{ width:'55px' }}
-                    value={this.state.status}
-                    onToggle={(value) => {
-                        this.setState({
-                            status:!value
-                        })
-                    }}
-                />
+                <Row>
+                    <Col xs={10}>
+                        <b>ปีงบประมาณ</b> &nbsp;{year}
+                    </Col>
+                    <Col xs={2}>
+                        <b>สถานะ</b> &nbsp;
+                        <ToggleButton
+                            inactiveLabel={'ไม่ทำงาน'}
+                            activeLabel={'ทำงาน'}
+                            containerStyle={{display:'inline-block',width:'60px'}}
+                            trackStyle={{width:'90px'}}
+                            thumbAnimateRange={[1, 70]}
+                            activeLabelStyle={{ width:'35px' }}
+                            inactiveLabelStyle={{ width:'55px' }}
+                            value={this.state.status}
+                            onToggle={(value) => {
+                                this.setState({
+                                    status:!value
+                                })
+                            }}
+                        />
+                </Col>
+                </Row>
             </h4>
         );
     }
@@ -111,12 +116,9 @@ class BudgetBox extends React.Component {
         return (
             <Col xs={6}>
             <PanelContainer>
-            <BPanel>
-                <PanelHeader className='bg-blue fg-white'>
-                    <Grid>
+            <Panel>
                     <h4>{header}</h4>
-                    </Grid>
-                </PanelHeader>
+                <BPanel>
                 <PanelBody>
                 <Grid>
                 <Row>
@@ -163,6 +165,7 @@ class BudgetBox extends React.Component {
             </Grid>
             </PanelBody>
             </BPanel>
+            </Panel>
             </PanelContainer>
             </Col>
         );
@@ -316,12 +319,8 @@ class PlanningOverviewBox extends React.Component {
         return (
             <Col xs={12}>
             <PanelContainer>
+             <h4>แผนการจัดซือยาและเวชภัณฑ์</h4>
             <BPanel>
-                <PanelHeader className='bg-blue fg-white'>
-                    <Grid>
-                    <h4>แผนการจัดซือยาและเวชภัณฑ์</h4>
-                    </Grid>
-                </PanelHeader>
                 <PanelBody>
                 <Grid>
                 <Row>
