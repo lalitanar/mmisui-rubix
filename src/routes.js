@@ -38,6 +38,8 @@ import ViewHistory from './routes/ViewHistory'
 import BudgetType from './routes/BudgetType'
 import PlanningOverview from './routes/PlanningOverview'
 import AllPlanning from './routes/AllPlanning'
+import PlanningDashboard from './routes/PlanningDashboard'
+
 class App extends React.Component {
   change(num){
     this.setState({sidebar:num});
@@ -109,6 +111,7 @@ const routes = (
     <Route path='budgettype' component={BudgetType} />
     <Route path='planningoverview' component={PlanningOverview} />
     <Route path='allplanning' component={AllPlanning} />
+    <Route path='planningdashboard' component={PlanningDashboard} />
   </Route>
 );
 

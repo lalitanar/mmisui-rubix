@@ -48,7 +48,7 @@ class AllPlanningform extends React.Component {
 	                  <FormControl componentClass="select" placeholder="year">
                         <option value="0">{current_y}</option>
                         <option value="1">{current_y+1}</option>
-		                <option value="2">{current_y+2}</option>
+		                    <option value="2">{current_y+2}</option>
                         <option value="3">{current_y+3}</option>
                         <option value="4">{current_y+4}</option>
                         <option value="5">{current_y+5}</option>
@@ -97,125 +97,6 @@ class Buttonbar extends React.Component {
     </Col>
     </Row>
     </div>
-        );
-    }
-}
-
-class UpperTab extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: false
-        };
-    }
-    componentWillMount(){
-        this.setState({
-            status:this.props.status,
-            value: status
-        });
-      }
-    render() {
-        var year=this.props.year
-        return (
-            <h4>
-                <b>ปีงบประมาณ</b> &nbsp;{year}
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <b>สถานะ</b> &nbsp;
-                <ToggleButton
-                    inactiveLabel={'ไม่ทำงาน'}
-                    activeLabel={'ทำงาน'}
-                    containerStyle={{display:'inline-block',width:'60px'}}
-                    trackStyle={{width:'90px'}}
-                    thumbAnimateRange={[1, 70]}
-                    activeLabelStyle={{ width:'35px' }}
-                    inactiveLabelStyle={{ width:'55px' }}
-                    value={this.state.status}
-                    onToggle={(value) => {
-                        this.setState({
-                            status:!value
-                        })
-                    }}
-                />
-            </h4>
-        );
-    }
-}
-
-class BudgetBox extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            totalbudget: 0
-        };
-    }
-    componentWillMount(){
-        this.setState({
-            totalbudget : this.props.obj.budget1+this.props.obj.budget2
-        });
-      }
-    render() {
-        var header=this.props.obj.header
-        var word1=this.props.obj.word1
-        var budget1=this.props.obj.budget1
-        var word2=this.props.obj.word2
-        var budget2=this.props.obj.budget2
-        return (
-            <Col xs={6}>
-            <PanelContainer>
-            <BPanel>
-                <PanelHeader className='bg-blue fg-white'>
-                    <Grid>
-                    <h4>{header}</h4>
-                    </Grid>
-                </PanelHeader>
-                <PanelBody>
-                <Grid>
-                <Row>
-                <Col xs={12}>
-                    <Form horizontal>
-                        <FormGroup controlId="budget1">
-                        <Col componentClass={ControlLabel} xs={4}>
-                            {word1}
-                        </Col>
-                        <Col sm={6}>
-                        <FormControl type="text" placeholder={word1} value={budget1} disabled active/>
-                        </Col>
-                        <Col componentClass={ControlLabel} xs={1}>
-                            บาท
-                        </Col>
-                        </FormGroup>
-
-                        <FormGroup controlId="budget2">
-                        <Col componentClass={ControlLabel} xs={4}>
-                            {word2} 
-                        </Col>
-                        <Col sm={6}>
-                        <FormControl type="text" placeholder={word2} value={budget2} disabled active/>
-                        </Col>
-                        <Col componentClass={ControlLabel} xs={1}>
-                            บาท
-                        </Col>
-                        </FormGroup>
-
-                        <FormGroup controlId="TotalBudget">
-                        <Col componentClass={ControlLabel} xs={4}>
-                            งบประมาณรวม
-                        </Col>
-                        <Col sm={6}>
-                        <FormControl type="text" placeholder="งบประมาณรวม" value={this.state.totalbudget} disabled active/>
-                        </Col>
-                        <Col componentClass={ControlLabel} xs={1}>
-                            บาท
-                        </Col>
-                        </FormGroup>
-                    </Form>
-                </Col>
-                </Row>
-            </Grid>
-            </PanelBody>
-            </BPanel>
-            </PanelContainer>
-            </Col>
         );
     }
 }
