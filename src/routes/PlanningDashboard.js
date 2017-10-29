@@ -68,17 +68,17 @@ export default class PlanningDashboard extends React.Component {
     Chart2.addData([
       {
         name: 'งบที่อนุมัติแล้ว',
-        value: 500000000,
+        value: 50000000,
         color: '#3BC474'
       },
       {
         name: 'งบที่รออนุมัติ',
-        value: 370000000,
+        value: 37000000,
         color: '#FFB533'
       },
       {
         name: 'งบที่ไม่อนุมัติ',
-        value: 370000000,
+        value: 27000000,
         color: '#E52F2F'
       }
     ]);
@@ -107,6 +107,12 @@ export default class PlanningDashboard extends React.Component {
                         </Col>
                     </Col>
                 </Grid>
+                <Grid>
+                    <br/>
+                    <h4 className='text-center'>รายการงบประมาณที่ถูกใช้แล้ว</h4>
+                    <DashboardTable/>
+                    <br/>
+                </Grid>
               </PanelBody>
             </Panel>
           </PanelContainer>
@@ -121,7 +127,7 @@ class SelectYear extends React.Component {
       var current_y=this.props.cur_year
       return (
               <Row>
-              <Col xs={8}>
+              <Col xs={9}>
               <FormGroup controlId="planningyear">
                   <Col componentClass={ControlLabel} xs={4}>
                       <h4>แผนการจัดซือยาและเวชภัณฑ์ประจำปี</h4>
@@ -138,8 +144,9 @@ class SelectYear extends React.Component {
                   <Col componentClass={ControlLabel} xs={1}>
                       <h4>ประเภท</h4>
                   </Col>
-                  <Col xs={2} md={2}>
+                  <Col xs={3} md={3}>
                   <FormControl componentClass="select" placeholder="type">
+                      <option value="0">ยาและเวชภัณฑ์</option>
                       <option value="0">ยา</option>
                       <option value="1">เวชภัณฑ์</option>
                   </FormControl>
@@ -147,6 +154,67 @@ class SelectYear extends React.Component {
             </FormGroup>
             </Col>
             </Row>
+      );
+  }
+}
+
+class DashboardTable extends React.Component {
+  constructor() {
+      super();
+      this.state = {
+        data: [
+            {
+              budget_name:"งบ ก",
+              budget_type:"งบพิเศษ",
+              total_budget:5000000,
+              purchase:"ยา"
+            },
+            {
+              budget_name:"งบ ข",
+              budget_type:"งบบำรุง",
+              total_budget:60000000,
+              purchase:"เวชภัณฑ์"
+            },
+            {
+              budget_name:"งบ ค",
+              budget_type:"งบประมาณ",
+              total_budget:400000000,
+              purchase:"ยา"
+            }
+        ]
+      };
+    }
+
+  render() {
+      return (
+        <ReactTable
+        data={this.state.data}
+        noDataText="ไม่พบข้อมูล"
+        filterable
+        defualtFilterMethod={(filter, row)=>
+            String(row[filter.id])===filter.value ||
+            row[filter.id].includes(filter.value)}
+        columns={[
+          {
+            Header: "ชื่องบประมาณ",
+            accessor:"budget_name"
+          },
+          {
+            Header: "ประเภท",
+            accessor: "budget_type"
+          },
+          {
+            Header: "มูลค่า",
+            accessor: "total_budget"
+          },
+          {
+            Header: "จัดซื้อ",
+            accessor: "purchase"
+          }
+        ]}
+        defaultPageSize={5}
+        className="-striped -highlight"
+      />
       );
   }
 }
