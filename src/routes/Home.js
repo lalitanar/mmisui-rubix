@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Detail from '../components/Detail'
+import actions from '../redux/actions';
+import Table  from '../components/Table'
 import DashBorad from './contract/Dashboard/DashBoard'
 import {
   Row,
@@ -19,6 +22,7 @@ export default class Home extends React.Component {
               <Row>
                 <Col xs={12}>
                   <DashBorad/>
+                  <Table/>
                 </Col>
               </Row>
             </Grid>
