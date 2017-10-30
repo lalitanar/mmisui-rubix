@@ -166,20 +166,17 @@ class DashboardTable extends React.Component {
             {
               budget_name:"งบ ก",
               budget_type:"งบพิเศษ",
-              total_budget:5000000,
-              purchase:"ยา"
+              total_budget:5000000
             },
             {
               budget_name:"งบ ข",
               budget_type:"งบบำรุง",
-              total_budget:60000000,
-              purchase:"เวชภัณฑ์"
+              total_budget:60000000
             },
             {
               budget_name:"งบ ค",
               budget_type:"งบประมาณ",
-              total_budget:400000000,
-              purchase:"ยา"
+              total_budget:400000000
             }
         ]
       };
@@ -206,10 +203,6 @@ class DashboardTable extends React.Component {
           {
             Header: "มูลค่า",
             accessor: "total_budget"
-          },
-          {
-            Header: "จัดซื้อ",
-            accessor: "purchase"
           }
         ]}
         defaultPageSize={5}
