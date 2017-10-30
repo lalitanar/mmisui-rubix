@@ -22,11 +22,13 @@ export default class Table extends Component{
     var col = [
       {
         Header: "ชื่อยาและเวชภัณฑ์",
-        accessor: "Name"
+        accessor: "Name",
+        width: 300
       },
       {
         Header: "รูปแบบ",
-        accessor: "Type"
+        accessor: "Type",
+        width: 70
       },
       {
         Header: "ขนาดบรรจุ",
@@ -34,7 +36,8 @@ export default class Table extends Component{
       },
       {
         Header: "ราคาต่อหน่วน",
-        accessor: "Price"
+        accessor: "Price",
+        width: 110
       },
       {
         Header: <p onClick={this.change}>อัตรากาใช้</p>,
@@ -70,19 +73,23 @@ export default class Table extends Component{
         columns: [
           {
             Header: "งวดที ่1",
-            accessor: "S1"
+            accessor: "S1",
+            width: 60
           },
           {
             Header: "งวดที ่2",
-            accessor: "S2"
+            accessor: "S2",
+            width: 60
           },
           {
             Header: "งวดที่ 3",
-            accessor: "S3"
+            accessor: "S3",
+            width: 60
           },
           {
             Header: "งวดที ่4",
-            accessor: "S4"
+            accessor: "S4",
+            width: 60
           }
         ]
       },
