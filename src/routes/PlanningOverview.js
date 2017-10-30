@@ -67,24 +67,29 @@ class UpperTab extends React.Component {
         var year=this.props.year
         return (
             <h4>
-                <b>ปีงบประมาณ</b> &nbsp;{year}
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <b>สถานะ</b> &nbsp;
-                <ToggleButton
-                    inactiveLabel={'ไม่ทำงาน'}
-                    activeLabel={'ทำงาน'}
-                    containerStyle={{display:'inline-block',width:'60px'}}
-                    trackStyle={{width:'90px'}}
-                    thumbAnimateRange={[1, 70]}
-                    activeLabelStyle={{ width:'35px' }}
-                    inactiveLabelStyle={{ width:'55px' }}
-                    value={this.state.status}
-                    onToggle={(value) => {
-                        this.setState({
-                            status:!value
-                        })
-                    }}
-                />
+                <Row>
+                    <Col xs={10}>
+                        <b>ปีงบประมาณ</b> &nbsp;{year}
+                    </Col>
+                    <Col xs={2}>
+                        <b>สถานะ</b> &nbsp;
+                        <ToggleButton
+                            inactiveLabel={'ไม่ทำงาน'}
+                            activeLabel={'ทำงาน'}
+                            containerStyle={{display:'inline-block',width:'60px'}}
+                            trackStyle={{width:'90px'}}
+                            thumbAnimateRange={[1, 70]}
+                            activeLabelStyle={{ width:'35px' }}
+                            inactiveLabelStyle={{ width:'55px' }}
+                            value={this.state.status}
+                            onToggle={(value) => {
+                                this.setState({
+                                    status:!value
+                                })
+                            }}
+                        />
+                </Col>
+                </Row>
             </h4>
         );
     }
@@ -111,12 +116,9 @@ class BudgetBox extends React.Component {
         return (
             <Col xs={6}>
             <PanelContainer>
-            <BPanel>
-                <PanelHeader className='bg-blue fg-white'>
-                    <Grid>
+            <Panel>
                     <h4>{header}</h4>
-                    </Grid>
-                </PanelHeader>
+                <BPanel>
                 <PanelBody>
                 <Grid>
                 <Row>
@@ -163,6 +165,7 @@ class BudgetBox extends React.Component {
             </Grid>
             </PanelBody>
             </BPanel>
+            </Panel>
             </PanelContainer>
             </Col>
         );
@@ -225,6 +228,29 @@ class PlanningOverviewtable extends React.Component {
               row[filter.id].includes(filter.value)}
           columns={[
             {
+                expander: true,
+                Header: () => <span>รายละเอียด</span>,
+                width: 80,
+                Expander: ({ isExpanded, ...rest }) =>
+                    <div>
+                    {
+                        this.state.data[rest.index].status==="ยังไม่อนุมัติ"
+                            ?null
+                            :isExpanded
+                                ? <span><Icon glyph='icon-feather-circle-minus'/></span>
+                                : <span><Icon glyph='icon-dripicons-information'/></span>
+                    }
+                        {console.log({rest})}
+                    </div>,
+                style: {
+                    cursor: "pointer",
+                    fontSize: 25,
+                    padding: "0",
+                    textAlign: "center",
+                    userSelect: "none"
+                }
+            },
+            {
               Header: "รายการ",
               accessor:"planninglist"
             },
@@ -241,28 +267,13 @@ class PlanningOverviewtable extends React.Component {
               accessor: "budget"
             },
             {
-                expander: true,
-                Header: () => <span>รายละเอียด</span>,
-                width: 100,
-                Expander: ({ isExpanded, ...rest }) =>
-                    <div>
-                    {
-                        this.state.data[rest.index].status==="ยังไม่อนุมัติ"
-                            ?<Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>แก้ไข</Button>
-                            :isExpanded
-                                ? <span><Icon glyph='icon-feather-circle-minus'/></span>
-                                : <span><Icon glyph='icon-dripicons-information'/></span>
-                    }
-                        {console.log({rest})}
-
-                    </div>,
-                style: {
-                    cursor: "pointer",
-                    fontSize: 25,
-                    padding: "0",
-                    textAlign: "center",
-                    userSelect: "none"
-                }
+              Header: "",
+              accessor: "button",
+              Cell: row=>(
+                this.state.data[row.index].status==="ยังไม่อนุมัติ"?<Button bsStyle='warning'><Icon glyph='icon-fontello-edit'/>แก้ไข</Button>
+                                                            :<Button bsStyle='success'><Icon glyph='icon-fontello-search'/>ดูรายละเอียด</Button>
+              ),
+              width:150
             }
           ]}
           defaultPageSize={5}
@@ -270,8 +281,8 @@ class PlanningOverviewtable extends React.Component {
           SubComponent={row => {
                     return (
                         this.state.data[row.index].status==="ยังไม่อนุมัติ"
-                        ?<div></div>
-                        :<div>
+                        ?null
+                        :<Col xs={11}>
                                 <Grid>
                                 <span><b>รายละเอียดงบ</b></span>
                                     <Row>
@@ -304,7 +315,7 @@ class PlanningOverviewtable extends React.Component {
                                     </Col>
                                     </Row>
                                 </Grid>
-                              </div>
+                        </Col>
                     );
           }}
         />
@@ -316,12 +327,8 @@ class PlanningOverviewBox extends React.Component {
         return (
             <Col xs={12}>
             <PanelContainer>
+             <h4>แผนการจัดซือยาและเวชภัณฑ์</h4>
             <BPanel>
-                <PanelHeader className='bg-blue fg-white'>
-                    <Grid>
-                    <h4>แผนการจัดซือยาและเวชภัณฑ์</h4>
-                    </Grid>
-                </PanelHeader>
                 <PanelBody>
                 <Grid>
                 <Row>
