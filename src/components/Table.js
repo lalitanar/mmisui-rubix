@@ -110,15 +110,18 @@ export default class Table extends Component{
     var show1 = [
       {
         Header: "Year1",
-        accessor: "1"
+        accessor: "1",
+        width: 60
       },
       {
         Header: "Year2",
-        accessor: "2"
+        accessor: "2",
+        width: 60
       },
       {
         Header: "Year3",
-        accessor: "3"
+        accessor: "3",
+        width: 60
       }
     ]
     var show2 = [{
