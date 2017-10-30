@@ -1,23 +1,22 @@
-import React from 'react';
+import React , { Component } from 'react';
 import ReactTable from "react-table";
-import {
-  Sidebar, SidebarNav, SidebarNavItem,
-  SidebarControls, SidebarControlBtn,
-  LoremIpsum, Grid, Row, Col, FormControl,
-  Label, Progress, Icon,
-  SidebarDivider
-} from '@sketchpixy/rubix';
 
-export default class Table extends React.Component {
+export default class Table extends Component{
   constructor() {
     super();
     this.state = {
       data: [{}],
       show: 1
     }
+    this.change = this.change.bind(this)
   }
-  log(){
-    console.log("Tset");
+  change(){
+    if(this.state.show == 1){
+      this.setState({show:2})
+    }else{
+      this.setState({show:1})
+    }
+
   }
   render() {
     var col = [
@@ -38,13 +37,7 @@ export default class Table extends React.Component {
         accessor: "Price"
       },
       {
-        Header: "อัตรากาใช้",
-        onClick: (e, handleOriginal) => {
-          console.log("Test");
-          if (handleOriginal) {
-            handleOriginal()
-          }
-        },
+        Header: <p onClick={this.change}>อัตรากาใช้</p>,
         columns: [
           {
             Header: "Year1",
