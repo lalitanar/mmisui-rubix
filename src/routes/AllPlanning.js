@@ -33,67 +33,13 @@ import {
     BPanel
 } from '@sketchpixy/rubix';
 
-class AllPlanningform extends React.Component {
-    render() {
-        var current_y=this.props.cur_year
-        return (
-            <Form>
-                <Row>
-                <Col xs={12}>
-                <FormGroup controlId="planningyear">
-                    <Col componentClass={ControlLabel} xs={7}>
-                        แผนการจัดซือยาและเวชภัณฑ์ประจำปีที่
-                    </Col>
-                    <Col xs={3} md={3}>
-	                  <FormControl componentClass="select" placeholder="year">
-                        <option value="0">{current_y}</option>
-                        <option value="1">{current_y+1}</option>
-		                    <option value="2">{current_y+2}</option>
-                        <option value="3">{current_y+3}</option>
-                        <option value="4">{current_y+4}</option>
-                        <option value="5">{current_y+5}</option>
-	                  </FormControl>
-                    </Col>
-	            </FormGroup>
-                </Col>
-                </Row>
-            </Form>
-        );
-    }
-}
-
 class Buttonbar extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = { showModal: false };
-    }
-
-    close() {
-        this.setState({ showModal: false });
-    }
-
-    open() {
-        this.setState({ showModal: true });
-    }
     render() {
         return (
     <div>
     <Row>
     <Col xs={12}>
-    <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-fontello-plus'/>  สร้างแผนใหม่</Button>
-    <Modal show={this.state.showModal} onHide={::this.close}>
-      <Modal.Header closeButton>
-      <Modal.Title>เพิ่มแผนการจัดซื้อยาและเวชภัณฑ์</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <AllPlanningform cur_year={2560}/>
-      </Modal.Body>
-      <Modal.Footer>
-      <Button bsStyle='success' onClick={::this.close}>บันทึก</Button>
-      <Button onClick={::this.close}>ยกเลิก</Button>
-      </Modal.Footer>
-    </Modal>
+        <Link to={'/planningoverview'}><Button bsStyle='success'><Icon glyph='icon-fontello-plus'/>  สร้างแผนใหม่</Button></Link>
     </Col>
     </Row>
     </div>

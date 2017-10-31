@@ -137,7 +137,7 @@ export default class Table extends Component{
       <ReactTable
           data={this.state.data}
           columns={col}
-          defaultPageSize={10}
+          defaultPageSize={5}
           className="-striped -highlight"
           getTdProps={(state, rowInfo, column, instance) => {
               return {
