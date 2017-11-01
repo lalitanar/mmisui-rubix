@@ -39,7 +39,7 @@ class Buttonbar extends React.Component {
     <div>
     <Row>
     <Col xs={12}>
-        <Link to={'/planningoverview'}><Button bsStyle='success'><Icon glyph='icon-fontello-plus'/>  สร้างแผนใหม่</Button></Link>
+        <Link to={'/createplan'}><Button bsStyle='success'><Icon glyph='icon-fontello-plus'/>  สร้างแผนใหม่</Button></Link>
     </Col>
     </Row>
     </div>

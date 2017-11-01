@@ -103,34 +103,27 @@ class NewPlanForm extends React.Component {
               <Row>
               <Col xs={12}>
                 <Form horizontal>
-                  <Col xs={6}>
+                  <Col xs={4}>
                   <FormGroup controlId="status">
-                    <Col componentClass={ControlLabel} xs={3}>
+                    <Col componentClass={ControlLabel} xs={4}>
                       สถานะแผนการจัดซื้อ
                     </Col>
-                    <Col sm={3}>
+                    <Col sm={4}>
                       <FormControl type="text" value={"รอการยืนยัน"} disabled active/>
                     </Col>
                   </FormGroup>
                   </Col>
-                </Form>
-                </Col>
-              </Row>
-
-              <Row>
-              <Col xs={12}>
-                <Form horizontal>
-                <Col xs={6}>
+                  <Col xs={4}>
                   <FormGroup controlId="list">
                     <Col componentClass={ControlLabel} xs={3}>
                       จำนวนรายการ
                     </Col>
-                    <Col sm={3}>
+                    <Col sm={4}>
                       <FormControl type="text" value={0} disabled active/>
                     </Col>
                   </FormGroup>
                   </Col>
-                  <Col xs={6}>
+                  <Col xs={4}>
                   <FormGroup controlId="total">
                     <Col componentClass={ControlLabel} xs={2}>
                       มูลค่ารวม
@@ -141,7 +134,7 @@ class NewPlanForm extends React.Component {
                   </FormGroup>
                   </Col>
                 </Form>
-              </Col>
+                </Col>
               </Row>
         </Grid>
       );
@@ -163,6 +156,7 @@ class Buttonbar extends React.Component {
         this.setState({ showModal: true });
     }
     render() {
+        var button_case = this.props.case
         return (
     <div>
     <Row>
@@ -229,10 +223,10 @@ class PlanLog extends React.Component {
     }
 }
 
-export default class AllPlanning extends React.Component {
+export default class CreatePlan extends React.Component {
     render() {
         return (
-            <Row>
+        <Row>
         <Col xs={12}>
           <PanelContainer>
             <Panel>
@@ -246,11 +240,13 @@ export default class AllPlanning extends React.Component {
                 <h3>สร้างแผนใหม่</h3>
                 <Row>
                   <Col xs={12}>
-                    <Buttonbar/>
+                    <Buttonbar case={1/*case 1 for 3 buttons*/}/>
                     <hr/>
                     <NewPlanForm cur_year={2560}/>
                     <hr/>
                     <h3>รายการทั้งหมด</h3>
+                    <Button bsStyle='success'><Icon glyph='icon-fontello-plus'/> เพิ่มรายการ</Button>
+                    <br/><br/>
                     <Table/>
                     {/*
                     <h3>ประวัติการปรับแผน</h3>
