@@ -30,7 +30,8 @@ import {
     InputGroup,
     ControlLabel,
     Icon,
-    BPanel
+    BPanel,
+    LoremIpsum
 } from '@sketchpixy/rubix';
 
 class SelectPrevPlanningform extends React.Component {
@@ -62,6 +63,12 @@ class SelectPrevPlanningform extends React.Component {
 }
 
 class NewPlanForm extends React.Component {
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      open: false
+    };
+  }
   render() {
     var current_y=this.props.cur_year;
      return (
@@ -69,12 +76,12 @@ class NewPlanForm extends React.Component {
               <Row>
                 <Col xs={12}>
                     <Form horizontal>
-                    <Col xs={6}>
+                    <Col xs={3}>
                     <FormGroup controlId="planningyear">
-                    <Col componentClass={ControlLabel} xs={3}>
+                    <Col componentClass={ControlLabel} xs={4}>
                         ปีงบประมาณ
                     </Col>
-                    <Col xs={3} md={3}>
+                    <Col xs={5} md={5}>
                     <FormControl componentClass="select" placeholder="year">
                         <option value="0">{current_y}</option>
                         <option value="1">{current_y+1}</option>
@@ -86,13 +93,23 @@ class NewPlanForm extends React.Component {
                     </Col>
                     </FormGroup>
                     </Col>
-                    <Col xs={6}>
+                    <Col xs={5}>
                     <FormGroup controlId="name">
-                      <Col componentClass={ControlLabel} xs={2}>
+                      <Col componentClass={ControlLabel} xs={3}>
                         ชื่อแผนการจัดซื้อ
                       </Col>
-                      <Col sm={5}>
+                      <Col sm={6}>
                         <FormControl type="text"/>
+                      </Col>
+                    </FormGroup>
+                    </Col>
+                    <Col xs={3}>
+                    <FormGroup controlId="status">
+                      <Col componentClass={ControlLabel} xs={5}>
+                        สถานะแผนการจัดซื้อ
+                      </Col>
+                      <Col sm={5}>
+                        <FormControl type="text" value={"รอการยืนยัน"} disabled active/>
                       </Col>
                     </FormGroup>
                     </Col>
@@ -103,35 +120,48 @@ class NewPlanForm extends React.Component {
               <Row>
               <Col xs={12}>
                 <Form horizontal>
-                  <Col xs={4}>
-                  <FormGroup controlId="status">
-                    <Col componentClass={ControlLabel} xs={4}>
-                      สถานะแผนการจัดซื้อ
-                    </Col>
-                    <Col sm={4}>
-                      <FormControl type="text" value={"รอการยืนยัน"} disabled active/>
-                    </Col>
-                  </FormGroup>
-                  </Col>
-                  <Col xs={4}>
+                  <Col xs={3}>
                   <FormGroup controlId="list">
-                    <Col componentClass={ControlLabel} xs={3}>
+                    <Col componentClass={ControlLabel} xs={4}>
                       จำนวนรายการ
-                    </Col>
-                    <Col sm={4}>
-                      <FormControl type="text" value={0} disabled active/>
-                    </Col>
-                  </FormGroup>
-                  </Col>
-                  <Col xs={4}>
-                  <FormGroup controlId="total">
-                    <Col componentClass={ControlLabel} xs={2}>
-                      มูลค่ารวม
                     </Col>
                     <Col sm={5}>
                       <FormControl type="text" value={0} disabled active/>
                     </Col>
                   </FormGroup>
+                  </Col>
+                  <Col xs={5}>
+                  <FormGroup controlId="total">
+                    <Col componentClass={ControlLabel} xs={3}>
+                      มูลค่ารวม
+                    </Col>
+                    <Col sm={6}>
+                      <FormControl type="text" value={0} disabled active/>
+                    </Col>
+                  </FormGroup>
+                  </Col>
+                  <Col xs={4}>
+                        <Button bsStyle='success' onClick={ ()=> this.setState({ open: !this.state.open })}><Icon glyph='icon-fontello-search'/>แสดงรายละเอียดงบประมาณ</Button>
+                        <Col xs={12}>
+                        <BPanel collapsible expanded={this.state.open}>
+                          <Row>
+                            <Col xs={8}>
+                              <span>งบประมาณสาธารณสุข</span>
+                            </Col>
+                            <Col xs={2}>
+                              <span>500,000</span>
+                            </Col>
+                          </Row>
+                          <Row>
+                            <Col xs={8}>
+                              <span>งบประมาณพิเศษ</span>
+                            </Col>
+                            <Col xs={2}>
+                              <span>6,000,000</span>
+                            </Col>
+                          </Row>
+                        </BPanel>
+                        </Col>
                   </Col>
                 </Form>
                 </Col>
