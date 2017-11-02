@@ -40,6 +40,7 @@ import PlanningOverview from './routes/PlanningOverview'
 import AllPlanning from './routes/AllPlanning'
 import PlanningDashboard from './routes/PlanningDashboard'
 import CreatePlan from './routes/CreatePlan'
+import CreatePlanTemp from './routes/CreatePlanTemp'
 
 class App extends React.Component {
   change(num){
@@ -114,6 +115,7 @@ const routes = (
     <Route path='allplanning' component={AllPlanning} />
     <Route path='planningdashboard' component={PlanningDashboard} />
     <Route path='createplan' component={CreatePlan} />
+    <Route path='createplantemp' component={CreatePlanTemp} />
   </Route>
 );
 

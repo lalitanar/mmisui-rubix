@@ -39,12 +39,12 @@ class Buttonbar extends React.Component {
     <div>
     <Row>
     <Col xs={12}>
-    
+    <Link to={'/createplantemp'}>
     <ButtonGroup className='pull-right'>
-    <Link to={'/createplan'}><Button bsStyle='primary' bsSize='lg'>ปรับแผน</Button></Link>
+    <Button bsStyle='primary' bsSize='lg'>ปรับแผน</Button>
           <Button bsStyle='success' bsSize='lg'>สรุป</Button>
     </ButtonGroup>
-    
+    </Link>
     </Col>
     </Row>
     </div>

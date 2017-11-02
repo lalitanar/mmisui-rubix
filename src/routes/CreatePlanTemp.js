@@ -153,7 +153,7 @@ class NewPlanForm extends React.Component {
                       มูลค่ารวม
                     </Col>
                     <Col sm={6}>
-                      <FormControl type="text" value={0} disabled active/>
+                      <FormControl type="text" value={"6,500,000"} disabled active/>
                     </Col>
                   </FormGroup>
                   </Col>
@@ -166,7 +166,7 @@ class NewPlanForm extends React.Component {
                               <span>งบประมาณสาธารณสุข</span>
                             </Col>
                             <Col xs={2}>
-                              <span>0</span>
+                              <span>500,000</span>
                             </Col>
                           </Row>
                           <Row>
@@ -174,7 +174,7 @@ class NewPlanForm extends React.Component {
                               <span>งบประมาณพิเศษ</span>
                             </Col>
                             <Col xs={2}>
-                              <span>0</span>
+                              <span>6,000,000</span>
                             </Col>
                           </Row>
                         </BPanel>
@@ -229,20 +229,6 @@ class Buttonbar extends React.Component {
         <Button onClick={::this.close_2}>ยกเลิก</Button>
         </Modal.Footer>
       </Modal>
-    <Button bsStyle='primary' onClick={::this.open}><Icon glyph='icon-fontello-popup-1'/>  สร้างจากแผนเก่า</Button>{' '}
-      <Modal show={this.state.showModal} onHide={::this.close}>
-        <Modal.Header closeButton>
-        <Modal.Title>สร้างแผนการจัดซื้อยาและเวชภัณฑ์</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <SelectPrevPlanningform cur_year={2560}/>
-        </Modal.Body>
-        <Modal.Footer>
-        <Button bsStyle='success' onClick={::this.close}>บันทึก</Button>
-        <Button onClick={::this.close}>ยกเลิก</Button>
-        </Modal.Footer>
-      </Modal>
-    <Button bsStyle='primary'><Icon glyph='icon-fontello-download-4'/> สร้างอัตโนมัติ</Button>
     </Col>
     </Row>
     </div>
@@ -290,7 +276,7 @@ class PlanLog extends React.Component {
     }
 }
 
-export default class CreatePlan extends React.Component {
+export default class CreatePlanTemp extends React.Component {
     render() {
         return (
         <Row>
