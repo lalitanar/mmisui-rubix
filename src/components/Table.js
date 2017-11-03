@@ -105,6 +105,10 @@ export default class Table extends Component{
             accessor: "B"
           }
         ]
+      },
+      {
+        Header:"",
+        accessor:"button"
       }
     ];
     var show1 = [
@@ -137,7 +141,7 @@ export default class Table extends Component{
       <ReactTable
           data={this.state.data}
           columns={col}
-          defaultPageSize={5}
+          defaultPageSize={7}
           className="-striped -highlight"
           getTdProps={(state, rowInfo, column, instance) => {
               return {

@@ -192,11 +192,9 @@ class Buttonbar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          showModal: false,
-          showModal2:false
+          showModal: false
         };
     }
-
     close() {
         this.setState({ showModal: false });
     }
@@ -204,20 +202,13 @@ class Buttonbar extends React.Component {
     open() {
         this.setState({ showModal: true });
     }
-    close_2() {
-      this.setState({ showModal2: false });
-    }
-
-    open_2() {
-        this.setState({ showModal2: true });
-    }
     render() {
         return (
     <div>
     <Row>
     <Col xs={12}>
-    <Button bsStyle='primary' onClick={::this.open_2}><Icon glyph='icon-fontello-download-1'/> นำเข้าไฟล์</Button>{' '}
-      <Modal show={this.state.showModal2} onHide={::this.close_2}>
+    <Button bsStyle='primary' onClick={::this.open}><Icon glyph='icon-fontello-download-1'/> นำเข้าไฟล์</Button>{' '}
+      <Modal show={this.state.showModal} onHide={::this.close}>
         <Modal.Header closeButton>
         <Modal.Title>เลือกแผนการจัดซื้อยาและเวชภัณฑ์จากไฟล์</Modal.Title>
         </Modal.Header>
@@ -225,8 +216,8 @@ class Buttonbar extends React.Component {
           <FileForm/>
         </Modal.Body>
         <Modal.Footer>
-        <Button bsStyle='success' onClick={::this.close_2}>บันทึก</Button>
-        <Button onClick={::this.close_2}>ยกเลิก</Button>
+        <Button bsStyle='success' onClick={::this.close}>บันทึก</Button>
+        <Button onClick={::this.close}>ยกเลิก</Button>
         </Modal.Footer>
       </Modal>
     </Col>
@@ -236,46 +227,58 @@ class Buttonbar extends React.Component {
     }
 }
 
-class PlanLog extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-          data: [{}]
-        };
-      }
+class AddListButton extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+        showModal: false
+      };
+  }
+  close() {
+      this.setState({ showModal: false });
+  }
 
-    render() {
-        return (
-          <ReactTable
-          data={this.state.data}
-          noDataText="ไม่พบข้อมูล"
-          filterable
-          defualtFilterMethod={(filter, row)=>
-              String(row[filter.id])===filter.value ||
-              row[filter.id].includes(filter.value)}
-          columns={[
-            {
-              Header: "ชื่อสินค้า",
-              accessor:"planning"
-            },
-            {
-              Header:"หน่วย",
-              accessor:"budget",
-              width:200
-            },
-            {
-              Header: "ราคาต่อหน่วย",
-              accessor: "moreinfo",
-              width:150
-            }
-          ]}
-          defaultPageSize={5}
-          className="-striped -highlight"
-          />
-        );
-    }
+  open() {
+      this.setState({ showModal: true });
+  }
+  render() {
+      return (
+  <div>
+  <Row>
+  <Col xs={12}>
+  <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-fontello-plus'/> เพิ่มรายการ</Button>
+    <Modal show={this.state.showModal} onHide={::this.close} lg>
+      <Modal.Header closeButton>
+      <Modal.Title>เพิ่มรายการ</Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <AddListForm/>
+      </Modal.Body>
+      <Modal.Footer>
+      <Button bsStyle='success' onClick={::this.close}>บันทึก</Button>
+      <Button onClick={::this.close}>ยกเลิก</Button>
+      </Modal.Footer>
+    </Modal>
+  </Col>
+  </Row>
+  </div>
+      );
+  }
 }
 
+class AddListForm extends React.Component {
+  render() {
+      return (
+          <Form>
+              <Row>
+              <Col xs={12}>
+                  {/*Add your code here :D*/}
+              </Col>
+              </Row>
+          </Form>
+      );
+  }
+}
 export default class CreatePlanTemp extends React.Component {
     render() {
         return (
@@ -297,7 +300,7 @@ export default class CreatePlanTemp extends React.Component {
                     <NewPlanForm cur_year={2560}/>
                     <hr/>
                     <h3>รายการทั้งหมด</h3>
-                    <Button bsStyle='success'><Icon glyph='icon-fontello-plus'/> เพิ่มรายการ</Button>
+                    <AddListButton/>
                     <br/><br/>
                     <Table/>
                     <br/>
