@@ -251,54 +251,39 @@ class Buttonbar extends React.Component {
 }
 
 class AddListButton extends React.Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-        showModal: false
-      };
-  }
-  close() {
-      this.setState({ showModal: false });
-  }
-
-  open() {
-      this.setState({ showModal: true });
-  }
+  constructor(...args) {
+    super(...args);
+    this.state = {
+      open: false
+    }
+  };
   render() {
       return (
   <div>
   <Row>
   <Col xs={12}>
-  <Button bsStyle='success' onClick={::this.open}><Icon glyph='icon-fontello-plus'/> เพิ่มรายการ</Button>
-    <Modal show={this.state.showModal} onHide={::this.close} lg>
-      <Modal.Header closeButton>
-      <Modal.Title>เพิ่มรายการ</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <AddListForm/>
-      </Modal.Body>
-      <Modal.Footer>
-      <Button bsStyle='success' onClick={::this.close}>บันทึก</Button>
-      <Button onClick={::this.close}>ยกเลิก</Button>
-      </Modal.Footer>
-    </Modal>
+  <Button bsStyle='success' onClick={ ()=> this.setState({ open: true })}><Icon glyph='icon-fontello-plus'/> เพิ่มรายการ</Button>
+    <BPanel collapsible expanded={this.state.open}>
+      <Row>
+      <Col xs={12}>
+        <FormGroup controlId="status">
+          <Col componentClass={ControlLabel} xs={2}>
+            ค้นหาชื่อยาหรือเวชภัณฑ์
+          </Col>
+          <Col sm={5}>
+            <FormControl type="text" placeholder="search"/>
+          </Col>
+          <Button bsStyle='success' >เพิ่ม</Button>
+        </FormGroup>
+      </Col>
+      </Row>
+      <Table psize={3} showwhich={2} editable={true}/><br/>
+      <Button bsStyle='success' onClick={ ()=> this.setState({ open: false })}>บันทึก</Button>{' '}
+      <Button bsStyle='default' onClick={ ()=> this.setState({ open: false })}>ยกเลิก</Button>
+    </BPanel>
   </Col>
   </Row>
   </div>
-      );
-  }
-}
-
-class AddListForm extends React.Component {
-  render() {
-      return (
-          <Form>
-              <Row>
-              <Col xs={12}>
-                  {/*Add your code here :D*/}
-              </Col>
-              </Row>
-          </Form>
       );
   }
 }
@@ -325,8 +310,7 @@ export default class CreatePlan extends React.Component {
                     <hr/>
                     <h3>รายการทั้งหมด</h3>
                     <AddListButton/>
-                    <br/><br/>
-                    <Table/>
+                    <Table psize={7} showwhich={1} editable={false}/>
                     <br/>
                   </Col>
                 </Row>
